@@ -8,10 +8,31 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
+import { Routes,RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
+
+
+
+const appRoutes: Routes = [
+  {path:'',component:LoginComponent},
+  {path:'home',component:HomeComponent},
+  {path:'forgot-password',component:ForgotPasswordComponent},
+
+];
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent,
+    HomeComponent,
+    ForgotPasswordComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -19,7 +40,8 @@ import { LoginComponent } from './login/login.component';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
