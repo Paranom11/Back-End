@@ -12,7 +12,9 @@ import { Routes,RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-
+import { MenutooberComponent } from './menutoober/menutoober.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -30,6 +32,9 @@ const appRoutes: Routes = [
     FooterComponent,
     HomeComponent,
     ForgotPasswordComponent,
+    MenutooberComponent,
+    HeaderComponent,
+
 
 
 
@@ -41,6 +46,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatInputModule,
+    MatToolbarModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
