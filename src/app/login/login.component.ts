@@ -22,7 +22,6 @@ export class LoginComponent {
     for(let i = 0 ; i < 6; i++){
       if(email == this.admin?.records[i].email ){
           window.location.href = 'http://localhost:4200/home';
-
       }
       else{
         console.log("NOOOOOOOO");
