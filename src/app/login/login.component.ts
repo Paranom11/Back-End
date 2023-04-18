@@ -17,7 +17,6 @@ export class LoginComponent {
       this.admin = amins.toAdmin(JSON.stringify(data));
       this.d = this.admin.records.length;
    });
-
   }
   findAdmin(email : string , password : string){
     console.log(email + " "+ password + " " + this.d);
