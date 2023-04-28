@@ -1,0 +1,6 @@
+<app-header></app-header>
+<app-menutoober></app-menutoober><br>
+<p>personnel-watch works!</p>
+<div *ngFor="let item of this.response.records">
+  <a>{{item.name_th}},{{item.aptitude_th}}</a>
+</div>

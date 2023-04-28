@@ -17,6 +17,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonnelComponent } from './personnel/personnel.component';
+import { PersonnelEditComponent } from './personnel-edit/personnel-edit.component';
+import { PersonnelDeleteComponent } from './personnel-delete/personnel-delete.component';
+import { PersonnelWatchComponent } from './personnel-watch/personnel-watch.component';
 
 
 
@@ -24,7 +27,10 @@ const appRoutes: Routes = [
   {path:'',component:LoginComponent},
   {path:'home',component:HomeComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
-
+  {path:'personnel',component:PersonnelComponent},
+  {path:'personnel-edit',component:PersonnelEditComponent},
+  {path:'personnel-delete',component:PersonnelDeleteComponent},
+  {path:'personnel-watch',component:PersonnelWatchComponent},
 ];
 
 @NgModule({
@@ -37,6 +43,9 @@ const appRoutes: Routes = [
     MenutooberComponent,
     HeaderComponent,
     PersonnelComponent,
+    PersonnelEditComponent,
+    PersonnelDeleteComponent,
+    PersonnelWatchComponent,
 
 
 
