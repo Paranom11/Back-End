@@ -1,31 +1,33 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Convert as amins , Admin } from './admin.model';
 import { DataService } from 'src/app/service/data.service';
+import { Router } from '@angular/router';
+import { Admin } from '../model/admin.model';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
-  admin : Admin | undefined;
-  // const username = document.getElementById("username").value;
-  constructor(private dataService : DataService ,private http : HttpClient){
 
-  }
+export class LoginComponent {
+  // const username = document.getElementById("username").value;
+  constructor(private dataService : DataService ,private http : HttpClient, private router: Router){}
   findAdmin(email : string , password : string){
-    this.http.get(this.dataService.apiEndpoint + "/admin").subscribe((data : any) => {
-      this.admin = amins.toAdmin(JSON.stringify(data));
-   });
-    console.log(email + " "+ password);
-    for(let i = 0 ; i < 6; i++){
-      if(email == this.admin?.records[i].email ){
-          window.location.href = 'http://localhost:4200/home';
+   // console.log(email + " "+ password);
+
+
+    // https://anihmsu.comsciproject.net/anihmsu/api.php/records/admin?filter=email,eq,6211@msu.ac.th&filter=password,eq,1111111&exclude=password
+
+    this.http.get(this.dataService.apiEndpoint + "/admin?filter=email,eq,"+email+"&filter=password,eq,"+password +"&exclude=password")
+    .subscribe((data : any)=>{
+      let response = data as Admin;
+      if (response.records.length == 1){
+        this.router.navigateByUrl('/home');
+      }else{
+        console.log('Login failed');
+
       }
-      else{
-        console.log("NOOOOOOOO");
-      }
+    });
     }
-  }
 }
