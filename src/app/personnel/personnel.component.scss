@@ -2,6 +2,7 @@ body {
   font-family: Arial;
 }
 
+
 input[type=text], select {
   width: 100%;
   padding: 12px 20px;
@@ -47,4 +48,17 @@ div.container {
   border-radius: 20px;
   background-color: #f2f2f2;
   padding: 50px;
+}
+* {
+  font-family: 'Prompt' , sans-serif;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 15%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+
 }

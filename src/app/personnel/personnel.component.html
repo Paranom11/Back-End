@@ -1,33 +1,55 @@
 <app-header></app-header>
 <app-menutoober></app-menutoober><br>
-<P Align=center style="font-size: 30px;">เพิ่มทีมผู้บริหาร</P><br>
-<div class="container">
-  <form action="/action_page.php">
-    <label for="fname">คำนำหน้า</label>
-    <input type="text" id="fname" name="firstname" placeholder="คำนำหน้า">
+<P Align=center style="font-size: 30px; ">ทีมผู้บริหาร</P><br>
 
-    <label for="fname">ชื่อ-สกุล</label>
-    <input type="text" id="fname" name="firstname" placeholder="ชื่อ-สกุล">
 
-    <label for="fname">อีเมล</label>
-    <input type="text" id="fname" name="firstname" placeholder="อีเมล">
+<!--Main layout-->
+<main style="margin-top: -30px;">
+  <div >
+    <div style="display: flex;flex-direction: column;width: 80%;">
+  <!-- head -->
+      <div style="margin-left: 5%;">
+        <button (click)="addNew()">
+          เพิ่มทีมผู้บริหาร
+        </button>
+      </div>
+      <!-- list -->
+      <div style="display: flex; flex-direction: row; ">
+        <div style="width: 600px;">
+          <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
+            <mat-list-option *ngFor="let item of this.response.records" [value]="item" style="width: 500px; height: 160px;">
 
-    <label for="fname">เบอร์โทรศัพท์</label>
-    <input type="text" id="fname" name="firstname" placeholder="เบอร์โทรศัพท์">
+              <div>
+               {{item.name_prefix_th}}
+               {{item.name_th}} {{item.email}} <br>
+                {{item.phone_number}} {{item.aptitude_th}}
+                {{item.academic_position_th}}<br> {{item.type_personnel_th}}
+                <img src="{{item.picture}}" class="image" style="width: 50px;">
+              </div>
+            </mat-list-option>
+          </mat-selection-list>
+        </div>
 
-    <label for="lname">ความถนัด</label>
-    <input type="text" id="lname" name="lastname" placeholder="ความถนัด">
+        <!-- Show -->
+        <div>
+          <div *ngIf="select !=undefined">
+            <div style="display: flex; flex-direction: column;">
+              <img src="{{this.select.picture}}" width="500px">
+              <span>{{this.select.name_prefix_th}} {{this.select.name_th}}</span>
+              <span>{{this.select.email}}</span>
+              <span>{{this.select.phone_number}}</span>
+              <span>{{this.select.aptitude_th}}</span>
+              <span>{{this.select.academic_position_th}}</span>
+              <span>{{this.select.type_personnel_th}}</span>
+              <div><button (click)="edit()">แก้ไข</button></div>
+              <div><button (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main><br>
+<!--Main layout-->
 
-    <label for="lname">ตำแหน่งวิชาการ</label>
-    <input type="text" id="lname" name="lastname" placeholder="ตำแหน่งวิชาการ">
 
-    <label for="lname">ประเภทบุคลากร</label>
-    <input type="text" id="lname" name="lastname" placeholder="ประเภทบุคลากร">
-
-    <label for="lname">รูปภาพ</label>
-    <input type="text" id="lname" name="lastname" placeholder="รูปภาพ">
-
-    <input type="submit" value="Submit">
-    <input type="cancel" value="Cancel">
-  </form>
-</div><br>
