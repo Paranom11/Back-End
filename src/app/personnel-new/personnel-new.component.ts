@@ -16,13 +16,14 @@ export class PersonnelNewComponent {
   url : any;
   sizefile : any;
   typefile : any;
+  file : any;
 
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<PersonnelNewComponent>){
     this.response = data.Personnel;
   }
   addNew(name_prefix_th:string,name_prefix_en:string,name_th:string,name_en:string,aptitude_th:string,aptitude_en:string,
-    academic_position_th:string,academic_position_en:string,type_personnel_th:string,type_personnel_en:string,email:string,phone:string,picture:string){
-
+    academic_position_th:string,academic_position_en:string,type_personnel_th:string,type_personnel_en:string,email:string,phone:string){
+      console.log(this.file);
       let jsonObj ={
         name_th : name_th,
         name_en: name_en,
@@ -36,37 +37,34 @@ export class PersonnelNewComponent {
         name_prefix_en : name_prefix_en,
         email : email,
         phone_number : phone,
-        picture : picture
+        picture : this.base64
     }
 
-    let jsonString = JSON.stringify(jsonObj);
-    this.http.post(this.data.apiEndpoint + "/personnel",jsonString,
+    this.http.post(this.data.apiEndpoint + "/personnel",JSON.stringify(jsonObj),
     {observe:'response'}).subscribe((response: any)=>{
-      console.log(JSON.stringify(response.status));
-      console.log(JSON.stringify(response.body));
       this.dialogRef.close();
     });
   }
+
   close(){
     this.dialogRef.close();
   }
-  upload(){
-    console.log("OK");
-    let json = {
-      filename : this.filename,
-      typefile : this.typefile,
-      sizefile : this.sizefile
-    }
-    this.http.post('https://anihmsu.comsciproject.net/images',JSON.stringify(json)).subscribe(data => {
-      console.log(data);
-      let jsonObj : any = data;
-      this.url = jsonObj.url;
-    }, error => {
+  // upload(){
+  //   console.log("OK");
+  //   let json = {
+  //     Filename : this.filename,
+  //     Filesize : this.sizefile,
+  //     Filetype : this.typefile
+  //   }
+  //   this.http.post('ftp://u528477660.anihmsu@ftp.comsciproject.net/images',JSON.stringify(json)).subscribe(data => {
+  //     console.log(data);
+  //     let jsonObj : any = data;
+  //     this.url = jsonObj.url;
+  //   }, error => {
 
-    });
-  }
+  //   });
+  // }
   getFile(files : FileList){
-    console.log(files.item(0)?.name);
     let file = files.item(0);
     this.filename = file?.name;
     this.typefile = file?.type;
@@ -85,6 +83,13 @@ export class PersonnelNewComponent {
     reader.onload = () => {
      // console.log(reader.result);
       this.base64 = reader.result;
+      const url = this.base64;
+      fetch(url)
+        .then(res => res.blob())
+        .then(blob => {
+          this.file = new File([blob],this.filename,{type:"image/png"})
+          console.log(this.file);
+        });
     };
   }
 }

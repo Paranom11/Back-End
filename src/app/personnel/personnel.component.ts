@@ -12,11 +12,11 @@ import { PersonnelEditComponent } from '../personnel-edit/personnel-edit.compone
   styleUrls: ['./personnel.component.scss']
 })
 export class PersonnelComponent {
-  response = {} as Personnel;
+
   select :any;
   countries: any;
   PersonnelSelected : any;
-
+  response = {} as Personnel;
   constructor(private dataService : DataService , private http: HttpClient,
   private dialog : MatDialog){
     http.get(dataService.apiEndpoint + "/personnel")
@@ -46,8 +46,10 @@ show(option:MatListOption){
   console.log(this.select);
 }
 edit(){
-  this.dataService.PersonnelSelected = this.PersonnelSelected;
+ // console.log(this.PersonnelSelected);
   this.dataService.countries = this.select;
+ // console.log("BBB : "+this.dataService.PersonnelSelected.name_th);
+  console.log("AAA :S"+this.dataService.countries.name_th)
   this.dialog.open(PersonnelEditComponent,{
     minWidth: '300px',
   });

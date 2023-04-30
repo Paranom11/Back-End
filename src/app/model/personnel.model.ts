@@ -17,5 +17,5 @@ export interface Record {
   name_prefix_en:       string;
   email:                string;
   phone_number:         string;
-  picture:              string;
+  picture:              Text;
 }

@@ -13,10 +13,10 @@ import { PersonnelComponent } from '../personnel/personnel.component';
 })
 export class PersonnelEditComponent {
   response={} as Personnel;
-  PersonnelSelected={} as Personnel;
+  countries : any;
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<PersonnelEditComponent>){
     this.response = data.Personnel;
-    this.PersonnelSelected = data.PersonnelSelected;
+    this.countries = data.countries;
   }
   close(){
     this.dialogRef.close();
@@ -46,6 +46,7 @@ export class PersonnelEditComponent {
       console.log(JSON.stringify(response.status));
       console.log(JSON.stringify(response.body));
       this.dialogRef.close();
+      location.reload();
     });
   }
 }
