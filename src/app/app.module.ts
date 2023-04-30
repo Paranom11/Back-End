@@ -16,6 +16,7 @@ import { MenutooberComponent } from './menutoober/menutoober.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VisionMissionComponent } from './vision-mission/vision-mission.component';
 
 
 
@@ -23,7 +24,7 @@ const appRoutes: Routes = [
   {path:'',component:LoginComponent},
   {path:'home',component:HomeComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
-
+  {path:'vision-mission',component:VisionMissionComponent},
 ];
 
 @NgModule({
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     ForgotPasswordComponent,
     MenutooberComponent,
     HeaderComponent,
+    VisionMissionComponent,
 
 
 
