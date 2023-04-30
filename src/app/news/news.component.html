@@ -12,16 +12,15 @@
           เพิ่มข่าวประชาสัมพันธ์
         </button>
       </div>
-
       <!-- list -->
       <div style="display: flex; flex-direction: row;">
         <div style="width: 400px;">
-          <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
-            <mat-list-option *ngFor="let item of this.response2.records" [value]="item"
+          <mat-selection-list #item [multiple]="false" >
+            <mat-list-option *ngFor="let item of this.response.records" [value]="item"
               style="width: 400px; height: 160px;">
               <div>
-                {{item.id_imgnew}}
-                <img src="{{ item.img_news }}" height="150px" width="290px">
+                <!-- {{item.id_imgnew}} {{item.id_news}} -->
+                <img src="{{ item.img_news}}" height="150px" width="290px">
               </div>
             </mat-list-option>
           </mat-selection-list>
@@ -29,13 +28,13 @@
 
         <!-- Show -->
         <!-- <div>
-          <div *ngIf="selected != undefined">
+          <div *ngIf="News != undefined">
             <div style="display: flex; flex-direction: column;">
-              <img src="{{this.selected.img_pic}}" width="500px" />
-              <span>{{this.selected.img_id}}</span>
-              <span>{{this.selected.img_pic}}</span>
+              <img src="{{this.News.img_news}}" width="500px" />
+              <span>{{this.News.id_news}}</span>
+              <span>{{this.News.id_imgnew}}</span>
               <div><button>แก้ไข</button></div>
-              <div><button (click)="delete(this.selected.img_id)">ลบ</button></div>
+              <div><button (click)="delete(this.News.img_id)">ลบ</button></div>
             </div>
 
           </div>

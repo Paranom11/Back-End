@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ImageNews, News, TitleNews } from '../model/News.model';
+import { ImageNews, } from '../model/News.model';
 import { DataService } from '../service/data.service';
 import { HttpClient } from '@angular/common/http';
 import { MatListOption } from '@angular/material/list';
@@ -10,23 +10,25 @@ import { MatListOption } from '@angular/material/list';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent {
-  response = {} as News;
-  response1 = {} as TitleNews;
-  response2 = {} as ImageNews;
-  News: any;
+  // response = {} as News;
+  // response1 = {} as TitleNews;
+  response = {} as ImageNews;
+  selectadNews: any;
   titleNews: any;
-  imageNews: any;
+  selectadimageNews: any;
+  countries: any;
+  dialog: any;
   constructor(private dataService : DataService , private http: HttpClient){
-      http.get(dataService.apiEndpoint + "/news")
-      .subscribe((data : any) => {
-        console.log(data);
-        this.response = data as News;
-  });
-      http.get(dataService.apiEndpoint + "/title_news")
-      .subscribe((data : any) => {
-        console.log(data);
-        this.response = data as TitleNews;
-    });
+  //     http.get(dataService.apiEndpoint + "/news")
+  //     .subscribe((data : any) => {
+  //       console.log(data);
+  //       this.response = data as News;
+  // });
+  //     http.get(dataService.apiEndpoint + "/title_news")
+  //     .subscribe((data : any) => {
+  //       console.log(data);
+  //       this.response1 = data as TitleNews;
+  //   });
 
     http.get(dataService.apiEndpoint + "/image_news")
     .subscribe((data : any) => {
@@ -34,8 +36,14 @@ export class NewsComponent {
       this.response = data as ImageNews;
 });
 }
+addNew(){
+  this.dataService.countries = this.countries;
+  this.dialog.open(NewsComponent,{
+    minWidth:'300px',
+  });
+}
 show(option:MatListOption){
-  this.imageNews = option.value;
-  console.log(this.imageNews);
+  this.selectadimageNews = option.value;
+  console.log(this.selectadimageNews);
 }
 }
