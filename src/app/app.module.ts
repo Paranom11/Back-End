@@ -17,7 +17,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewsComponent } from './news/news.component';
-
+import {MatListModule} from '@angular/material/list';
 
 
 const appRoutes: Routes = [
@@ -52,7 +52,8 @@ const appRoutes: Routes = [
     MatInputModule,
     MatToolbarModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
