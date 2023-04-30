@@ -16,6 +16,7 @@ import { MenutooberComponent } from './menutoober/menutoober.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NewsComponent } from './news/news.component';
 
 
 
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   {path:'',component:LoginComponent},
   {path:'home',component:HomeComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
+  {path:'news',component:NewsComponent},
 
 ];
 
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
     ForgotPasswordComponent,
     MenutooberComponent,
     HeaderComponent,
+    NewsComponent,
 
 
 
