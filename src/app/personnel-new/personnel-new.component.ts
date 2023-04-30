@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Personnel } from '../model/personnel.model';
@@ -10,7 +10,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./personnel-new.component.scss']
 })
 export class PersonnelNewComponent {
+  base64 : any;
   response={} as Personnel;
+  filename : any;
+  url : any;
+  sizefile : any;
+  typefile : any;
+
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<PersonnelNewComponent>){
     this.response = data.Personnel;
   }
@@ -43,5 +49,42 @@ export class PersonnelNewComponent {
   }
   close(){
     this.dialogRef.close();
+  }
+  upload(){
+    console.log("OK");
+    let json = {
+      filename : this.filename,
+      typefile : this.typefile,
+      sizefile : this.sizefile
+    }
+    this.http.post('https://anihmsu.comsciproject.net/images',JSON.stringify(json)).subscribe(data => {
+      console.log(data);
+      let jsonObj : any = data;
+      this.url = jsonObj.url;
+    }, error => {
+
+    });
+  }
+  getFile(files : FileList){
+    console.log(files.item(0)?.name);
+    let file = files.item(0);
+    this.filename = file?.name;
+    this.typefile = file?.type;
+    this.sizefile = file?.size;
+
+
+    console.log(this.typefile)
+    console.log(this.filename);
+    console.log(this.sizefile)
+
+
+
+
+    let reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+    reader.onload = () => {
+     // console.log(reader.result);
+      this.base64 = reader.result;
+    };
   }
 }

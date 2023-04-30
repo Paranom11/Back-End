@@ -37,11 +37,16 @@ width: 500px;margin: 20px;">
   <label>เบอร์โทรศัพท์</label>
   <input type="text" name="phone" #phone>
 
-  <label>รูปภาพ</label>
-  <input type="text" name="picture" #picture>
-
-
-  <button (click)="addNew(name_prefix_th.value,name_prefix_en.value,name_th.value,name_en.value,aptitude_th.value,aptitude_en.value,
-  academic_position_th.value,academic_position_en.value,type_personnel_th.value,type_personnel_en.value,email.value,phone.value,picture.value)">Add</button>
-  <button (click)="close()">close</button>
+  <div style="flex-direction: column;">
+  <label style="margin-right: 200px;">รูปภาพ</label>
+  <input type="file" name="" id="" (change)="getFile($any($event).target.files)" ><br>
+  <button (click)="upload()">Upload file</button><br>
+  <a href="{{this.url}}" target="_blank">{{this.url}}</a><br>
 </div>
+
+  <!-- <button (click)="addNew(name_prefix_th.value,name_prefix_en.value,name_th.value,name_en.value,aptitude_th.value,aptitude_en.value,
+  academic_position_th.value,academic_position_en.value,type_personnel_th.value,type_personnel_en.value,email.value,phone.value,picture.value)">Add</button> -->
+  <button (click)="close()">close</button><br>
+</div>
+
+

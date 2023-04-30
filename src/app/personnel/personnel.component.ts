@@ -30,6 +30,7 @@ deletePersonnel(id : number){
     this.http.delete(this.dataService.apiEndpoint+"/personnel/" + id)
     .subscribe((res) => {
       console.log(res);
+      location.reload();
     });
   }
 }
