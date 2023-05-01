@@ -16,13 +16,18 @@ import { MenutooberComponent } from './menutoober/menutoober.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { PersonnelComponent } from './personnel/personnel.component';
+import {MatListModule} from '@angular/material/list';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PersonnelNewComponent } from './personnel-new/personnel-new.component';
+import { PersonnelEditComponent } from './personnel-edit/personnel-edit.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
   {path:'home',component:HomeComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
+  {path:'personnel',component:PersonnelComponent},
+  {path:'personnel-new',component:PersonnelNewComponent},
 
 ];
 
@@ -35,6 +40,10 @@ const appRoutes: Routes = [
     ForgotPasswordComponent,
     MenutooberComponent,
     HeaderComponent,
+    PersonnelComponent,
+    PersonnelNewComponent,
+    PersonnelEditComponent,
+
 
 
 
@@ -49,7 +58,9 @@ const appRoutes: Routes = [
     MatInputModule,
     MatToolbarModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    MatListModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,11 +15,10 @@ export class LoginComponent {
   constructor(private dataService : DataService ,private http : HttpClient, private router: Router){}
   findAdmin(email : string , password : string){
    // console.log(email + " "+ password);
-
-
     // https://anihmsu.comsciproject.net/anihmsu/api.php/records/admin?filter=email,eq,6211@msu.ac.th&filter=password,eq,1111111&exclude=password
 
-    this.http.get(this.dataService.apiEndpoint + "/admin?filter=email,eq,"+email+"&filter=password,eq,"+password +"&exclude=password")
+    this.http.get(this.dataService.apiEndpoint + "/admin?filter=email,eq,"+email+"&filter=password,eq,"
+    +password +"&exclude=password")
     .subscribe((data : any)=>{
       let response = data as Admin;
       if (response.records.length == 1){
