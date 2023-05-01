@@ -18,7 +18,6 @@
         <div style="width: 600px;">
           <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
             <mat-list-option *ngFor="let item of this.response.records" [value]="item" style="width: 500px; height: 160px;">
-
               <div>
                {{item.name_prefix_th}}
                {{item.name_th}} {{item.email}} <br>
