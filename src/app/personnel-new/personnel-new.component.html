@@ -40,9 +40,7 @@ width: 500px;margin: 20px;">
   <div style="flex-direction: column;">
   <label style="margin-right: 200px;">รูปภาพ</label>
   <input type="file" name="" id="" (change)="getFile($any($event).target.files)" ><br>
- <!-- <button (click)="upload()">Upload file</button><br>
-  <a href="{{this.url}}" target="_blank">{{this.url}}</a><br> -->
-</div>
+</div><br>
 
   <button (click)="addNew(name_prefix_th.value,name_prefix_en.value,name_th.value,name_en.value,aptitude_th.value,aptitude_en.value,
   academic_position_th.value,academic_position_en.value,type_personnel_th.value,type_personnel_en.value,email.value,phone.value)">Add</button>

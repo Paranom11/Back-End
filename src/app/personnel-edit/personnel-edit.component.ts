@@ -14,6 +14,8 @@ import { PersonnelComponent } from '../personnel/personnel.component';
 export class PersonnelEditComponent {
   response={} as Personnel;
   countries : any;
+  base64 : any;
+  filename : any;
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<PersonnelEditComponent>){
     this.response = data.Personnel;
     this.countries = data.countries;
@@ -22,7 +24,7 @@ export class PersonnelEditComponent {
     this.dialogRef.close();
   }
   save(name_prefix_th:string,name_prefix_en:string,name_th:string,name_en:string,aptitude_th:string,aptitude_en:string,
-    academic_position_th:string,academic_position_en:string,type_personnel_th:string,type_personnel_en:string,email:string,phone:string,picture:string,idx : number){
+    academic_position_th:string,academic_position_en:string,type_personnel_th:string,type_personnel_en:string,email:string,phone:string,idx : number){
 
       let jsonObj ={
         name_th : name_th,
@@ -37,7 +39,7 @@ export class PersonnelEditComponent {
         name_prefix_en : name_prefix_en,
         email : email,
         phone_number : phone,
-        picture : picture
+        picture : this.base64
     }
 
     let jsonString = JSON.stringify(jsonObj);
@@ -48,6 +50,16 @@ export class PersonnelEditComponent {
       this.dialogRef.close();
       location.reload();
     });
+  }
+  getFile(files : FileList){
+    let file = files.item(0);
+    this.filename = file?.name;
+    let reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+    reader.onload = () => {
+     // console.log(reader.result);
+      this.base64 = reader.result;
+    };
   }
 }
 

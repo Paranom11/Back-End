@@ -43,6 +43,7 @@ export class PersonnelNewComponent {
     this.http.post(this.data.apiEndpoint + "/personnel",JSON.stringify(jsonObj),
     {observe:'response'}).subscribe((response: any)=>{
       this.dialogRef.close();
+      location.reload();
     });
   }
 
@@ -66,30 +67,11 @@ export class PersonnelNewComponent {
   // }
   getFile(files : FileList){
     let file = files.item(0);
-    this.filename = file?.name;
-    this.typefile = file?.type;
-    this.sizefile = file?.size;
-
-
-    console.log(this.typefile)
-    console.log(this.filename);
-    console.log(this.sizefile)
-
-
-
-
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => {
      // console.log(reader.result);
       this.base64 = reader.result;
-      const url = this.base64;
-      fetch(url)
-        .then(res => res.blob())
-        .then(blob => {
-          this.file = new File([blob],this.filename,{type:"image/png"})
-          console.log(this.file);
-        });
     };
   }
 }
