@@ -23,6 +23,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { PersonnelNewComponent } from './personnel-new/personnel-new.component';
 import { PersonnelEditComponent } from './personnel-edit/personnel-edit.component';
 import { PopupComponent } from './home/popup/popup.component';
+import { NewsComponent } from './news/news.component'
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   {path:'personnel-new',component:PersonnelNewComponent},
   {path: 'popup',component:PopupComponent} ,
   {path:'vision-mission',component:VisionMissionComponent},
+  {path:'news',component:NewsComponent},
 ];
 
 @NgModule({
@@ -47,7 +49,7 @@ const appRoutes: Routes = [
     PersonnelNewComponent,
     PersonnelEditComponent,
     PopupComponent,
-
+    NewsComponent,
     VisionMissionComponent,
 
 
