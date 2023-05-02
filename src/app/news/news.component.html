@@ -1,0 +1,77 @@
+<app-header></app-header>
+<app-menutoober></app-menutoober>
+
+<!--Main layout-->
+<main style="margin-top: 50px; ">
+  <div class="container pt-4">
+
+    <div style="display: flex;flex-direction: column;width: 80%;">
+      <!-- head -->
+      <div style="margin-left: -10%; ">
+        <button>
+          เพิ่มข่าวประชาสัมพันธ์
+        </button>
+      </div>
+      <!-- list -->
+      <div style=" margin-left: -20%; display: flex; flex-direction: row;">
+        <div style="width: 600px;">
+          <mat-selection-list #item [multiple]="false"
+          (selectionChange)="show($event.options[0])">
+            <mat-list-option *ngFor="let item of this.reTitleNews.records" [value]="item"
+              style="width: 500px; height: 160px;">
+              <div>
+                {{item.title_news_th}} <br>{{item.title_news_en}}
+              </div>
+            </mat-list-option>
+          </mat-selection-list>
+
+        <div style="width: 600px;">
+          <mat-selection-list #item [multiple]="false"
+          (selectionChange)="show($event.options[0])">
+            <mat-list-option *ngFor="let item of this.reNews.records" [value]="item"
+              style="width: 500px; height: 160px;">
+              <div>
+                {{item.text_news_th}} <br>
+                {{item.text_news_en}} <br>
+                {{item.date}}
+              </div>
+            </mat-list-option>
+          </mat-selection-list>
+          <div style="width: 600px;">
+            <mat-selection-list #item [multiple]="false"
+            (selectionChange)="show($event.options[0])">
+              <mat-list-option *ngFor="let item of this.reimageNews.records" [value]="item"
+                style="width: 500px; height: 160px;">
+                <div>
+                  <img src="{{ item.img_news}}" class="image" width="50px">
+                </div>
+              </mat-list-option>
+            </mat-selection-list>
+          </div>
+        </div>
+
+      </div>
+        <div>
+          <div *ngIf="seNews != undefined">
+            <div style="display: flex; flex-direction: column;">
+              <img src="{{this.seNews.img_news}}" width="500px" />
+              <span>{{this.seNews.text_news_th}}</span><br>
+              <span>{{this.seNews.text_news_en}}</span>
+              <span>{{this.seNews.date}}</span>
+              <span>{{this.seNews.title_news_th}}</span>
+              <span>{{this.seNews.title_news_en}}</span><br>
+              <div>
+                <button>แก้ไข</button>&nbsp;
+                <button>ลบ</button></div><br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</main><br>
+<!--Main layout-->
