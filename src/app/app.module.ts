@@ -16,9 +16,10 @@ import { MenutooberComponent } from './menutoober/menutoober.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
-import { VisionMissionComponent } from './vision-mission/vision-mission.component';
+import { NewsComponent } from './news/news.component';
+import {MatListModule} from '@angular/material/list';import { VisionMissionComponent } from './vision-mission/vision-mission.component';
 import { PersonnelComponent } from './personnel/personnel.component';
-import {MatListModule} from '@angular/material/list';
+
 import {MatDialogModule} from '@angular/material/dialog';
 import { PersonnelNewComponent } from './personnel-new/personnel-new.component';
 import { PersonnelEditComponent } from './personnel-edit/personnel-edit.component';
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
   {path:'personnel',component:PersonnelComponent},
   {path:'personnel-new',component:PersonnelNewComponent},
   {path: 'popup',component:PopupComponent} ,
-  {path:'vision-mission',component:VisionMissionComponent},
+  {path:'vision-mission',component:VisionMissionComponent},  {path:'news',component:NewsComponent},
+
 ];
 
 @NgModule({
@@ -47,7 +49,9 @@ const appRoutes: Routes = [
     PersonnelNewComponent,
     PersonnelEditComponent,
     PopupComponent,
+
     VisionMissionComponent,
+    NewsComponent,
 
 
 
@@ -64,7 +68,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
