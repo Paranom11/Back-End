@@ -21,6 +21,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PersonnelNewComponent } from './personnel-new/personnel-new.component';
 import { PersonnelEditComponent } from './personnel-edit/personnel-edit.component';
+import { PopupComponent } from './home/popup/popup.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -28,7 +29,7 @@ const appRoutes: Routes = [
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path:'personnel',component:PersonnelComponent},
   {path:'personnel-new',component:PersonnelNewComponent},
-
+  {path: 'popup',component:PopupComponent}
 ];
 
 @NgModule({
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     PersonnelComponent,
     PersonnelNewComponent,
     PersonnelEditComponent,
+    PopupComponent,
 
 
 
