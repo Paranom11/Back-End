@@ -17,4 +17,38 @@
   height :800px;
 
 }
+.image{
+ display: flex;
+ justify-content: center;
+ margin: auto;
+}
+img{
+  object-fit: contain;
+  width: 300px;
+  height: 300px;
+  border: solid 1px #CCC;
+}
+p{
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+
+}
+textarea{
+  padding: 10px;
+  display: flex;
+  width: 600px;
+  height: 500px;
+  margin: auto;
+
+}
+button{
+
+ align-items: center;
+ justify-content: center;
+ margin: auto;
+ padding: 10px;
+}
+
 
