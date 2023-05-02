@@ -16,6 +16,7 @@ import { MenutooberComponent } from './menutoober/menutoober.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VisionMissionComponent } from './vision-mission/vision-mission.component';
 import { PersonnelComponent } from './personnel/personnel.component';
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path:'personnel',component:PersonnelComponent},
   {path:'personnel-new',component:PersonnelNewComponent},
-  {path: 'popup',component:PopupComponent}
+  {path: 'popup',component:PopupComponent} ,
+  {path:'vision-mission',component:VisionMissionComponent},
 ];
 
 @NgModule({
@@ -45,7 +47,7 @@ const appRoutes: Routes = [
     PersonnelNewComponent,
     PersonnelEditComponent,
     PopupComponent,
-
+    VisionMissionComponent,
 
 
 
@@ -61,7 +63,6 @@ const appRoutes: Routes = [
     MatToolbarModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    MatListModule,
     MatListModule,
     MatDialogModule
   ],
