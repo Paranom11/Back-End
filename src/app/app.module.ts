@@ -24,6 +24,7 @@ import { PersonnelNewComponent } from './personnel-new/personnel-new.component';
 import { PersonnelEditComponent } from './personnel-edit/personnel-edit.component';
 import { PopupComponent } from './home/popup/popup.component';
 import { IdentifyComponent } from './menutoober/identify/identify.component';
+import { EditIdentifyComponent } from './edit-identify/edit-identify.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   {path: 'popup',component:PopupComponent} ,
   {path:'vision-mission',component:VisionMissionComponent},
   {path:'identify',component:IdentifyComponent},
+  {path:'identify/edit-identify',component:EditIdentifyComponent},
 
 ];
 
@@ -50,9 +52,9 @@ const appRoutes: Routes = [
     PersonnelNewComponent,
     PersonnelEditComponent,
     PopupComponent,
-
     VisionMissionComponent,
       IdentifyComponent,
+      EditIdentifyComponent,
 
 
 
