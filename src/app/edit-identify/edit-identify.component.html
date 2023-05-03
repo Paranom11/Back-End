@@ -1,1 +1,10 @@
-<p>edit-identify works!</p>
+<br><br>
+<h4><strong>แก้ไขชันสูตร</strong></h4><br>
+<div *ngFor="let item of this.response.records">
+  <img src="{{item.id_imgidentify.img}}">
+  <input type="file" name="" id="" style="margin-left: 100px;" (change)="getFile($any($event).target.files)">
+<mat-form-field class="example-full-width">
+  <mat-label>รายละเอียดที่เป็นภาษาไทย</mat-label>
+  <textarea matInput placeholder="กรอกข้อความ">{{item.text_th}}</textarea>
+</mat-form-field>
+</div>

@@ -14,13 +14,16 @@ img{
 p{
   padding: 20px;
 }
-i{
+a.sticky{
   display: flex;
-  flex-direction: row-reverse;
+  margin-left: auto;
   font-size: 20px;
   margin-top: -30px;
   position: sticky;
   position: -webkit-sticky;
   top: 90px;
-  z-index: 1000;
+  width: 20px;
+  height: 25px;
+  text-decoration: none;
+  color: brown;
 }
