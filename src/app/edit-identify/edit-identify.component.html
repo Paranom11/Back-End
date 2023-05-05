@@ -1,10 +1,31 @@
+<app-header></app-header>
+<app-menutoober></app-menutoober>
 <br><br>
 <h4><strong>แก้ไขชันสูตร</strong></h4><br>
-<div *ngFor="let item of this.response.records">
+<div *ngFor="let item of this.response.records" style="flex-direction: row;">
   <img src="{{item.id_imgidentify.img}}">
-  <input type="file" name="" id="" style="margin-left: 100px;" (change)="getFile($any($event).target.files)">
-<mat-form-field class="example-full-width">
-  <mat-label>รายละเอียดที่เป็นภาษาไทย</mat-label>
-  <textarea matInput placeholder="กรอกข้อความ">{{item.text_th}}</textarea>
-</mat-form-field>
-</div>
+  <div style="display: flex; flex-direction: column;">
+    <input class="inputtag" type="file" name="" id="" (change)="getFile($any($event).target.files)">
+    <div style="flex-direction: row; display: flex;">
+      <mat-form-field class="example-full-width">
+        <mat-label>รายละเอียดที่เป็นภาษาไทย</mat-label>
+        <textarea matInput placeholder="กรอกข้อความ" rows="10">{{item.text_th}}</textarea><br><br>
+      </mat-form-field>
+      <div style="display: flex; flex-direction: column; justify-content: center;" >
+        <a>
+          <i class="material-icons" style="font-size:48px;color:blue">add_circle</i>
+
+        </a>
+        <a>
+          <i class="fa fa-trash" style="font-size:48px;color:red ;margin-left: 6.6px;"></i>
+        </a>
+
+      </div>
+      <mat-form-field class="example-full-width">
+        <mat-label>รายละเอียดที่เป็นภาษาอังกฤษ</mat-label>
+        <textarea matInput placeholder="กรอกข้อความ" rows="10">{{item.text_en}}</textarea><br><br>
+      </mat-form-field>
+    </div>
+  </div>
+  <hr>
+

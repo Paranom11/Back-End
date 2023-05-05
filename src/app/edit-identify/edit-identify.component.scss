@@ -9,3 +9,35 @@ h4{
   display: flex;
   justify-content: center;
 }
+img{
+  display: flex;
+  margin: auto;
+  object-fit: contain;
+  width: 350px;
+  height: 350px;
+  border: solid 1px #CCC;
+}
+.inputtag{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 2px;
+}
+
+
+///////***********************
+///
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a i {
+  transition: all 0.3s linear;
+}
+
+a:hover i {
+  transform: scale(1.5);
+}
+
+
