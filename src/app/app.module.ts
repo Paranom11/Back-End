@@ -25,6 +25,7 @@ import { PersonnelEditComponent } from './personnel-edit/personnel-edit.componen
 import { PopupComponent } from './home/popup/popup.component';
 import { IdentifyComponent } from './menutoober/identify/identify.component';
 import { EditIdentifyComponent } from './edit-identify/edit-identify.component';
+import { ImageSlideShowComponent } from './menutoober/image-slide-show/image-slide-show.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
   {path:'vision-mission',component:VisionMissionComponent},
   {path:'identify',component:IdentifyComponent},
   {path:'identify/edit-identify',component:EditIdentifyComponent},
+  {path:'ImageSlideShow',component:ImageSlideShowComponent},
 
 ];
 
@@ -55,6 +57,7 @@ const appRoutes: Routes = [
     VisionMissionComponent,
       IdentifyComponent,
       EditIdentifyComponent,
+      ImageSlideShowComponent,
 
 
 

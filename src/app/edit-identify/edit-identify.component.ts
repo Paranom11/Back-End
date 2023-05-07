@@ -12,6 +12,7 @@ export class EditIdentifyComponent {
   response={} as IdentifyData;
   base64 : any;
   filename : any;
+  value : any
   constructor(private data : DataService , private http: HttpClient){
       http.get("https://anihmsu.comsciproject.net/anihmsu/api.php/records/identify?join=image_identify")
       .subscribe((data : any) => {

@@ -1,0 +1,83 @@
+.areaSizeInputImg{
+  flex-direction: column;
+  background-color: bisque;
+  width: 450px;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  border: solid 1px #000;
+}
+.areaSizeShowImg{
+  width: 500px;
+  height: 160px;
+}
+.img
+{
+  object-fit: contain;
+  margin: auto;
+  border: solid 1px #CCC;
+}
+body {
+  font-family: Arial;
+}
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=cancel] {
+  width: 20%;
+  background-color: #f50909;
+  color: white;
+  padding: 14px 27px;
+  margin: 8px 0;
+  border: none;
+  margin-left: 60%;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+input[type=cancel]:hover {
+  background-color: #ff3a03;
+}
+
+div.container {
+  width: 40%;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  padding: 50px;
+}
+* {
+  font-family: 'Prompt' , sans-serif;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 15%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+
+}

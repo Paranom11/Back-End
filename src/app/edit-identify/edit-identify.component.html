@@ -1,31 +1,15 @@
-<app-header></app-header>
-<app-menutoober></app-menutoober>
-<br><br>
-<h4><strong>แก้ไขชันสูตร</strong></h4><br>
-<div *ngFor="let item of this.response.records" style="flex-direction: row;">
-  <img src="{{item.id_imgidentify.img}}">
-  <div style="display: flex; flex-direction: column;">
-    <input class="inputtag" type="file" name="" id="" (change)="getFile($any($event).target.files)">
-    <div style="flex-direction: row; display: flex;">
-      <mat-form-field class="example-full-width">
-        <mat-label>รายละเอียดที่เป็นภาษาไทย</mat-label>
-        <textarea matInput placeholder="กรอกข้อความ" rows="10">{{item.text_th}}</textarea><br><br>
-      </mat-form-field>
-      <div style="display: flex; flex-direction: column; justify-content: center;" >
-        <a>
-          <i class="material-icons" style="font-size:48px;color:blue">add_circle</i>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML DOM Events</h1>
+<h2>The onclick Event</h2>
 
-        </a>
-        <a>
-          <i class="fa fa-trash" style="font-size:48px;color:red ;margin-left: 6.6px;"></i>
-        </a>
+<p>The onclick event triggers a function when an element is clicked on.</p>
+<p>Click to trigger a function that will output "Hello World":</p>
 
-      </div>
-      <mat-form-field class="example-full-width">
-        <mat-label>รายละเอียดที่เป็นภาษาอังกฤษ</mat-label>
-        <textarea matInput placeholder="กรอกข้อความ" rows="10">{{item.text_en}}</textarea><br><br>
-      </mat-form-field>
-    </div>
-  </div>
-  <hr>
+<button onclick="myFunction()">Click me</button>
 
+<p id="demo"></p>
+
+</body>
+</html>
