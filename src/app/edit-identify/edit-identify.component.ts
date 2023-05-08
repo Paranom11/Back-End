@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { HttpClient } from '@angular/common/http';
 import { IdentifyData } from '../model/identify.model';
+import { identity } from 'rxjs';
 
 @Component({
   selector: 'app-edit-identify',
@@ -33,4 +34,21 @@ export class EditIdentifyComponent {
     //location.reload();
 
   }
+  save(text_th : string,text_en :string,idx:number){
+      let jsonObjImg ={
+        img : this.base64
+    }
+    let jsonObj ={
+
+    }
+
+    this.http.put(this.data.apiEndpoint + "/image_identify"+idx,JSON.stringify(jsonObjImg),
+    {observe:'response'}).subscribe((response: any)=>{
+      location.reload();
+    });
+
+   // let id_imgidentify = ;
+
+  }
 }
+

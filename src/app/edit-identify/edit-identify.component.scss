@@ -1,43 +1,23 @@
-mat-form-field{
- display: flex;
- padding: 10px;
- margin: auto;
- width: 700px;
- height: fit-content;
-}
-h4{
+
+.titleText{
   display: flex;
   justify-content: center;
 }
 img{
-  display: flex;
-  margin: auto;
   object-fit: contain;
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   border: solid 1px #CCC;
 }
-.inputtag{
+input{
   display: flex;
   justify-content: center;
-  margin: auto;
-  padding: 2px;
+  margin-left: 41%;
 }
-
-
-///////***********************
-///
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+textarea{
+  flex-flow: row wrap;
+  padding: 20px;
 }
-a i {
-  transition: all 0.3s linear;
+mat-label{
+  margin-top: -8px;
 }
-
-a:hover i {
-  transform: scale(1.5);
-}
-
-

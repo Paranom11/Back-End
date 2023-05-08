@@ -2,7 +2,7 @@
 <app-menutoober></app-menutoober>
 <br>
 <div *ngFor="let item of this.response.records">
-  <img class="image" src="{{item.img_history}}">
+  <img class="image" id="show" src="{{item.img_history}}">
   <p><input  type="file" name="" id="" style="margin-left: 100px;" (change)="getFile($any($event).target.files)"></p>
   <br>
   <div style="flex-direction: column;">
