@@ -10,6 +10,7 @@ import { DataService } from 'src/app/service/data.service';
   styleUrls: ['./image-slide-show.component.scss']
 })
 export class ImageSlideShowComponent {
+  [x: string]: any;
   filename : any;
   base64 : any;
   select :any;
@@ -35,6 +36,20 @@ show(option:MatListOption){
      // console.log(reader.result);
       this.base64 = reader.result;
     };
-    console.log(this.base64);
+
   }
-}
+  updateSlide(idx : number){
+        let jsonObj ={
+          img_slide : this.base64
+      }
+
+      let jsonString = JSON.stringify(jsonObj);
+      this.http.put(this.dataService.apiEndpoint + "/image_silde/"+idx,jsonString,
+      {observe:'response'}).subscribe((response: any)=>{
+        console.log(JSON.stringify(response.status));
+        console.log(JSON.stringify(response.body));
+        location.reload();
+      });
+    }
+  }
+

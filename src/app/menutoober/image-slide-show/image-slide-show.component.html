@@ -1,38 +1,25 @@
 <app-header></app-header>
 <app-menutoober></app-menutoober><br><br>
 
-<main style="margin-top: -30px;">
-  <div >
-    <div style="display: flex;flex-direction: column;width: 80%;">
-  <!-- head -->
-      <div style="margin-left: 5%;">
-        <!-- <button (click)="addNew()">
-          เพิ่มทีมผู้บริหาร
-        </button> -->
-      </div>
-      <!-- list -->
-      <div style="display: flex; flex-direction: column; ">
-        <!-- Show -->
+<div style="display: flex; flex-direction: row; ">
+  <div style="width: 600px;">
+    <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
+      <mat-list-option *ngFor="let item of this.response.records" [value]="item" style="width: 500px; height: 160px;">
         <div>
-          <div *ngIf="select !=undefined">
-            <div style="display: flex; flex-direction: column;">
-              <img src="{{this.select.img_slide}}" width="500px">
-              <!-- <div><button (click)="edit()">แก้ไข</button></div>
-              <div><button (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div> -->
-            </div>
-          </div>
+          <img src="{{item.img_slide}}" class="image" style="width: 300px;">
         </div>
-        <div style="width: 1000px;">
-          <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
-            <mat-list-option *ngFor="let item of this.response.records" [value]="item" style="width: 500px; height: 160px;">
-              <div style=" display: flex; flex-direction: column;">
-                <img src="{{item.img_slide}}" class="image" style="object-fit: contain; width: 300px; height: 300px;">
-                <p>cfijduiofvduihfgvrh</p>
-              </div>
-            </mat-list-option>
-          </mat-selection-list>
-        </div>
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+
+  <!-- Show -->
+  <div>
+    <div *ngIf="select !=undefined">
+      <div style="display: flex; flex-direction: column; margin-left: 45%;">
+        <img src="{{this.select.img_slide}}" width="500px">
+        <input type="file" name="" id="" (change)="getFile($any($event).target.files)"><br>
+        <button (click)="updateSlide(select.id_imgslide)">ยืนยันการเปลี่ยนรูปภาพ</button>
       </div>
     </div>
   </div>
-</main><br>
+</div>

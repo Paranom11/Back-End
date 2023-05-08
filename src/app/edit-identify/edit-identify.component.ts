@@ -38,10 +38,6 @@ export class EditIdentifyComponent {
       let jsonObjImg ={
         img : this.base64
     }
-    let jsonObj ={
-
-    }
-
     this.http.put(this.data.apiEndpoint + "/image_identify"+idx,JSON.stringify(jsonObjImg),
     {observe:'response'}).subscribe((response: any)=>{
       location.reload();
