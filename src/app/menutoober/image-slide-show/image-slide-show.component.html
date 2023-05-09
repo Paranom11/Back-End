@@ -1,10 +1,11 @@
 <app-header></app-header>
 <app-menutoober></app-menutoober><br><br>
-
+<input type="file" style="padding: 10px;" name="" id="" (change)="getFile($any($event).target.files)"><br>
+<button style="margin-left:10px ;" (click)="add()">เพิ่ม</button><br><br>
 <div style="display: flex; flex-direction: row; ">
   <div style="width: 600px;">
     <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
-      <mat-list-option *ngFor="let item of this.response.records" [value]="item" style="width: 500px; height: 160px;">
+      <mat-list-option *ngFor="let item of this.response.records"  [value]="item" style="width: 500px; height: 160px;">
         <div>
           <img src="{{item.img_slide}}" class="image" style="width: 300px;">
         </div>
@@ -17,9 +18,9 @@
     <div *ngIf="select !=undefined">
       <div style="display: flex; flex-direction: column; margin-left: 45%;">
         <img src="{{this.select.img_slide}}" width="500px">
-        <input type="file" name="" id="" (change)="getFile($any($event).target.files)"><br>
-        <button (click)="updateSlide(select.id_imgslide)">ยืนยันการเปลี่ยนรูปภาพ</button>
+        <button (click)="delete(select.id_imgslide)">ลบรูปภาพ</button>
       </div>
     </div>
   </div>
 </div>
+

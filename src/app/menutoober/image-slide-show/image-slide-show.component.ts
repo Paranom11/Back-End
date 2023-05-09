@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { MatListOption } from '@angular/material/list';
 import { Img } from 'src/app/model/slidsImage.model';
 import { DataService } from 'src/app/service/data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddImageSlidsComponent } from 'src/app/dialog/add-image-slids/add-image-slids.component';
 
 @Component({
   selector: 'app-image-slide-show',
@@ -15,7 +17,7 @@ export class ImageSlideShowComponent {
   base64 : any;
   select :any;
   response = {} as Img;
-  constructor(private dataService : DataService , private http: HttpClient){
+  constructor(private dataService : DataService , private http: HttpClient , private dialog : MatDialog){
       http.get(dataService.apiEndpoint + "/image_silde")
       .subscribe((data : any) => {
         console.log(data);
@@ -38,18 +40,36 @@ show(option:MatListOption){
     };
 
   }
-  updateSlide(idx : number){
-        let jsonObj ={
-          img_slide : this.base64
-      }
-
-      let jsonString = JSON.stringify(jsonObj);
-      this.http.put(this.dataService.apiEndpoint + "/image_silde/"+idx,jsonString,
-      {observe:'response'}).subscribe((response: any)=>{
-        console.log(JSON.stringify(response.status));
-        console.log(JSON.stringify(response.body));
+  delete(idx : number){
+    if(confirm("ยันยันการลบข้อมูล ?")){
+      this.http.delete(this.dataService.apiEndpoint+"/image_silde/" + idx)
+      .subscribe((res) => {
+        console.log(res);
         location.reload();
       });
     }
+    }
+
+    add(){
+      confirm("ยืนยันการเพิ่มรูปภาพ");
+
+      let jsonObj ={
+        img_slide : this.base64
+    }
+      if(this.response.records.length < 5){
+        let jsonString = JSON.stringify(jsonObj);
+        this.http.post(this.dataService.apiEndpoint + "/image_silde/",jsonString,
+        {observe:'response'}).subscribe((response: any)=>{
+          console.log(JSON.stringify(response.status));
+          console.log(JSON.stringify(response.body));
+          location.reload();
+        });
+      }else{
+          this.dialog.open(AddImageSlidsComponent,{
+            minWidth : 500,
+          });
+      }
   }
+}
+
 

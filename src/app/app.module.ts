@@ -26,6 +26,7 @@ import { PopupComponent } from './home/popup/popup.component';
 import { IdentifyComponent } from './menutoober/identify/identify.component';
 import { EditIdentifyComponent } from './edit-identify/edit-identify.component';
 import { ImageSlideShowComponent } from './menutoober/image-slide-show/image-slide-show.component';
+import { AddImageSlidsComponent } from './dialog/add-image-slids/add-image-slids.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -58,6 +59,7 @@ const appRoutes: Routes = [
       IdentifyComponent,
       EditIdentifyComponent,
       ImageSlideShowComponent,
+      AddImageSlidsComponent,
 
 
 
