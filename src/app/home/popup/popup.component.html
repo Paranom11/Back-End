@@ -1,14 +1,10 @@
-<!DOCTYPE>
-<html>
-<head>
-    <title>Show the image on page load using jQuery</title>
-</head>
-<body>
-    <div class='popup'>
-        <div class="img">
-            <img src="images/quit.png" alt='quit' class='x' id='x' />
-            <img src="img/codesolutions.png" />
-        </div>
-    </div>
-</body>
-</html>
+<app-header></app-header>
+<app-menutoober></app-menutoober><br>
+<div class="areaText">
+  <div  *ngFor="let item of this.response.records" >
+    <img class="image" id="show" src="{{item.img_popup}}">
+    <p><input  type="file" name="" id="" (change)="getFile($any($event).target.files)"></p>
+    <button (click)="updateImg(item.id_anihmsu)" mat-raised-button color="primary">แก้ไขรูปภาพ</button>
+  </div>
+</div><br>
+
