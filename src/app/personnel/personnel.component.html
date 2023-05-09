@@ -32,9 +32,11 @@
 
         <!-- Show -->
         <div>
+
           <div *ngIf="select !=undefined">
             <div style="display: flex; flex-direction: column;">
               <img src="{{this.select.picture}}" width="500px">
+
               <span>{{this.select.name_prefix_th}} {{this.select.name_th}}</span>
               <span>{{this.select.email}}</span>
               <span>{{this.select.phone_number}}</span>
@@ -43,6 +45,7 @@
               <span>{{this.select.type_personnel_th}}</span>
               <div><button (click)="edit()">แก้ไข</button></div>
               <div><button (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div>
+              
             </div>
           </div>
         </div>

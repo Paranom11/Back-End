@@ -23,7 +23,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { PersonnelNewComponent } from './personnel-new/personnel-new.component';
 import { PersonnelEditComponent } from './personnel-edit/personnel-edit.component';
 import { PopupComponent } from './home/popup/popup.component';
-import { NewsComponent } from './news/news.component'
+import { IdentifyComponent } from './menutoober/identify/identify.component';
+import { EditIdentifyComponent } from './edit-identify/edit-identify.component';
+import { ImageSlideShowComponent } from './menutoober/image-slide-show/image-slide-show.component';
+import { AddImageSlidsComponent } from './dialog/add-image-slids/add-image-slids.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -33,7 +36,10 @@ const appRoutes: Routes = [
   {path:'personnel-new',component:PersonnelNewComponent},
   {path: 'popup',component:PopupComponent} ,
   {path:'vision-mission',component:VisionMissionComponent},
-  {path:'news',component:NewsComponent},
+  {path:'identify',component:IdentifyComponent},
+  {path:'identify/edit-identify',component:EditIdentifyComponent},
+  {path:'ImageSlideShow',component:ImageSlideShowComponent},
+
 ];
 
 @NgModule({
@@ -49,8 +55,11 @@ const appRoutes: Routes = [
     PersonnelNewComponent,
     PersonnelEditComponent,
     PopupComponent,
-    NewsComponent,
     VisionMissionComponent,
+      IdentifyComponent,
+      EditIdentifyComponent,
+      ImageSlideShowComponent,
+      AddImageSlidsComponent,
 
 
 

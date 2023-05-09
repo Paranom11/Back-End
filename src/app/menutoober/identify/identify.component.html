@@ -1,0 +1,10 @@
+<app-header></app-header>
+<app-menutoober></app-menutoober><br><br>
+<a class="sticky" routerLink="/identify/edit-identify"><i class="fas fa-pen"></i></a><br><br>
+<h4><strong>ชันสูตร</strong></h4><br>
+<div *ngFor="let item of this.response.records">
+  <img src="{{item.id_imgidentify.img}}">
+  <p>{{item.text_th}}</p>
+</div>
+
+
