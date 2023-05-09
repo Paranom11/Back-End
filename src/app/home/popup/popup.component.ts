@@ -28,16 +28,18 @@ export class PopupComponent {
     }
 }
  updateImg(idx:number){
-  if(confirm("ยืนยันการแก้ไขรูปภาพ") )
   let jsonObj ={
     img_popup : this.base64
   }
-  this.http.put(this.data.apiEndpoint+"/information_anihmsu/"+idx,jsonObj,
-  {observe:'response'}).subscribe((response : any)=>
-  {console.log(JSON.stringify(response.status));
-    console.log(JSON.stringify(response.body));
-  });
- location.reload();
-}
+  if(confirm("ยืนยันการเเก้ไข") == true){
+    this.http.put(this.data.apiEndpoint+"/information_anihmsu/"+idx,jsonObj,
+    {observe:'response'}).subscribe((response : any)=>
+    {console.log(JSON.stringify(response.status));
+      console.log(JSON.stringify(response.body));
+      location.reload();
+    });
+
+  }else{}
+  }
  }
 
