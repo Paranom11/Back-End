@@ -26,6 +26,7 @@ import { IdentifyComponent } from './menutoober/identify/identify.component';
 import { EditIdentifyComponent } from './edit-identify/edit-identify.component';
 import { ImageSlideShowComponent } from './menutoober/image-slide-show/image-slide-show.component';
 import { AddImageSlidsComponent } from './dialog/add-image-slids/add-image-slids.component';
+import { VMSPComponent } from './menutoober/vmsp/vmsp.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -37,6 +38,8 @@ const appRoutes: Routes = [
   {path:'identify',component:IdentifyComponent},
   {path:'identify/edit-identify',component:EditIdentifyComponent},
   {path:'ImageSlideShow',component:ImageSlideShowComponent},
+  {path:'VMSP',component:VMSPComponent},
+
 
 ];
 
@@ -57,6 +60,7 @@ const appRoutes: Routes = [
       EditIdentifyComponent,
       ImageSlideShowComponent,
       AddImageSlidsComponent,
+      VMSPComponent,
 
 
 
