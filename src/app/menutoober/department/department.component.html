@@ -1,0 +1,9 @@
+
+<div>
+  <div *ngFor="let item of this.response.records" >
+    <img src="{{item.img_department_structure}}">
+    <input  type="file" (change)="getFile($any($event).target.files)"><br>
+    <button (click)="updateImg(item.id_anihmsu)" mat-raised-button color="primary">แก้ไขรูปภาพ</button>
+  </div>
+</div><br>
+

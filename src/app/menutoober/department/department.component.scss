@@ -1,0 +1,23 @@
+.positionColumn{
+  display: flex;
+  flex-direction: column;
+}
+img{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  object-fit: contain;
+  width: 500px;
+  height: 500px;
+  border: solid 1px #CCC;
+}
+input{
+  display: flex;
+  margin: auto;
+  align-items: center;
+}
+button{
+  display: flex;
+  margin: auto;
+  align-items: center;
+}
