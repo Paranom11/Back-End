@@ -1,8 +1,18 @@
 .positionArea{
-  margin-top: 20px;
-  background-color: blue;
   display: flex;
-  margin: auto;
+  object-fit: contain;
   flex-direction: column;
-  justify-content: center;
+  align-items: center ;
+}
+input{
+  margin-left: 100px;
+  padding: 10px;
+}
+.positionAreaRow{
+  display: flex;
+  padding: 30px;
+  flex-direction: row;
+}
+mat-form-field{
+  width: 600px;
 }
