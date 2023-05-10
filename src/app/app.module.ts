@@ -16,7 +16,6 @@ import { MenutooberComponent } from './menutoober/menutoober.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
-import { VisionMissionComponent } from './vision-mission/vision-mission.component';
 import { PersonnelComponent } from './personnel/personnel.component';
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -27,6 +26,7 @@ import { IdentifyComponent } from './menutoober/identify/identify.component';
 import { EditIdentifyComponent } from './edit-identify/edit-identify.component';
 import { ImageSlideShowComponent } from './menutoober/image-slide-show/image-slide-show.component';
 import { AddImageSlidsComponent } from './dialog/add-image-slids/add-image-slids.component';
+import { VMSPComponent } from './menutoober/vmsp/vmsp.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -35,10 +35,11 @@ const appRoutes: Routes = [
   {path:'personnel',component:PersonnelComponent},
   {path:'personnel-new',component:PersonnelNewComponent},
   {path: 'popup',component:PopupComponent} ,
-  {path:'vision-mission',component:VisionMissionComponent},
   {path:'identify',component:IdentifyComponent},
   {path:'identify/edit-identify',component:EditIdentifyComponent},
   {path:'ImageSlideShow',component:ImageSlideShowComponent},
+  {path:'VMSP',component:VMSPComponent},
+
 
 ];
 
@@ -55,11 +56,11 @@ const appRoutes: Routes = [
     PersonnelNewComponent,
     PersonnelEditComponent,
     PopupComponent,
-    VisionMissionComponent,
       IdentifyComponent,
       EditIdentifyComponent,
       ImageSlideShowComponent,
       AddImageSlidsComponent,
+      VMSPComponent,
 
 
 

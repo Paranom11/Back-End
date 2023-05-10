@@ -1,0 +1,48 @@
+<div class="positionArea" *ngFor="let item of this.response.records">
+  <img src="{{item.img_VMSA}}">
+  <input  type="file" (change)="getFile($any($event).target.files)">
+  <div class="positionAreaRow">
+    <mat-form-field appearance="outline" >
+      <mat-label>รายละเอียดวิสัยทัศน์ภาษาไทย</mat-label>
+      <textarea matInput rows="10" #vision_th>{{item.vision_th}}</textarea>
+    </mat-form-field>&nbsp;&nbsp;
+    <mat-form-field appearance="outline" >
+      <mat-label>รายละเอียดวิสัยทัศน์ภาษาอังกฤษ</mat-label>
+      <textarea matInput rows="10" #vision_en>{{item.vision_en}}</textarea>
+    </mat-form-field>
+  </div>
+  <div class="positionAreaRow">
+    <mat-form-field appearance="outline" >
+      <mat-label>รายละเอียดพันธกิจภาษาไทย</mat-label>
+      <textarea matInput rows="10" #mission_th>{{item.mission_th}}</textarea>
+    </mat-form-field>&nbsp;&nbsp;
+    <mat-form-field appearance="outline" >
+      <mat-label>รายละเอียดพันธกิจภาษาอังกฤษ</mat-label>
+      <textarea matInput rows="10" #mission_en>{{item.mission_en}}</textarea>
+    </mat-form-field>
+  </div>
+  <div class="positionAreaRow">
+    <mat-form-field appearance="outline" >
+      <mat-label>รายละเอียดยุทธศาสตร์ภาษาไทย</mat-label>
+      <textarea matInput rows="10" #strategy_th>{{item.strategy_th}}</textarea>
+    </mat-form-field>&nbsp;&nbsp;
+    <mat-form-field appearance="outline" >
+      <mat-label>รายละเอียดยุทธศาสตร์ภาษาอังกฤษ</mat-label>
+      <textarea matInput rows="10" #strategy_en>{{item.strategy_en}}</textarea>
+    </mat-form-field>
+  </div>
+  <div class="positionAreaRow">
+    <mat-form-field appearance="outline" >
+      <mat-label>รายละเอียดแผนหน่วยงานภาษาไทย</mat-label>
+      <textarea matInput rows="10" #agency_th>{{item.agency_th}}</textarea>
+    </mat-form-field>&nbsp;&nbsp;
+    <mat-form-field appearance="outline" >
+      <mat-label>รายละเอียดแผนหน่วยงานภาษาอังกฤษ</mat-label>
+      <textarea matInput rows="10" #agency_en>{{item.agency_en}}</textarea>
+    </mat-form-field>
+  </div>
+  <div class="positionAreaRow">
+  <button mat-raised-button color="primary" (click)="updateVMSP(vision_th.value,vision_en.value,mission_th.value,mission_en.value,strategy_th.value,strategy_en.value,agency_th.value,agency_en.value,item.id_anihmsu)" ><strong>แก้ไข</strong></button> &nbsp;&nbsp;
+</div>
+
+</div>

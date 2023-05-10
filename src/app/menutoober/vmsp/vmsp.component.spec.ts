@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VisionMissionComponent } from './vision-mission.component';
+import { VMSPComponent } from './vmsp.component';
 
-describe('VisionMissionComponent', () => {
-  let component: VisionMissionComponent;
-  let fixture: ComponentFixture<VisionMissionComponent>;
+describe('VMSPComponent', () => {
+  let component: VMSPComponent;
+  let fixture: ComponentFixture<VMSPComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VisionMissionComponent ]
+      declarations: [ VMSPComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(VisionMissionComponent);
+    fixture = TestBed.createComponent(VMSPComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
