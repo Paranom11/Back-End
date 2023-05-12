@@ -28,6 +28,7 @@ import { ImageSlideShowComponent } from './menutoober/image-slide-show/image-sli
 import { AddImageSlidsComponent } from './dialog/add-image-slids/add-image-slids.component';
 import { VMSPComponent } from './menutoober/vmsp/vmsp.component';
 import { DepartmentComponent } from './menutoober/department/department.component';
+import { ContactComponent } from './menutoober/contact/contact.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -41,7 +42,7 @@ const appRoutes: Routes = [
   {path:'ImageSlideShow',component:ImageSlideShowComponent},
   {path:'VMSP',component:VMSPComponent},
   {path:'department',component:DepartmentComponent},
-
+  {path:'contact',component:ContactComponent},
 
 ];
 
@@ -64,6 +65,7 @@ const appRoutes: Routes = [
       AddImageSlidsComponent,
       VMSPComponent,
       DepartmentComponent,
+      ContactComponent,
 
 
 
