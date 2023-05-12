@@ -29,6 +29,7 @@ import { AddImageSlidsComponent } from './dialog/add-image-slids/add-image-slids
 import { VMSPComponent } from './menutoober/vmsp/vmsp.component';
 import { DepartmentComponent } from './menutoober/department/department.component';
 import { ContactComponent } from './menutoober/contact/contact.component';
+import {MatSelectModule} from '@angular/material/select';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -82,7 +83,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

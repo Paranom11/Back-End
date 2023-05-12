@@ -1,41 +1,79 @@
 <div style="display: flex;flex-direction: column;height: 600px;
 width: 500px;margin: 20px;">
   <p>เพิ่มทีมผู้บริหาร</p>
-  <label>คำนำหน้าภาษาไทย</label>
-  <input type="text" name="name_prefix_th" #name_prefix_th>
 
-  <label>คำนำหน้าภาษาอังกฤษ</label>
-  <input type="text" name="name_prefix_en" #name_prefix_en>
+  <mat-form-field appearance="outline">
+    <mat-label>คำนำหน้าภาษาไทย</mat-label>
+    <input type="text" #name_prefix_th matInput >
+  </mat-form-field>
 
-  <label>ชื่อ-สกุลภาษาไทย</label>
-  <input type="text" name="name_th " #name_th>
+  <mat-form-field appearance="outline">
+    <mat-label>คำนำหน้าภาษาอังกฤษ</mat-label>
+    <input type="text" #name_prefix_en matInput >
+  </mat-form-field>
 
-  <label>ชื่อ-สกุลภาษาอังกฤษ</label>
-  <input type="text" name="name_en " #name_en>
+  <mat-form-field appearance="outline">
+    <mat-label>ชื่อ-สกุลภาษาไทย</mat-label>
+    <input type="text" #name_th matInput >
+  </mat-form-field>
 
-  <label>ความถนัดภาษาไทย</label>
-  <input type="text" name="aptitude_th " #aptitude_th>
+  <mat-form-field appearance="outline">
+    <mat-label>ชื่อ-สกุลภาษาอังกฤษ</mat-label>
+    <input type="text" #name_en matInput >
+  </mat-form-field>
 
-  <label>ความถนัดภาษาอังกฤษ</label>
-  <input type="text" name="aptitude_en " #aptitude_en>
+  <mat-form-field appearance="outline">
+    <mat-label>ความถนัดภาษาไทย</mat-label>
+    <input type="text" #aptitude_th matInput >
+  </mat-form-field>
 
-  <label>ตำเเหน่งวิชาการภาษาไทย</label>
-  <input type="text" name="academic_position_th " #academic_position_th>
+  <mat-form-field appearance="outline">
+    <mat-label>ความถนัดภาษาไทย</mat-label>
+    <input type="text" #aptitude_th matInput >
+  </mat-form-field>
 
-  <label>ตำเเหน่งวิชาการภาษาอังกฤษ</label>
-  <input type="text" name="academic_position_en " #academic_position_en>
+  <mat-form-field appearance="outline">
+    <mat-label>ความถนัดภาษาอังกฤษ</mat-label>
+    <input type="text" #aptitude_en matInput >
+  </mat-form-field>
 
-  <label>ประเภทบุคลากรภาษาไทย</label>
-  <input type="text" name="type_personnel_th " #type_personnel_th>
+  <mat-form-field appearance="outline">
+    <mat-label>ตำเเหน่งวิชาการภาษาไทย</mat-label>
+    <input type="text" #academic_position_th matInput >
+  </mat-form-field>
 
-  <label>ประเภทบุคลากรภาษาอังกฤษ</label>
-  <input type="text" name="type_personnel_en " #type_personnel_en>
+  <mat-form-field appearance="outline">
+    <mat-label>ตำเเหน่งวิชาการภาษาอังกฤษ</mat-label>
+    <input type="text" #academic_position_en matInput >
+  </mat-form-field>
 
-  <label>อีเมล</label>
-  <input type="text" name="email" #email>
+  <mat-form-field appearance="outline" >
+    <mat-label>ประเภทบุคลากรภาษาไทย</mat-label>
+    <select #type_personnel_th matNativeControl required>
+      <option>ทีมผู้บริหาร</option>
+      <option>ทีมสัตวเเพทย์</option>
+      <option>ทีมเจ้าหน้าที่</option>
+    </select>
+  </mat-form-field>
 
-  <label>เบอร์โทรศัพท์</label>
-  <input type="text" name="phone" #phone>
+  <mat-form-field appearance="outline" >
+    <mat-label>ประเภทบุคลากรภาษาอังกฤษ</mat-label>
+    <select #type_personnel_en matNativeControl required>
+      <option>Executive</option>
+      <option>Veterinarian</option>
+      <option>Officer</option>
+    </select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>อีเมล</mat-label>
+    <input type="text" #email matInput >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>เบอร์โทรศัพท์</mat-label>
+    <input type="text" #phone matInput >
+  </mat-form-field>
 
   <div style="flex-direction: column;">
   <label style="margin-right: 200px;">รูปภาพ</label>
