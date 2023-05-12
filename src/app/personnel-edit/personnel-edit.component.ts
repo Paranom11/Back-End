@@ -16,9 +16,14 @@ export class PersonnelEditComponent {
   countries : any;
   base64 : any;
   filename : any;
+  selected_th = '';
+  selected_en = '';
+
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<PersonnelEditComponent>){
     this.response = data.Personnel;
     this.countries = data.countries;
+    this.selected_th = data.countries.type_personnel_th;
+    this.selected_en = data.countries.type_personnel_en;
   }
   close(){
     this.dialogRef.close();

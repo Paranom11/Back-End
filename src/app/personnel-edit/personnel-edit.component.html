@@ -1,41 +1,74 @@
 <div style="display: flex;flex-direction: column;height: 600px;
 width: 500px;margin: 20px;" >
-  <p>แก้ไข</p>
-  <label>คำนำหน้าภาษาไทย</label>
-  <input type="text" name="name_prefix_th" #name_prefix_th  value="{{countries.name_prefix_th}}">
+  <p>แก้ไขบุคลากร</p>
 
-  <label>คำนำหน้าภาษาอังกฤษ</label>
-  <input type="text" name="name_prefix_en" #name_prefix_en  value="{{countries.name_prefix_en}}">
+  <mat-form-field appearance="outline">
+    <mat-label>คำนำหน้าภาษาไทย</mat-label>
+    <input type="text" #name_prefix_th value="{{countries.name_prefix_th}}" matInput >
+  </mat-form-field>
 
-  <label>ชื่อ-สกุลภาษาไทย</label>
-  <input type="text" name="name_th " #name_th value="{{countries.name_th}}">
+  <mat-form-field appearance="outline">
+    <mat-label>คำนำหน้าภาษาอังกฤษ</mat-label>
+    <input type="text" #name_prefix_en value="{{countries.name_prefix_en}}" matInput >
+  </mat-form-field>
 
-  <label>ชื่อ-สกุลภาษาอังกฤษ</label>
-  <input type="text" name="name_en " #name_en value="{{countries.name_en}}">
+  <mat-form-field appearance="outline">
+    <mat-label>ชื่อ-สกุลภาษาไทย</mat-label>
+    <input type="text" #name_th value="{{countries.name_th}}" matInput >
+  </mat-form-field>
 
-  <label>ความถนัดภาษาไทย</label>
-  <input type="text" name="aptitude_th " #aptitude_th value="{{countries.aptitude_th}}">
+  <mat-form-field appearance="outline">
+    <mat-label>ชื่อ-สกุลภาษาอังกฤษ</mat-label>
+    <input type="text" #name_en value="{{countries.name_en}}" matInput >
+  </mat-form-field>
 
-  <label>ความถนัดภาษาอังกฤษ</label>
-  <input type="text" name="aptitude_en " #aptitude_en value="{{countries.aptitude_en}}">
+  <mat-form-field appearance="outline">
+    <mat-label>ความถนัดภาษาไทย</mat-label>
+    <input type="text" #aptitude_th value="{{countries.aptitude_th}}" matInput >
+  </mat-form-field>
 
-  <label>ตำเเหน่งวิชาการภาษาไทย</label>
-  <input type="text" name="academic_position_th " #academic_position_th value="{{countries.academic_position_th}}">
+  <mat-form-field appearance="outline">
+    <mat-label>ความถนัดภาษาอังกฤษ</mat-label>
+    <input type="text" #aptitude_en value="{{countries.aptitude_en}}" matInput >
+  </mat-form-field>
 
-  <label>ตำเเหน่งวิชาการภาษาอังกฤษ</label>
-  <input type="text" name="academic_position_en " #academic_position_en value="{{countries.academic_position_en}}">
+  <mat-form-field appearance="outline">
+    <mat-label>ตำเเหน่งวิชาการภาษาไทย</mat-label>
+    <input type="text" #academic_position_th value="{{countries.academic_position_th}}" matInput >
+  </mat-form-field>
 
-  <label>ประเภทบุคลากรภาษาไทย</label>
-  <input type="text" name="type_personnel_th " #type_personnel_th value="{{countries.type_personnel_th}}">
+  <mat-form-field appearance="outline">
+    <mat-label>ตำเเหน่งวิชาการภาษาอังกฤษ</mat-label>
+    <input type="text" #academic_position_en value="{{countries.academic_position_en}}" matInput >
+  </mat-form-field>
 
-  <label>ประเภทบุคลากรภาษาอังกฤษ</label>
-  <input type="text" name="type_personnel_en " #type_personnel_en value="{{countries.type_personnel_en}}">
+  <mat-form-field appearance="outline">
+    <mat-label>ประเภทบุคลากรภาษาไทย</mat-label>
+    <mat-select [(value)]="selected_th">
+      <mat-option value="ทีมผู้บริหาร">ทีมผู้บริหาร</mat-option>
+      <mat-option value="ทีมสัตวเเพทย์">สัตวเเพทย์</mat-option>
+      <mat-option value="ทีมเจ้าหน้าที่">ทีมเจ้าหน้าที่</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-  <label>อีเมล</label>
-  <input type="text" name="email" #email value="{{countries.email}}">
+  <mat-form-field appearance="outline">
+    <mat-label>ประเภทบุคลากรภาษาอังกฤษ</mat-label>
+    <mat-select [(value)]="selected_en">
+      <mat-option value="Executive">Executive</mat-option>
+      <mat-option value="Veterinarian">Veterinarian</mat-option>
+      <mat-option value="Officer">Officer</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-  <label>เบอร์โทรศัพท์</label>
-  <input type="text" name="phone" #phone value="{{countries.phone_number}}">
+  <mat-form-field appearance="outline">
+    <mat-label>อีเมล</mat-label>
+    <input type="text" #email value="{{countries.email}}" matInput >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>เบอร์โทรศัพท์</mat-label>
+    <input type="text" #phone matInput value="{{countries.phone_number}}">
+  </mat-form-field>
 
   <div style="flex-direction: column;">
     <label style="margin-right: 200px;">รูปภาพ</label>
@@ -43,6 +76,6 @@ width: 500px;margin: 20px;" >
   </div><br>
 
   <button (click)="save(name_prefix_th.value,name_prefix_en.value,name_th.value,name_en.value,aptitude_th.value,aptitude_en.value,
-  academic_position_th.value,academic_position_en.value,type_personnel_th.value,type_personnel_en.value,email.value,phone.value,countries.id_personnel)">SAVE</button>
+  academic_position_th.value,academic_position_en.value,selected_th,selected_en,email.value,phone.value,countries.id_personnel)">SAVE</button>
   <button (click)="close()">close</button><br>
 </div>
