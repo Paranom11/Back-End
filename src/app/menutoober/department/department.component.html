@@ -2,10 +2,18 @@
 <app-menutoober></app-menutoober>
 <br>
 <div>
-  <div *ngFor="let item of this.response.records" >
+  <div *ngFor="let item of this.response.records" style="flex-direction: column;display: flex;" >
     <img src="{{item.img_department_structure}}">
     <input  type="file" (change)="getFile($any($event).target.files)"><br>
-    <button (click)="updateImg(item.id_anihmsu)" mat-raised-button color="primary">แก้ไขรูปภาพ</button>
+    <mat-form-field style="margin-left: 20px;" appearance="outline" >
+      <mat-label>รายละเอียดวิสัยทัศน์ภาษาไทย</mat-label>
+      <textarea matInput rows="10" #department_structure_th>{{item.department_structure_th}}</textarea>
+    </mat-form-field>
+    <mat-form-field style="margin-left: 20px;" appearance="outline" >
+      <mat-label>รายละเอียดวิสัยทัศน์ภาษาอังกฤษ</mat-label>
+      <textarea matInput rows="10" #department_structure_en>{{item.department_structure_en}}</textarea>
+    </mat-form-field>
+    <button (click)="updateImg(item.id_anihmsu,department_structure_th.value,department_structure_en.value)" mat-raised-button color="primary">แก้ไขรูปภาพ</button>
   </div>
 </div><br>
 
