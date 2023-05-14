@@ -2,10 +2,11 @@
 <app-menutoober></app-menutoober>
 <P Align=center style="font-size: 30px; ">รายงานการประชุม</P><br>
 <!--Main layout-->
-<main style="margin-top: -30px;">
-  <div >
+
+<main style="margin-top: -30px; margin-left: 100px;">
+  <div>
     <div style="display: flex;flex-direction: column;width: 80%;">
-  <!-- head -->
+      <!-- head -->
       <div style="margin-left: 5%;">
         <button (click)="addNew()">
           เพิ่มรายงานการประชุม
@@ -16,10 +17,11 @@
       <div style="display: flex; flex-direction: row; ">
         <div style="width: 600px;">
           <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
-            <mat-list-option *ngFor="let item of this.response.records" [value]="item" style="width: 500px; height: 160px;">
+            <mat-list-option *ngFor="let item of this.response.records" [value]="item"
+              style="width: 500px; height: 160px;">
               <div>
-                {{item.name}} <br>
-                {{item.date}}
+                ชื่อ : {{item.name}} <br>
+                วัน/เวลาในการอัปโหลด : {{item.date}}
               </div>
             </mat-list-option>
           </mat-selection-list>
@@ -29,9 +31,9 @@
         <div>
           <div *ngIf="select !=undefined">
             <div style="display: flex; flex-direction: column;">
-              <span> {{this.select.name}} </span>
-              <span>{{this.select.date}}</span>
-              <span> {{this.select.linkfile}}</span>
+              <span>ชื่อ : {{this.select.name}} </span>
+              <span>วัน/เวลาในการอัปโหลด : {{this.select.date}}</span>
+              <span>Link : {{this.select.linkfile}}</span>
               <!-- แก้ไข -->
               <!-- <div><button (click)="edit()">แก้ไข</button></div>
               <div><button (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div> -->
@@ -44,5 +46,3 @@
   </div>
 </main><br>
 <!--Main layout-->
-
-
