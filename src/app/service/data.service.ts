@@ -8,5 +8,7 @@ export class DataService {
   countries : any;
   Personnel: any;
   PersonnelSelected : any;
+  News : any;
+  idx_title : any;
   constructor() { }
 }

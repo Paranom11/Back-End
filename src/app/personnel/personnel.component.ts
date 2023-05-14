@@ -36,7 +36,6 @@ deletePersonnel(id : number){
 }
 
 addNew(){
-  this.dataService.countries = this.countries;
   this.dialog.open(PersonnelNewComponent,{
     minWidth:'300px',
   });
