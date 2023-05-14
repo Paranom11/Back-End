@@ -27,8 +27,10 @@ export class DepartmentComponent {
       console.log(this.base64);
     }
 }
- updateImg(idx:number){
+ updateImg(idx:number,department_structure_th:string,department_structure_en:string){
   let jsonObj ={
+    department_structure_th : department_structure_th,
+    department_structure_en : department_structure_en,
     img_department_structure : this.base64
   }
   if(confirm("ยืนยันการเเก้ไข") == true){
