@@ -25,6 +25,7 @@ export class PersonnelComponent {
         this.response = data as Personnel;
   });
 }
+//ลบข้อมูล
 deletePersonnel(id : number){
   if(confirm("ยันยันการลบข้อมูล ?")){
     this.http.delete(this.dataService.apiEndpoint+"/personnel/" + id)
@@ -34,16 +35,18 @@ deletePersonnel(id : number){
     });
   }
 }
-
+//เพิ่มข้อมูล
 addNew(){
   this.dialog.open(PersonnelNewComponent,{
     minWidth:'300px',
   });
 }
+//แสดงผลข้อมูล
 show(option:MatListOption){
   this.select = option.value;
   console.log(this.select);
 }
+//แก้ไขข้อมูล
 edit(){
  // console.log(this.PersonnelSelected);
   this.dataService.countries = this.select;
