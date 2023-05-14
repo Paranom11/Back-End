@@ -30,6 +30,8 @@ import { VMSPComponent } from './menutoober/vmsp/vmsp.component';
 import { DepartmentComponent } from './menutoober/department/department.component';
 import { ContactComponent } from './menutoober/contact/contact.component';
 import {MatSelectModule} from '@angular/material/select';
+import { ConferencePdfFileComponent } from './conference-pdf-file/conference-pdf-file.component';
+import { ConferencePdfFileAddComponent } from './conference-pdf-file-add/conference-pdf-file-add.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -44,6 +46,7 @@ const appRoutes: Routes = [
   {path:'VMSP',component:VMSPComponent},
   {path:'department',component:DepartmentComponent},
   {path:'contact',component:ContactComponent},
+  {path:'conference-pdf-file',component:ConferencePdfFileComponent},
 
 ];
 
@@ -67,6 +70,8 @@ const appRoutes: Routes = [
       VMSPComponent,
       DepartmentComponent,
       ContactComponent,
+      ConferencePdfFileComponent,
+      ConferencePdfFileAddComponent,
 
 
 
