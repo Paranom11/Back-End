@@ -32,7 +32,6 @@ import { ContactComponent } from './menutoober/contact/contact.component';
 import {MatSelectModule} from '@angular/material/select';
 import { ConferencePdfFileComponent } from './conference-pdf-file/conference-pdf-file.component';
 import { ConferencePdfFileAddComponent } from './conference-pdf-file-add/conference-pdf-file-add.component';
-import { News } from './model/News.model';
 import { NewsComponent } from './news/news.component';
 import { InsertNewComponent } from './news/insert-new/insert-new.component';
 import { InsertNextComponent } from './news/insert-next/insert-next.component';
@@ -78,8 +77,6 @@ const appRoutes: Routes = [
       InsertNextComponent,
       ConferencePdfFileComponent,
       ConferencePdfFileAddComponent
-
-
 
 
   ],
