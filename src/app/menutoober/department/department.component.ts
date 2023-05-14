@@ -19,7 +19,7 @@ export class DepartmentComponent {
 });
 }
 
-  getFile(files : FileList){
+getFile(files : FileList){
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => {
