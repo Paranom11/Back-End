@@ -50,7 +50,7 @@ const appRoutes: Routes = [
   {path:'VMSP',component:VMSPComponent},
   {path:'department',component:DepartmentComponent},
   {path:'contact',component:ContactComponent},
-
+  {path:'news',component:NewsComponent},
 ];
 
 @NgModule({
@@ -73,6 +73,11 @@ const appRoutes: Routes = [
       VMSPComponent,
       DepartmentComponent,
       ContactComponent,
+      NewsComponent,
+      InsertNewComponent,
+      InsertNextComponent,
+      ConferencePdfFileComponent,
+      ConferencePdfFileAddComponent
 
 
 
