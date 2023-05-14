@@ -50,6 +50,7 @@ const appRoutes: Routes = [
   {path:'department',component:DepartmentComponent},
   {path:'contact',component:ContactComponent},
   {path:'news',component:NewsComponent},
+  {path:'conference-pdf-file',component:ConferencePdfFileComponent},
 ];
 
 @NgModule({
