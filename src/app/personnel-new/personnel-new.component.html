@@ -47,23 +47,24 @@ width: 500px;margin: 20px;">
     <input type="text" #academic_position_en matInput >
   </mat-form-field>
 
-  <mat-form-field appearance="outline" >
+  <mat-form-field appearance="outline">
     <mat-label>ประเภทบุคลากรภาษาไทย</mat-label>
-    <select #type_personnel_th matNativeControl required>
-      <option>ทีมผู้บริหาร</option>
-      <option>ทีมสัตวเเพทย์</option>
-      <option>ทีมเจ้าหน้าที่</option>
-    </select>
+    <mat-select #type_th>
+      <mat-option value="ทีมผู้บริหาร">ทีมผู้บริหาร</mat-option>
+      <mat-option value="ทีมสัตวเเพทย์">ทีมสัตวเเพทย์</mat-option>
+      <mat-option value="ทีมเจ้าหน้าที่">ทีมเจ้าหน้าที่</mat-option>
+    </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="outline" >
+  <mat-form-field appearance="outline">
     <mat-label>ประเภทบุคลากรภาษาอังกฤษ</mat-label>
-    <select #type_personnel_en matNativeControl required>
-      <option>Executive</option>
-      <option>Veterinarian</option>
-      <option>Officer</option>
-    </select>
+    <mat-select #type_en>
+      <mat-option value="Executive">Executive</mat-option>
+      <mat-option value="Veterinarian">Veterinarian</mat-option>
+      <mat-option value="Officer">Officer</mat-option>
+    </mat-select>
   </mat-form-field>
+
 
   <mat-form-field appearance="outline">
     <mat-label>อีเมล</mat-label>
@@ -81,7 +82,7 @@ width: 500px;margin: 20px;">
 </div><br>
 
   <button (click)="addNew(name_prefix_th.value,name_prefix_en.value,name_th.value,name_en.value,aptitude_th.value,aptitude_en.value,
-  academic_position_th.value,academic_position_en.value,type_personnel_th.value,type_personnel_en.value,email.value,phone.value)">Add</button>
+  academic_position_th.value,academic_position_en.value,type_th.value,type_en.value,email.value,phone.value)">Add</button>
   <button (click)="close()">close</button><br>
 </div>
 

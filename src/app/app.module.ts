@@ -30,6 +30,10 @@ import { VMSPComponent } from './menutoober/vmsp/vmsp.component';
 import { DepartmentComponent } from './menutoober/department/department.component';
 import { ContactComponent } from './menutoober/contact/contact.component';
 import {MatSelectModule} from '@angular/material/select';
+import { News } from './model/News.model';
+import { NewsComponent } from './news/news.component';
+import { InsertNewComponent } from './news/insert-new/insert-new.component';
+import { InsertNextComponent } from './news/insert-next/insert-next.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -44,6 +48,7 @@ const appRoutes: Routes = [
   {path:'VMSP',component:VMSPComponent},
   {path:'department',component:DepartmentComponent},
   {path:'contact',component:ContactComponent},
+  {path:'news',component:NewsComponent},
 
 ];
 
@@ -67,6 +72,9 @@ const appRoutes: Routes = [
       VMSPComponent,
       DepartmentComponent,
       ContactComponent,
+      NewsComponent,
+      InsertNewComponent,
+      InsertNextComponent
 
 
 

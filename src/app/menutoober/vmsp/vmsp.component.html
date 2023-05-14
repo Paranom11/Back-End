@@ -1,3 +1,6 @@
+<app-header></app-header>
+<app-menutoober></app-menutoober>
+<br>
 <div class="positionArea" *ngFor="let item of this.response.records">
   <img src="{{item.img_VMSA}}">
   <input  type="file" (change)="getFile($any($event).target.files)">
