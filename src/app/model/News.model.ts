@@ -3,28 +3,17 @@ export interface News {
 }
 export interface Record {
   id_news:      number;
-  text_news_th: string;
+  text_th:      string;
   date:         string;
-  text_news_en: string;
-  id_title_new: IDTitleNew;
-  id_admin:     IDAdmin;
-  id_imgnew:    IDImgnew;
-}
-export interface IDAdmin {
-  id_admin: number;
-  email:    string;
-  password: string;
-  name:     string;
+  text_en:      null;
+  id_type_news: IDTypeNews;
+  img:          string;
 }
 
-export interface IDImgnew {
-  id_imgnew: number;
-  img_news:  string;
-}
-
-export interface IDTitleNew {
-  id_title_news: number;
-  title_news_th: string;
-  title_news_en: string;
-  img_news_main: string;
+export interface IDTypeNews {
+  id_type_news: number;
+  type_th:      string;
+  type_en:      null;
+  date:         string;
+  img:          null;
 }

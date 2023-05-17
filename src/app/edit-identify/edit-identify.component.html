@@ -1,6 +1,6 @@
 <div class="areaShow">
   <div *ngFor="let item of this.response.records">
-    <img style="display: flex; margin: auto;" src="{{item.id_imgidentify.img}}" alt="">
+    <img style="display: flex; margin: auto;" src="{{item.img}}" alt="">
     <input type="file" name="" id="" (change)="getFile($any($event).target.files)"><br><br>
     <div style="display: flex; justify-content: center; flex-direction: column; padding: 20px;">
       <textarea placeholder="รายละเอียดภาษาไทย" cols="100%" rows="20%" matInput #text_th>{{item.text_th}}</textarea><br>

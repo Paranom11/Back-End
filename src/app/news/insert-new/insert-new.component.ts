@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { News } from 'src/app/model/News.model';
 import { PersonnelNewComponent } from 'src/app/personnel-new/personnel-new.component';
 import { DataService } from 'src/app/service/data.service';
+import { InsertNextComponent } from '../insert-next/insert-next.component';
 
 @Component({
   selector: 'app-insert-new',
@@ -31,18 +32,20 @@ export class InsertNewComponent {
 
   addNew(title_news_th:string,title_news_en:string){
       let jsonObj ={
-        title_news_th : title_news_th,
-        title_news_en : title_news_en,
-        img_news_main : this.base64
+        type_th : title_news_th,
+        type_en : title_news_en,
+        img : this.base64
     }
-    this.http.post(this.data.apiEndpoint + "/title_news",JSON.stringify(jsonObj),
+    if(confirm("ยืนยันการเพิ่มหัวข้อข่าวประชาสัมพันธ์") == true){
+      this.http.post(this.data.apiEndpoint + "/type_news",JSON.stringify(jsonObj),
     {observe:'response'}).subscribe((response: any)=>{
-      this.dialog.open(PersonnelNewComponent,{
-        minWidth:'300px',
+      this.dialog.open(InsertNextComponent,{
+        minWidth:'500',
       });
       // this.dialogRef.close();
       // location.reload();
     });
+    }
   }
   close(){
     this.dialogRef.close();

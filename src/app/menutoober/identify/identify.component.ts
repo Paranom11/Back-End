@@ -14,7 +14,7 @@ export class IdentifyComponent {
   base64 : any;
   filename : any;
   constructor(private data : DataService , private http: HttpClient){
-      http.get("https://anihmsu.comsciproject.net/anihmsu/api.php/records/identify?join=image_identify")
+      http.get("https://anihmsu.comsciproject.net/anihmsu/api.php/records/identify")
       .subscribe((data : any) => {
         console.log(data);
         this.response = data as IdentifyData;
