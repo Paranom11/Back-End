@@ -2,8 +2,11 @@ export interface TitleNews {
   records: Record[];
 }
 export interface Record {
-  id_title_news: number;
-  title_news_th: string;
-  title_news_en: string;
-  img_news_main: string;
+  id_type_news: number;
+  type_th:      string;
+  type_en:      null;
+  date:         string;
+  img:          string;
 }
+
+

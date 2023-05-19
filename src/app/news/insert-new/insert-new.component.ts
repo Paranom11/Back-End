@@ -15,6 +15,10 @@ export class InsertNewComponent {
   base64 : any;
   response={} as News;
   idx : any;
+  idx_type_new : any;
+  date = new Date();
+  dateInsert = this.date.getFullYear()+"-"+this.date.getMonth()+"-"+this.date.getDay()+" "+this.date.getHours()+":"+this.date.getMinutes()+":"+this.date.getSeconds();
+
 
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<InsertNewComponent>,private dialog : MatDialog){
     this.response = data.News;
@@ -34,11 +38,13 @@ export class InsertNewComponent {
       let jsonObj ={
         type_th : title_news_th,
         type_en : title_news_en,
+        date : this.dateInsert,
         img : this.base64
     }
     if(confirm("ยืนยันการเพิ่มหัวข้อข่าวประชาสัมพันธ์") == true){
       this.http.post(this.data.apiEndpoint + "/type_news",JSON.stringify(jsonObj),
     {observe:'response'}).subscribe((response: any)=>{
+      this.dialogRef.close();
       this.dialog.open(InsertNextComponent,{
         minWidth:'500',
       });
