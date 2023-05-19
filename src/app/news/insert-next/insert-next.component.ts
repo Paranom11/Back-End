@@ -51,8 +51,6 @@ export class InsertNextComponent {
       //  this.dialogRef.close();
         //location.reload();
       });
-    }else{
-
     }
 
     }
