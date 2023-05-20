@@ -12,6 +12,8 @@ export class HomeComponent {
   response = {} as DataVetAnimal;
   base64 : any;
   filename : any;
+
+
   constructor(private data : DataService , private http: HttpClient){
       http.get("https://anihmsu.comsciproject.net/anihmsu/api.php/records/information_anihmsu")
       .subscribe((data : any) => {

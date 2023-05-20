@@ -17,10 +17,15 @@ export class InsertNewComponent {
   idx : any;
   idx_type_new : any;
   date = new Date();
-  dateInsert = this.date.getFullYear()+"-"+this.date.getMonth()+"-"+this.date.getDay()+" "+this.date.getHours()+":"+this.date.getMinutes()+":"+this.date.getSeconds();
+  MonthStr: number = +this.date.getMonth();
+  MouthNew = this.MonthStr+1;
+
+  dateInsert = this.date.getFullYear()+"-"+this.MouthNew+"-"+this.date.getDate()+" "+this.date.getHours()+":"+this.date.getMinutes()+":"+this.date.getSeconds();
 
 
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<InsertNewComponent>,private dialog : MatDialog){
+    console.log(this.date)
+    console.log(this.dateInsert)
     this.response = data.News;
    // this.idx = data.News.
   }

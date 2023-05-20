@@ -3,17 +3,18 @@
  <div *ngFor="let item of this.response.records">
   <mat-form-field appearance="outline" style="width: 200%; margin-left:6%;">
     <mat-label>คำนำหน้าภาษาไทย</mat-label>
-    <textarea [value]="text_th" 
+    <textarea #text_th
 
     matInput rows="10" cols="10" value="{{item.text_th}}">
 
   </textarea>
   </mat-form-field>
   <img src="{{item.img}}" >
-  <input type="file" name="" id="" (change)="getFile($any($event).target.files)"><br><br>
+  <input type="file" name="" id="" (change)="getFile($any($event).target.files)">
+  <button  mat-raised-button (click)="save(text_th.value,item.id_news)">แก้ไข</button><br><br>
    </div>
    <button mat-raised-button (click)="close()">ปิด</button><br>
-  <button mat-raised-button (click)="save(text_th.value)">แก้ไข</button>
+
 
 </div>
 

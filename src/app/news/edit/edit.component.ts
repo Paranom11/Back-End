@@ -37,7 +37,19 @@ export class EditComponent {
   close(){
     this.dialogRef.close();
   }
-  save(text_th:string){
+  save(text_th:string , idx : number){
+        let jsonObj ={
+          text_th : text_th,
+          img : this.base64
+      }
 
+      let jsonString = JSON.stringify(jsonObj);
+      this.http.put(this.data.apiEndpoint + "/news/"+idx,jsonString,
+      {observe:'response'}).subscribe((response: any)=>{
+        console.log(JSON.stringify(response.status));
+        console.log(JSON.stringify(response.body));
+        this.dialogRef.close();
+        location.reload();
+      });
   }
 }

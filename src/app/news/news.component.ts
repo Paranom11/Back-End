@@ -63,4 +63,13 @@ edit(){
     minWidth: '70%',
   });
 }
+deleteNews(idx:number){
+  if(confirm("ยันยันการลบข้อมูล ?")){
+    this.http.delete(this.dataService.apiEndpoint+"/type_news/" + idx)
+    .subscribe((res) => {
+      console.log(res);
+      location.reload();
+    });
+  }
+}
 }

@@ -29,6 +29,7 @@ export class InsertNextComponent {
   dateInsert = this.date.getFullYear()+"-"+this.date.getMonth()+"-"+this.date.getDay()+" "+this.date.getHours()+":"+this.date.getMinutes()+":"+this.date.getSeconds();
 
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<InsertNextComponent>){
+    console.log(this.dateInsert)
     http.get(data.apiEndpoint + "/news?join=type_news")
       .subscribe((data : any) => {
        this.response = data as News;
