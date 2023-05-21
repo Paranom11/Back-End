@@ -34,7 +34,9 @@
               <img src="{{this.select.img}}" width="500px">
               <span>หัวข้อ : {{this.select.type_th}}</span>
               <span>วันที่เพิ่ม : {{this.select.date}}</span>
-              <div><button mat-raised-button color="primary" (click)="edit()">แก้ไข</button> &nbsp;
+              <div>
+              <button mat-raised-button color="accent" (click)="editTypeNews()">แก้ไขหัวข้อข่าว</button> &nbsp;
+              <button mat-raised-button color="primary" (click)="edit()">แก้ไขเนื้อหาข่าว</button> &nbsp;
               <button mat-raised-button color="warn" (click)="deleteNews(this.select.id_type_news)">ลบ</button></div>
             </div>
           </div>
