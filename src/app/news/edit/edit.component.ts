@@ -52,4 +52,13 @@ export class EditComponent {
         location.reload();
       });
   }
+  deleteNews(idx : number){
+    this.http.delete(this.data.apiEndpoint + "/news/"+idx,
+    {observe:'response'}).subscribe((response: any)=>{
+      console.log(JSON.stringify(response.status));
+      console.log(JSON.stringify(response.body));
+      this.dialogRef.close();
+      location.reload();
+    });
+  }
 }

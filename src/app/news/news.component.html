@@ -9,7 +9,8 @@
     <div style="display: flex;flex-direction: column;width: 80%;">
   <!-- head -->
       <div style="margin-left: 5%;">
-        <button (click)="addNew()">
+        <button mat-raised-button color="accent"
+        (click)="addNew()">
           เพิ่มข่าวประชาสัมพันธ์
         </button>
       </div>
@@ -33,8 +34,8 @@
               <img src="{{this.select.img}}" width="500px">
               <span>หัวข้อ : {{this.select.type_th}}</span>
               <span>วันที่เพิ่ม : {{this.select.date}}</span>
-              <div><button (click)="edit()">แก้ไข</button></div>
-              <button (click)="deleteNews(this.select.id_type_news)">ลบ</button>
+              <div><button mat-raised-button color="primary" (click)="edit()">แก้ไข</button> &nbsp;
+              <button mat-raised-button color="warn" (click)="deleteNews(this.select.id_type_news)">ลบ</button></div>
             </div>
           </div>
         </div>

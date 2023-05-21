@@ -12,7 +12,6 @@ import { type_news } from 'src/app/model/type_news.model';
   styleUrls: ['./insert-next.component.scss']
 })
 export class InsertNextComponent {
-  [x: string]: any;
   response={} as News;
   responseType={} as type_news ;
   sizeType : any;
@@ -86,47 +85,43 @@ export class InsertNextComponent {
   close(){
     this.dialogRef.close();
   }
+
   getFile1(files : FileList){
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => {
-     // console.log(reader.result);
       this.base64_1 = reader.result;
     };
-
   }
+
   getFile2(files : FileList){
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => {
-     // console.log(reader.result);
       this.base64_2 = reader.result;
     };
-
   }
+
   getFile3(files : FileList){
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => {
-     // console.log(reader.result);
       this.base64_3 = reader.result;
     };
-
   }
+
   getFile4(files : FileList){
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => {
-     // console.log(reader.result);
       this.base64_4 = reader.result;
     };
-
   }
+
   getFile5(files : FileList){
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => {
-     // console.log(reader.result);
       this.base64_5 = reader.result;
     };
 
@@ -135,18 +130,15 @@ export class InsertNextComponent {
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => {
-     // console.log(reader.result);
       this.base64_7 = reader.result;
     };
-
   }
+
   getFile6(files : FileList){
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => {
-     // console.log(reader.result);
       this.base64_6 = reader.result;
     };
-
   }
 }

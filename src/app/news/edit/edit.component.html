@@ -10,8 +10,11 @@
   </textarea>
   </mat-form-field>
   <img src="{{item.img}}" >
-  <input type="file" name="" id="" (change)="getFile($any($event).target.files)">
-  <button  mat-raised-button (click)="save(text_th.value,item.id_news)">แก้ไข</button><br><br>
+  <input type="file" name="" id="" (change)="getFile($any($event).target.files)"><br>
+  <div style="display: flex; flex-direction: row; margin-top: 3px;">
+  <button mat-raised-button color="primary" (click)="save(text_th.value,item.id_news)">แก้ไข</button>
+  <button style="margin-left: 10px;" mat-raised-button color="warn" (click)="deleteNews(item.id_news)">ลบ</button></div><br>
+  <br><br>
    </div>
    <button mat-raised-button (click)="close()">ปิด</button><br>
 
