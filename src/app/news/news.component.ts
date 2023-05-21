@@ -8,6 +8,7 @@ import { News } from '../model/News.model';
 import { InsertNewComponent } from './insert-new/insert-new.component';
 import { PersonnelNewComponent } from '../personnel-new/personnel-new.component';
 import { MatDialog } from '@angular/material/dialog';
+import { EditComponent } from './edit/edit.component';
 
 @Component({
   selector: 'app-news',
@@ -24,23 +25,17 @@ export class NewsComponent {
   PersonnelSelected : any;
   response = {} as News;
   constructor(private dataService : DataService , private http: HttpClient, private dialog : MatDialog){
-      http.get(dataService.apiEndpoint + "/news?join=title_news,&join=image_news,&join=admin")
+      http.get(dataService.apiEndpoint + "/news?join=type_news")
       .subscribe((data : any) => {
         console.log(data);
         this.response = data as News;
   });
 
-      http.get(dataService.apiEndpoint + "/title_news")
+      http.get(dataService.apiEndpoint + "/type_news")
       .subscribe((data : any) => {
         console.log(data);
         this.reTitleNews = data as TitleNews;
     });
-
-//     http.get(dataService.apiEndpoint + "/image_news")
-//     .subscribe((data : any) => {
-//       console.log(data);
-//       this.reimageNews = data as ImageNews;
-// });
 }
 
 addNew(){
@@ -50,14 +45,8 @@ addNew(){
   });
 }
 show(option:MatListOption){
-  console.log(option.value.id_title_news)
-  if(option.value.id_title_news == 1){
-
-    this.select = this.response;
+    this.select = option.value;
     console.log(this.select);
-  }
-
-
 }
 getFile(files : FileList){
   let file = files.item(0);
@@ -67,5 +56,20 @@ getFile(files : FileList){
    // console.log(reader.result);
     this.base64 = reader.result;
   };
+}
+edit(){
+  this.dataService.countries = this.select;
+  this.dialog.open(EditComponent,{
+    minWidth: '70%',
+  });
+}
+deleteNews(idx:number){
+  if(confirm("ยันยันการลบข้อมูล ?")){
+    this.http.delete(this.dataService.apiEndpoint+"/type_news/" + idx)
+    .subscribe((res) => {
+      console.log(res);
+      location.reload();
+    });
+  }
 }
 }

@@ -34,17 +34,17 @@ export class EditIdentifyComponent {
     //location.reload();
 
   }
-  save(text_th : string,text_en :string,idx:number){
-      let jsonObjImg ={
-        img : this.base64
-    }
-    this.http.put(this.data.apiEndpoint + "/image_identify"+idx,JSON.stringify(jsonObjImg),
-    {observe:'response'}).subscribe((response: any)=>{
-      location.reload();
-    });
+  // save(text_th : string,text_en :string,idx:number){
+  //     let jsonObjImg ={
+  //       img : this.base64
+  //   }
+  //   this.http.put(this.data.apiEndpoint + "/image_identify"+idx,JSON.stringify(jsonObjImg),
+  //   {observe:'response'}).subscribe((response: any)=>{
+  //     location.reload();
+  //   });
 
-   // let id_imgidentify = ;
+  //  // let id_imgidentify = ;
 
-  }
+  // }
 }
 

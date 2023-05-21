@@ -1,4 +1,4 @@
-export interface News {
+export interface NewsOnly {
   records: Record[];
 }
 
@@ -7,15 +7,6 @@ export interface Record {
   text_th:      string;
   date:         string;
   text_en:      null;
-  id_type_news: IDTypeNews;
-  img:          string;
-}
-
-
-export interface IDTypeNews {
   id_type_news: number;
-  type_th:      string;
-  type_en:      null;
-  date:         string;
   img:          string;
 }

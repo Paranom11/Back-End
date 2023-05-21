@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { News } from 'src/app/model/News.model';
 import { PersonnelNewComponent } from 'src/app/personnel-new/personnel-new.component';
 import { DataService } from 'src/app/service/data.service';
+import { InsertNextComponent } from '../insert-next/insert-next.component';
 
 @Component({
   selector: 'app-insert-new',
@@ -14,8 +15,17 @@ export class InsertNewComponent {
   base64 : any;
   response={} as News;
   idx : any;
+  idx_type_new : any;
+  date = new Date();
+  MonthStr: number = +this.date.getMonth();
+  MouthNew = this.MonthStr+1;
+
+  dateInsert = this.date.getFullYear()+"-"+this.MouthNew+"-"+this.date.getDate()+" "+this.date.getHours()+":"+this.date.getMinutes()+":"+this.date.getSeconds();
+
 
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<InsertNewComponent>,private dialog : MatDialog){
+    console.log(this.date)
+    console.log(this.dateInsert)
     this.response = data.News;
    // this.idx = data.News.
   }
@@ -31,18 +41,22 @@ export class InsertNewComponent {
 
   addNew(title_news_th:string,title_news_en:string){
       let jsonObj ={
-        title_news_th : title_news_th,
-        title_news_en : title_news_en,
-        img_news_main : this.base64
+        type_th : title_news_th,
+        type_en : title_news_en,
+        date : this.dateInsert,
+        img : this.base64
     }
-    this.http.post(this.data.apiEndpoint + "/title_news",JSON.stringify(jsonObj),
+    if(confirm("ยืนยันการเพิ่มหัวข้อข่าวประชาสัมพันธ์") == true){
+      this.http.post(this.data.apiEndpoint + "/type_news",JSON.stringify(jsonObj),
     {observe:'response'}).subscribe((response: any)=>{
-      this.dialog.open(PersonnelNewComponent,{
-        minWidth:'300px',
+      this.dialogRef.close();
+      this.dialog.open(InsertNextComponent,{
+        minWidth:'500',
       });
       // this.dialogRef.close();
       // location.reload();
     });
+    }
   }
   close(){
     this.dialogRef.close();

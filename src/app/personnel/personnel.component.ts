@@ -48,9 +48,7 @@ show(option:MatListOption){
 }
 //แก้ไขข้อมูล
 edit(){
- // console.log(this.PersonnelSelected);
   this.dataService.countries = this.select;
- // console.log("BBB : "+this.dataService.PersonnelSelected.name_th);
   this.dialog.open(PersonnelEditComponent,{
     minWidth: '300px',
   });

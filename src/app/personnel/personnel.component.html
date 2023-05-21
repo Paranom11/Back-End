@@ -9,7 +9,7 @@
     <div style="display: flex;flex-direction: column;width: 80%;">
       <!-- head -->
       <div style="margin-left: 5%;">
-        <button (click)="addNew()">
+        <button mat-raised-button color="accent" (click)="addNew()">
           เพิ่มทีมผู้บริหาร
         </button>
       </div>
@@ -22,9 +22,6 @@
               <div>
                 คำนำหน้าชื่อ-สกุล : {{item.name_prefix_th}}{{item.name_th}}<br>
                 อีเมล : {{item.email}} <br>
-                เบอร์โทรศัพท์ : {{item.phone_number}}<br>
-                ความถนัด : {{item.aptitude_th}}<br>
-                ตำแหน่งวิชาการ : {{item.academic_position_th}}<br>
                 ประเภทบุคลากร : {{item.type_personnel_th}}<br>
                 <img src="{{item.picture}}" class="image" style="width: 80px;">
               </div>
@@ -43,8 +40,8 @@
               <span>ความถนัด : {{this.select.aptitude_th}}</span>
               <span>ตำแหน่งวิชาการ : {{this.select.academic_position_th}}</span>
               <span>ประเภทบุคลากร : {{this.select.type_personnel_th}}</span>
-              <div><button (click)="edit()">แก้ไข</button></div>
-              <div><button (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div>
+              <div style="flex-direction: row;"><button mat-raised-button color="primary" (click)="edit()">แก้ไข</button>&nbsp;
+              <button mat-raised-button color="warn" (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div>
 
             </div>
           </div>

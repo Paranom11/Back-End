@@ -35,6 +35,7 @@ import { ConferencePdfFileAddComponent } from './conference-pdf-file-add/confere
 import { NewsComponent } from './news/news.component';
 import { InsertNewComponent } from './news/insert-new/insert-new.component';
 import { InsertNextComponent } from './news/insert-next/insert-next.component';
+import { EditComponent } from './news/edit/edit.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -77,7 +78,8 @@ const appRoutes: Routes = [
       InsertNewComponent,
       InsertNextComponent,
       ConferencePdfFileComponent,
-      ConferencePdfFileAddComponent
+      ConferencePdfFileAddComponent,
+      EditComponent
 
 
   ],

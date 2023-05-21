@@ -9,7 +9,8 @@
     <div style="display: flex;flex-direction: column;width: 80%;">
   <!-- head -->
       <div style="margin-left: 5%;">
-        <button (click)="addNew()">
+        <button mat-raised-button color="accent"
+        (click)="addNew()">
           เพิ่มข่าวประชาสัมพันธ์
         </button>
       </div>
@@ -19,8 +20,8 @@
           <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
             <mat-list-option *ngFor="let item of this.reTitleNews.records" [value]="item" style="width: 500px; height: 160px;">
               <div>
-                {{item.title_news_th}}
-                <img src="{{item.img_news_main}}" class="image" style="width: 100px;">
+                {{item.type_th}}
+                <img src="{{item.img}}" class="image" style="width: 100px;">
               </div>
             </mat-list-option>
           </mat-selection-list>
@@ -30,13 +31,11 @@
         <div>
           <div *ngIf="select !=undefined">
             <div style="display: flex; flex-direction: column; margin-left: 20px;">
-              <img src="{{this.select.id_title_new.img_news_main}}" width="500px">
-              <span>หัวข้อ : {{this.select.id_title_new.title_news_th}}</span>
+              <img src="{{this.select.img}}" width="500px">
+              <span>หัวข้อ : {{this.select.type_th}}</span>
               <span>วันที่เพิ่ม : {{this.select.date}}</span>
-              <span>เพิ่มโดย : {{this.select.id_admin.name}}</span>
-              <!-- <div><button (click)="edit()">แก้ไข</button></div>
-              <div><button (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div> -->
-
+              <div><button mat-raised-button color="primary" (click)="edit()">แก้ไข</button> &nbsp;
+              <button mat-raised-button color="warn" (click)="deleteNews(this.select.id_type_news)">ลบ</button></div>
             </div>
           </div>
         </div>
