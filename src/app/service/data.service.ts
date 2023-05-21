@@ -11,5 +11,6 @@ export class DataService {
   PersonnelSelected : any;
   News : any;
   idx_type_new : any;
+  typeNews : any;
   constructor() { }
 }
