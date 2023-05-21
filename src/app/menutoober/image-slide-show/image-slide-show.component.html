@@ -5,7 +5,7 @@
 
 
 <input type="file" style="padding: 10px;" name="" id="" (change)="getFile($any($event).target.files)"><br>
-<button style="margin-left:10px ;" (click)="add()">เพิ่ม</button><br><br>
+<button mat-raised-button color="accent" style="margin-left:10px ;" (click)="add()">เพิ่ม</button><br><br>
 <div style="display: flex; flex-direction: row; ">
   <div style="width: 600px;">
     <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
@@ -21,8 +21,8 @@
   <div>
     <div *ngIf="select !=undefined">
       <div style="display: flex; flex-direction: column; margin-left: 30%;">
-        <img src="{{this.select.img_slide}}" width="500px">
-        <button (click)="delete(select.id_imgslide)">ลบรูปภาพ</button>
+        <img src="{{this.select.img_slide}}" width="500px"><br>
+        <button mat-raised-button color="warn" (click)="delete(select.id_imgslide)">ลบรูปภาพ</button>
       </div>
     </div>
   </div>

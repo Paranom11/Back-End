@@ -79,11 +79,13 @@ width: 500px;margin: 20px;">
   <div style="flex-direction: column;">
   <label style="margin-right: 200px;">รูปภาพ</label>
   <input type="file" name="" id="" (change)="getFile($any($event).target.files)" ><br>
-</div><br>
+</div>
+<div style="flex-direction:row;">
+   <button mat-raised-button color="primary" (click)="addNew(name_prefix_th.value,name_prefix_en.value,name_th.value,name_en.value,aptitude_th.value,aptitude_en.value,
+  academic_position_th.value,academic_position_en.value,type_th.value,type_en.value,email.value,phone.value)">เพิ่ม</button> &nbsp;
+  <button mat-raised-button color="warn" (click)="close()">ปิด</button><br>
+</div>
 
-  <button (click)="addNew(name_prefix_th.value,name_prefix_en.value,name_th.value,name_en.value,aptitude_th.value,aptitude_en.value,
-  academic_position_th.value,academic_position_en.value,type_th.value,type_en.value,email.value,phone.value)">Add</button>
-  <button (click)="close()">close</button><br>
 </div>
 
 

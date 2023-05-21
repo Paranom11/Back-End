@@ -73,9 +73,9 @@ width: 500px;margin: 20px;" >
   <div style="flex-direction: column;">
     <label style="margin-right: 200px;">รูปภาพ</label>
     <input type="file" name="" id="" (change)="getFile($any($event).target.files)"><br>
-  </div><br>
-
-  <button (click)="save(name_prefix_th.value,name_prefix_en.value,name_th.value,name_en.value,aptitude_th.value,aptitude_en.value,
-  academic_position_th.value,academic_position_en.value,selected_th,selected_en,email.value,phone.value,countries.id_personnel)">SAVE</button>
-  <button (click)="close()">close</button><br>
+  </div>
+  <div style="flex-direction:row;">
+  <button mat-raised-button color="primary" (click)="save(name_prefix_th.value,name_prefix_en.value,name_th.value,name_en.value,aptitude_th.value,aptitude_en.value,
+  academic_position_th.value,academic_position_en.value,selected_th,selected_en,email.value,phone.value,countries.id_personnel)">แก้ไข</button> &nbsp;
+  <button mat-raised-button color="warn" (click)="close()">ปิด</button></div><br>
 </div>
