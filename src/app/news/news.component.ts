@@ -9,6 +9,7 @@ import { InsertNewComponent } from './insert-new/insert-new.component';
 import { PersonnelNewComponent } from '../personnel-new/personnel-new.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EditComponent } from './edit/edit.component';
+import { EditTypeNewsComponent } from './edit-type-news/edit-type-news.component';
 
 @Component({
   selector: 'app-news',
@@ -46,7 +47,8 @@ addNew(){
 }
 show(option:MatListOption){
     this.select = option.value;
-    console.log(this.select);
+    this.dataService.typeNews = option.value;
+    console.log(this.dataService.typeNews);
 }
 getFile(files : FileList){
   let file = files.item(0);
@@ -71,5 +73,10 @@ deleteNews(idx:number){
       location.reload();
     });
   }
+}
+editTypeNews(){
+  this.dialog.open(EditTypeNewsComponent,{
+    minWidth: '300px',
+  });
 }
 }
