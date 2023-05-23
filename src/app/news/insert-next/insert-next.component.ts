@@ -24,6 +24,7 @@ export class InsertNextComponent {
   base64_7 : any;
   indexMax : number | undefined;
   text_new: any;
+  indexMaxNews : any;
   date = new Date();
   dateInsert = this.date.getFullYear()+"-"+this.date.getMonth()+"-"+this.date.getDay()+" "+this.date.getHours()+":"+this.date.getMinutes()+":"+this.date.getSeconds();
 
@@ -83,7 +84,11 @@ export class InsertNextComponent {
   }
 
   close(){
-    this.dialogRef.close();
+      this.http.delete(this.data.apiEndpoint+"/type_news/" + this.indexMax).subscribe((res) => {
+        console.log(res);
+        this.dialogRef.close();
+        location.reload();
+      });
   }
 
   getFile1(files : FileList){

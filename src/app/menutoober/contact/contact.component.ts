@@ -17,11 +17,10 @@ export class ContactComponent {
         this.response = data as DataVetAnimal;
   });
 }
-updateContact(address_th:string,tel_1:string,tel_2:string,email:string,facebook:string,calendar:string,idx:number){
+updateContact(address_th:string,tel_1:string,email:string,facebook:string,calendar:string,idx:number){
   let jsonObj ={
     address_th : address_th,
-    tel_1 : tel_1,
-    tel_2 : tel_2,
+    tel : tel_1,
     email : email,
     facebook : facebook,
     calendar : calendar
