@@ -1,6 +1,6 @@
 <app-header></app-header>
 <app-menutoober></app-menutoober>
-<P Align=center style="font-size: 30px; ">รายงานการประชุม</P><br>
+<P Align=center style="font-size: 30px; ">แผนงานโรงพยาบาล</P><br>
 <!--Main layout-->
 
 <main style="margin-top: -30px; margin-left: 100px;">
@@ -10,8 +10,15 @@
       <div style="margin-left: 5%;">
         <button (click)="addNew()">
           เพิ่มรายงานการประชุม
+        </button> &nbsp;
+        <button (click)="addNew()">
+          เพิ่มแผนปฏิบัติข้าราชการ
+        </button> &nbsp;
+        <button (click)="addNew()">
+          เพิ่มแผนกลยุทธ์หน่วยงาน
         </button>
       </div>
+<br>
       <!-- list -->
       <!-- Show -->
       <div style="display: flex; flex-direction: row; ">
@@ -20,6 +27,7 @@
             <mat-list-option *ngFor="let item of this.response.records" [value]="item"
               style="width: 500px; height: 160px;">
               <div>
+                ประเภท : {{item.id_type_upload.type_name}} <br>
                 ชื่อ : {{item.name}} <br>
                 วัน/เวลาในการอัปโหลด : {{item.date}}
               </div>
@@ -31,6 +39,7 @@
         <div>
           <div *ngIf="select !=undefined">
             <div style="display: flex; flex-direction: column;">
+              <span>ประเภท : {{this.select.id_type_upload.type_name}}</span>
               <span>ชื่อ : {{this.select.name}} </span>
               <span>วัน/เวลาในการอัปโหลด : {{this.select.date}}</span>
               <span>Link : {{this.select.linkfile}}</span>

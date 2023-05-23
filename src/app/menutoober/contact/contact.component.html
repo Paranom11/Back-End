@@ -1,34 +1,32 @@
 <app-header></app-header>
 <app-menutoober></app-menutoober>
 <br>
-<div class="PositionColumn"  *ngFor="let item of this.response.records">
-  <mat-form-field appearance="outline" >
+<div class="PositionColumn" *ngFor="let item of this.response.records">
+  <mat-form-field appearance="outline">
     <mat-label>ที่อยู่</mat-label>
     <input type="text" value="{{item.address_th}}" #address_th matInput>
   </mat-form-field>
-  <mat-form-field appearance="outline" >
+  <mat-form-field appearance="outline">
     <mat-label>เบอร์โทร 1</mat-label>
-    <input type="text" value="{{item.tel_1}}"#tel_1 matInput>
+    <input type="text" value="{{item.tel}}" #tel matInput>
   </mat-form-field>
-  <mat-form-field appearance="outline" >
-    <mat-label>เบอร์โทร 2</mat-label>
-    <input type="text" value="{{item.tel_2}}"#tel_2 matInput>
-  </mat-form-field>
-  <mat-form-field appearance="outline" >
+  <mat-form-field appearance="outline">
     <mat-label> อีเมล/ติดต่อ</mat-label>
-    <input  type="text" value="{{item.email}}"#email matInput >
+    <input type="text" value="{{item.email}}" #email matInput>
   </mat-form-field>
-  <mat-form-field appearance="outline" >
+  <mat-form-field appearance="outline">
     <mat-label>Facebook</mat-label>
-    <input type="text" value="{{item.facebook}}"#facebook matInput>
+    <input type="text" value="{{item.facebook}}" #facebook matInput>
   </mat-form-field>
-  <mat-form-field appearance="outline" >
+  <mat-form-field appearance="outline">
     <mat-label>ปฎิทินกิจกรรม</mat-label>
     <input type="text" value="{{item.calendar}}" #calendar matInput>
   </mat-form-field>
-  <mat-form-field appearance="outline" >
+  <mat-form-field appearance="outline">
     <mat-label>Google Map</mat-label>
-    <input type="text" matInput>
+    <input type="text" value="{{item.google_Map}}" #google_Map matInput>
   </mat-form-field>
-  <button (click)="updateContact(address_th.value,tel_1.value,tel_2.value,email.value,facebook.value,calendar.value,item.id_anihmsu)" mat-raised-button color="primary">แก้ไขรูปภาพ</button>
+  <button
+    (click)="updateContact(address_th.value,tel.value,email.value,facebook.value,google_Map.value,calendar.value,item.id_anihmsu)"
+    mat-raised-button color="primary">แก้ไข</button>
 </div><br>

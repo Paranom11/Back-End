@@ -1,18 +1,16 @@
-export interface Conferenc {
+export interface Upload {
   records: Record[];
 }
 
 export interface Record {
-  id_conference: number;
-  name:          string;
-  linkfile:      string;
-  id_admin:      IDAdmin;
-  date:          string;
+  id_upload:      number;
+  id_type_upload: IDTypeUpload;
+  name:           string;
+  link:           null;
+  date:           string;
 }
 
-export interface IDAdmin {
-  id_admin: number;
-  email:    string;
-  password: string;
-  name:     string;
+export interface IDTypeUpload {
+  id_type_upload: number;
+  type_name:      string;
 }
