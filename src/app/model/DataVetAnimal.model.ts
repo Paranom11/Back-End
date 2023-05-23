@@ -9,8 +9,7 @@ export interface Record {
   address_th:               string;
   email:                    string;
   facebook:                 string;
-  tel_1:                    string;
-  tel_2:                    string;
+  tel:                      string;
   calendar:                 string;
   img_VMSA:                 string;
   mission_th:               string;
@@ -27,5 +26,6 @@ export interface Record {
   strategy_en:              string;
   history_th:               string;
   history_en:               string;
-  google_Mat:             string;
+  google_Map:               string;
+  Identify_img:             string;
 }

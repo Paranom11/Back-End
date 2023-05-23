@@ -8,11 +8,7 @@
   </mat-form-field>
   <mat-form-field appearance="outline" >
     <mat-label>เบอร์โทร 1</mat-label>
-    <input type="text" value="{{item.tel_1}}"#tel_1 matInput>
-  </mat-form-field>
-  <mat-form-field appearance="outline" >
-    <mat-label>เบอร์โทร 2</mat-label>
-    <input type="text" value="{{item.tel_2}}"#tel_2 matInput>
+    <input type="text" value="{{item.tel}}"#tel_1 matInput>
   </mat-form-field>
   <mat-form-field appearance="outline" >
     <mat-label> อีเมล/ติดต่อ</mat-label>
@@ -30,5 +26,5 @@
     <mat-label>Google Map</mat-label>
     <input type="text" matInput>
   </mat-form-field>
-  <button (click)="updateContact(address_th.value,tel_1.value,tel_2.value,email.value,facebook.value,calendar.value,item.id_anihmsu)" mat-raised-button color="primary">แก้ไขรูปภาพ</button>
+  <button (click)="updateContact(address_th.value,tel_1.value,email.value,facebook.value,calendar.value,item.id_anihmsu)" mat-raised-button color="primary">แก้ไขรูปภาพ</button>
 </div><br>

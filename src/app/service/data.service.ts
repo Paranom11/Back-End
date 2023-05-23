@@ -10,7 +10,7 @@ export class DataService {
   con : any;
   PersonnelSelected : any;
   News : any;
-  idx_type_new : any;
+  indexMaxNews : any;
   typeNews : any;
   constructor() { }
 }
