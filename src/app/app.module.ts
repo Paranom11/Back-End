@@ -31,12 +31,13 @@ import { DepartmentComponent } from './menutoober/department/department.componen
 import { ContactComponent } from './menutoober/contact/contact.component';
 import {MatSelectModule} from '@angular/material/select';
 import { ConferencePdfFileComponent } from './conference-pdf-file/conference-pdf-file.component';
-import { ConferencePdfFileAddComponent } from './conference-pdf-file-add/conference-pdf-file-add.component';
+import { ConferencePdfFileAddComponent } from './conference-pdf-file/conference-pdf-file-add/conference-pdf-file-add.component';
 import { NewsComponent } from './news/news.component';
 import { InsertNewComponent } from './news/insert-new/insert-new.component';
 import { InsertNextComponent } from './news/insert-next/insert-next.component';
 import { EditComponent } from './news/edit/edit.component';
 import { EditTypeNewsComponent } from './news/edit-type-news/edit-type-news.component';
+import { ConferencePdfFileEditComponent } from './conference-pdf-file/conference-pdf-file-edit/conference-pdf-file-edit.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -81,7 +82,8 @@ const appRoutes: Routes = [
       ConferencePdfFileComponent,
       ConferencePdfFileAddComponent,
       EditComponent,
-      EditTypeNewsComponent
+      EditTypeNewsComponent,
+      ConferencePdfFileEditComponent
 
 
   ],

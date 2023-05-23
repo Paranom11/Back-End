@@ -7,16 +7,10 @@
   <div>
     <div style="display: flex;flex-direction: column;width: 80%;">
       <!-- head -->
-      <div style="margin-left: 5%;">
-        <button (click)="addNew()">
+      <div style="margin-left: 5%;" >
+        <button (click)="addConference()" class="button">
           เพิ่มรายงานการประชุม
         </button> &nbsp;
-        <button (click)="addNew()">
-          เพิ่มแผนปฏิบัติข้าราชการ
-        </button> &nbsp;
-        <button (click)="addNew()">
-          เพิ่มแผนกลยุทธ์หน่วยงาน
-        </button>
       </div>
 <br>
       <!-- list -->
@@ -44,8 +38,8 @@
               <span>วัน/เวลาในการอัปโหลด : {{this.select.date}}</span>
               <span>Link : {{this.select.linkfile}}</span>
               <!-- แก้ไข -->
-              <!-- <div><button (click)="edit()">แก้ไข</button></div>
-              <div><button (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div> -->
+              <div><button (click)="edit()">แก้ไข</button></div>
+              <!-- <div><button (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div> -->
 
             </div>
           </div>

@@ -12,5 +12,6 @@ export class DataService {
   News : any;
   idx_type_new : any;
   typeNews : any;
+  showSelectTypeUpload : any;
   constructor() { }
 }

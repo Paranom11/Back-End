@@ -1,0 +1,26 @@
+<div style="display: flex;flex-direction: column;height: 600px;
+width: 500px;margin: 20px;">
+  <p>เพิ่มข้อมูลไฟล์</p>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ชื่อข้อมูลไฟล์	</mat-label>
+    <input type="text" #name matInput >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ประเภทไฟล์</mat-label>
+    <mat-select  [(value)]="oldSelect" #selectType>
+      <mat-option *ngFor="let item of this.response.records" value="{{item.id_type_upload}}">{{item.type_name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div style="flex-direction: column;">
+  <label style="margin-right: 200px;">ลิงค์</label>
+  <input type="file" name="" id="" (change)="getFile($any($event).target.files)" ><br>
+</div><br>
+
+  <button (click)="addNew(name.value,selectType.value)">Add</button>
+  <button (click)="close()">close</button><br>
+</div>
+
+

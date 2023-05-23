@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { DataService } from '../service/data.service';
-import { ConferencePdfFileComponent } from '../conference-pdf-file/conference-pdf-file.component';
+import { DataService } from '../../service/data.service';
+import { ConferencePdfFileComponent } from '../conference-pdf-file.component';
 import { formatDate } from '@angular/common';
+import { Upload } from 'src/app/model/pdf.model';
+import { TypeUpload } from 'src/app/model/type_upload.model';
 
 @Component({
   selector: 'app-conference-pdf-file-add',
@@ -12,52 +14,34 @@ import { formatDate } from '@angular/common';
 })
 export class ConferencePdfFileAddComponent {
 
-  response={} as ConferencePdfFileComponent;
+  response={} as TypeUpload;
   base64 : any;
   filename : any;
   url : any;
   sizefile : any;
   typefile : any;
   file : any;
-  date = new Date();
-  dateNew : any;
   fileD : any;
+  oldSelect : any;
+  date = new Date();
+  dateInsert = this.date.getFullYear()+"-"+this.date.getMonth()+"-"+this.date.getDay()+" "+this.date.getHours()+":"+this.date.getMinutes()+":"+this.date.getSeconds();
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<ConferencePdfFileAddComponent>){
-    this.response = data.con;
-
-    function padTo2Digits(num: number) {
-      return num.toString().padStart(2, '0');
-    }
-    function formatDate(date: Date) {
-      return (
-        [
-          date.getFullYear(),
-          padTo2Digits(date.getMonth() + 1),
-          padTo2Digits(date.getDate()),
-        ].join('-') +
-        ' ' +
-        [
-          padTo2Digits(date.getHours()),
-          padTo2Digits(date.getMinutes()),
-          padTo2Digits(date.getSeconds()),
-        ].join(':')
-      );
-    }
-
-    const result = formatDate(new Date());
-    this.dateNew = result;
-    // console.log(result);
-
+    http.get(data.apiEndpoint + "/type_upload_file")
+      .subscribe((data : any) => {
+        console.log(data);
+        this.response = data as TypeUpload;
+  });
   }
-  addNew(name:string){
-      console.log(this.file);
+  addNew(name:string, type_upload : number){
+       console.log(type_upload);
       let jsonObj ={
         name : name,
-        date : this.dateNew,
+        id_type_upload : type_upload  ,
+        date : this.dateInsert,
         linkfile : this.base64
     }
-    this.http.post(this.data.apiEndpoint + "/conference_pdf_file",JSON.stringify(jsonObj),
-    {observe:'response'}).subscribe((response: any)=>{
+    this.http.post(this.data.apiEndpoint + "/upload_file"
+    ,JSON.stringify(jsonObj),{observe:'response'}).subscribe((response: any)=>{
       this.dialogRef.close();
       location.reload();
     });

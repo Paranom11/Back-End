@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Upload } from '../model/conference.model';
+import { Upload } from '../model/pdf.model';
 import { DataService } from '../service/data.service';
 import { MatListOption } from '@angular/material/list';
-import { ConferencePdfFileAddComponent } from '../conference-pdf-file-add/conference-pdf-file-add.component';
+import { ConferencePdfFileAddComponent } from './conference-pdf-file-add/conference-pdf-file-add.component';
+import { ConferencePdfFileEditComponent } from './conference-pdf-file-edit/conference-pdf-file-edit.component';
 
 @Component({
   selector: 'app-conference-pdf-file',
@@ -17,7 +18,7 @@ export class ConferencePdfFileComponent {
   countries: any;
   constructor(private dataService : DataService , private http: HttpClient,
   private dialog : MatDialog){
-    http.get(dataService.apiEndpoint + "/upload_file?join=type_upload_file")
+    http.get(dataService.apiEndpoint + "/upload_file?join=type_upload_file&filter1=id_type_upload,eq,7&filter2=id_type_upload,eq,5&filter3=id_type_upload,eq,6")
       .subscribe((data : any) => {
         console.log(data);
         this.response = data as Upload;
@@ -31,10 +32,18 @@ show(option:MatListOption){
   console.log(this.select);
 }
 //เพิ่มข้อมูล
-addNew(){
+addConference(){
   this.dataService.countries = this.countries;
   this.dialog.open(ConferencePdfFileAddComponent,{
     minWidth:'300px',
+  });
+}
+//แก้ไข
+edit(){
+  this.dataService.showSelectTypeUpload = this.select;
+  console.log(this.dataService.showSelectTypeUpload)
+  this.dialog.open(ConferencePdfFileEditComponent,{
+    minWidth: '300px',
   });
 }
 }
