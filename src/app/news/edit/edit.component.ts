@@ -52,7 +52,6 @@ export class EditComponent {
       text_th: text_th,
       img: this.base64,
     };
-
     let jsonString = JSON.stringify(jsonObj);
     this.http
       .put(this.data.apiEndpoint + '/news/' + idx, jsonString, {
