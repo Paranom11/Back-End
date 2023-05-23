@@ -20,6 +20,7 @@ export class HomeComponent {
         console.log(data);
         this.response = data as DataVetAnimal;
   });
+  
 }
 getFile(files : FileList){
   let file = files.item(0);
