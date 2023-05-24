@@ -42,12 +42,12 @@ export class ConferencePdfFileEditComponent {
           name : name,
           id_type_upload : Number(type_upload)  ,
           date : this.dateInsert,
-          linkfile : this.base64
+          link : this.base64
       }
       this.http.put(this.data.apiEndpoint + "/upload_file/"+idx
       ,JSON.stringify(jsonObj),{observe:'response'}).subscribe((response: any)=>{
         this.dialogRef.close();
-        location.reload();
+        // location.reload();
       });
     }
     close(){

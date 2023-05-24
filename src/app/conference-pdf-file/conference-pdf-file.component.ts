@@ -24,7 +24,6 @@ export class ConferencePdfFileComponent {
         this.response = data as Upload;
   });
   // https://anihmsu.comsciproject.net/anihmsu/api.php/records/upload_file?filter=id_type_upload,eq,7
-
 }
 //แสดงผลข้อมูล
 show(option:MatListOption){

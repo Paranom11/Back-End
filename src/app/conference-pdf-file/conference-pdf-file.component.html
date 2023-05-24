@@ -8,7 +8,7 @@
     <div style="display: flex;flex-direction: column;width: 80%;">
       <!-- head -->
       <div style="margin-left: 5%;" >
-        <button (click)="addConference()" class="button">
+        <button mat-raised-button color="accent" (click)="addConference()" >
           เพิ่มรายงานการประชุม
         </button> &nbsp;
       </div>
@@ -35,10 +35,10 @@
             <div style="display: flex; flex-direction: column;">
               <span>ประเภท : {{this.select.id_type_upload.type_name}}</span>
               <span>ชื่อ : {{this.select.name}} </span>
-              <span>วัน/เวลาในการอัปโหลด : {{this.select.date}}</span>
-              <span>Link : {{this.select.linkfile}}</span>
+              <span>วัน/เวลาในการอัปโหลด : {{this.select.date}}</span><br>
+
               <!-- แก้ไข -->
-              <div><button (click)="edit()">แก้ไข</button></div>
+              <div><button mat-raised-button color="primary" (click)="edit()">แก้ไข</button></div>
               <!-- <div><button (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div> -->
 
             </div>
