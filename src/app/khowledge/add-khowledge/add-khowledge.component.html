@@ -1,0 +1,26 @@
+<div style="display: flex;flex-direction: column;height: 600px;
+width: 500px;margin: 20px;">
+  <p>เพิ่มหัวข้อความรู้</p>
+
+  <mat-form-field appearance="outline">
+    <mat-label>หัวข้อความรู้ภาษาไทย</mat-label>
+    <input type="text" #title_news_th matInput >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>หัวข้อความรู้ภาษาอังกฤษ</mat-label>
+    <input type="text" #title_news_en matInput >
+  </mat-form-field>
+
+  <div style="flex-direction: column;">
+    <label style="margin-right: 200px;">รูปภาพ</label>
+    <input type="file" name="" id="" (change)="getFile($any($event).target.files)" ><br>
+  <br>
+<br>
+
+  <button mat-raised-button color="primary" (click)="addkhowledge(title_news_th.value,title_news_en.value)">ถัดไป</button>&nbsp;
+  <button  mat-raised-button color="warn" (click)="close()">ยกเลิก</button><br>
+</div>
+
+
+

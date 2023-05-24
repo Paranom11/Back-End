@@ -12,5 +12,6 @@ export class DataService {
   News : any;
   indexMaxNews : any;
   typeNews : any;
+  khowledgeSelect : any; //มีข้อมูลความรู้ที่เลือก
   constructor() { }
 }

@@ -37,6 +37,11 @@ import { InsertNewComponent } from './news/insert-new/insert-new.component';
 import { InsertNextComponent } from './news/insert-next/insert-next.component';
 import { EditComponent } from './news/edit/edit.component';
 import { EditTypeNewsComponent } from './news/edit-type-news/edit-type-news.component';
+import { KhowledgeComponent } from './khowledge/khowledge.component';
+import { AddKhowledgeComponent } from './khowledge/add-khowledge/add-khowledge.component';
+import { AddkhowledgedetailComponent } from './khowledge/addkhowledgedetail/addkhowledgedetail.component';
+import { EditkhowledgeComponent } from './khowledge/editkhowledge/editkhowledge.component';
+import { EditTypeKhowledgeComponent } from './khowledge/edit-type-khowledge/edit-type-khowledge.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -53,6 +58,7 @@ const appRoutes: Routes = [
   {path:'contact',component:ContactComponent},
   {path:'news',component:NewsComponent},
   {path:'conference-pdf-file',component:ConferencePdfFileComponent},
+  {path:'khowledge',component:KhowledgeComponent},
 ];
 
 @NgModule({
@@ -81,7 +87,12 @@ const appRoutes: Routes = [
       ConferencePdfFileComponent,
       ConferencePdfFileAddComponent,
       EditComponent,
-      EditTypeNewsComponent
+      EditTypeNewsComponent,
+      KhowledgeComponent,
+      AddKhowledgeComponent,
+      AddkhowledgedetailComponent,
+      EditkhowledgeComponent,
+      EditTypeKhowledgeComponent
 
 
   ],
