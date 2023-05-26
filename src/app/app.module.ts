@@ -43,7 +43,6 @@ import { AddKhowledgeComponent } from './khowledge/add-khowledge/add-khowledge.c
 import { AddkhowledgedetailComponent } from './khowledge/addkhowledgedetail/addkhowledgedetail.component';
 import { EditkhowledgeComponent } from './khowledge/editkhowledge/editkhowledge.component';
 import { EditTypeKhowledgeComponent } from './khowledge/edit-type-khowledge/edit-type-khowledge.component';
-
 import { AgencyComponent } from './agency/agency.component';
 import { VeterinaryDutyComponent } from './veterinary-duty/veterinary-duty.component';
 import { AddDutyComponent } from './veterinary-duty/add-duty/add-duty.component';
@@ -104,7 +103,9 @@ const appRoutes: Routes = [
       VeterinaryDutyComponent,
       AddDutyComponent,
       AddDutyPersonnelComponent,
-      EditDutyComponent
+      EditDutyComponent,
+      ConferencePdfFileAddComponent,
+      AgencyComponent
 
 
   ],
