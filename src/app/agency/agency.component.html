@@ -1,0 +1,39 @@
+<app-header></app-header>
+<app-menutoober></app-menutoober>
+<br>
+
+<div style="display: flex;justify-content: center; ">
+  <mat-form-field appearance="outline">
+    <mat-label>หน่วยงาน</mat-label>
+    <mat-select #agency>
+      <mat-option   *ngFor="let item of this.response.records" value="{{item.id_type_agency}}">
+        {{item.name_agency_th}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>&nbsp;&nbsp;
+  <button mat-raised-button color="primary" style="margin-top: 10px;" (click)="show(agency.value)">ค้นหา</button>
+</div><br>
+  <div class="positionArea" *ngFor="let item of this.response1.records" style="display: flex; justify-content: center;">
+    <div class="positionAreaRow">
+      <mat-form-field appearance="outline">
+        <mat-label>ชื่อหน่วยงานภาษาไทย</mat-label>
+        <textarea matInput rows="2" #name_agency_th>{{item.name_agency_th}}</textarea>
+      </mat-form-field>&nbsp;&nbsp;
+
+      <mat-form-field appearance="outline">
+        <mat-label>ชื่อหน่วยงานภาษาอังกฤษ</mat-label>
+        <textarea matInput rows="2" #name_agency_en>{{item.name_agency_en}}</textarea>
+      </mat-form-field>&nbsp;&nbsp;
+
+      <mat-form-field appearance="outline">
+        <mat-label>ลิงก์หน่วยงาน</mat-label>
+        <textarea matInput rows="2" #link>{{item.link}}</textarea>
+      </mat-form-field>&nbsp;&nbsp;
+    </div>
+    <div class="positionAreaRow">
+      <button mat-raised-button color="primary" style="margin-top: 21px;"
+        (click)="update(name_agency_th.value,name_agency_en.value,link.value,item.id_agency)"><strong>แก้ไข</strong></button>
+      &nbsp;&nbsp;
+    </div><br>
+  </div>
+
