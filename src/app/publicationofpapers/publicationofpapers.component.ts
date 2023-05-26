@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { MatListOption } from '@angular/material/list';
+import { DataService } from '../service/data.service';
+import { PubilcPapers } from '../model/pubilc_papers.model';
+import { MatDialog } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-publicationofpapers',
@@ -6,5 +11,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./publicationofpapers.component.scss']
 })
 export class PublicationofpapersComponent {
-
+  select :any;
+  countries: any;
+  PersonnelSelected : any;
+  response = {} as PubilcPapers;
+  constructor(private dataService : DataService , private http: HttpClient,
+  private dialog : MatDialog){
+    http.get(dataService.apiEndpoint + "/publicationofpapers?join=personnel")
+      .subscribe((data : any) => {
+        console.log(data);
+        this.response = data as PubilcPapers;
+  });
+}
+//แสดงผลข้อมูล
+show(option:MatListOption){
+  this.select = option.value;
+  console.log(this.select);
+}
 }
