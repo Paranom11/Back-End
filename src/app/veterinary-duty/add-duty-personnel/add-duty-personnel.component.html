@@ -1,0 +1,17 @@
+<div style="display: flex;flex-direction: column;height: 600px;
+width: 500px;margin: 20px;" >
+  <p>เพิ่มบุคลากรประจำเวร</p>
+
+  <mat-form-field appearance="outline">
+    <mat-label>บุคลากร</mat-label>
+    <mat-select #selectPersonnel>
+      <mat-option *ngFor="let item of this.response.records" value="{{item.id_personnel}}">{{item.name_th}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div style="display: flex; flex-direction: row-reverse; margin-top: 90%;">
+     <button mat-raised-button color="warn" (click)="close()">ปิด</button><br> &nbsp;
+     <button mat-raised-button color="primary" (click)="addPersonnelStation(selectPersonnel.value)">เพิ่ม</button>
+  </div>
+</div>
+
