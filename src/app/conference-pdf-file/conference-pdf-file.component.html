@@ -1,17 +1,18 @@
 <app-header></app-header>
 <app-menutoober></app-menutoober>
-<P Align=center style="font-size: 30px; ">รายงานการประชุม</P><br>
+<P Align=center style="font-size: 30px; ">แผนงานโรงพยาบาล</P><br>
 <!--Main layout-->
 
 <main style="margin-top: -30px; margin-left: 100px;">
   <div>
     <div style="display: flex;flex-direction: column;width: 80%;">
       <!-- head -->
-      <div style="margin-left: 5%;">
-        <button (click)="addNew()">
+      <div style="margin-left: 5%;" >
+        <button mat-raised-button color="accent" (click)="addConference()" >
           เพิ่มรายงานการประชุม
-        </button>
+        </button> &nbsp;
       </div>
+<br>
       <!-- list -->
       <!-- Show -->
       <div style="display: flex; flex-direction: row; ">
@@ -20,6 +21,7 @@
             <mat-list-option *ngFor="let item of this.response.records" [value]="item"
               style="width: 500px; height: 160px;">
               <div>
+                
                 ชื่อ : {{item.name}} <br>
                 วัน/เวลาในการอัปโหลด : {{item.date}}
               </div>
@@ -31,13 +33,16 @@
         <div>
           <div *ngIf="select !=undefined">
             <div style="display: flex; flex-direction: column;">
+              <span>ประเภท : {{this.select.id_type_upload.type_name}}</span>
               <span>ชื่อ : {{this.select.name}} </span>
-              <span>วัน/เวลาในการอัปโหลด : {{this.select.date}}</span>
-              <span>Link : {{this.select.linkfile}}</span>
-              <!-- แก้ไข -->
-              <!-- <div><button (click)="edit()">แก้ไข</button></div>
-              <div><button (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div> -->
+              <span>วัน/เวลาในการอัปโหลด : {{this.select.date}}</span><br>
 
+              <div>
+                <!-- แก้ไข -->
+                <button mat-raised-button color="primary" (click)="edit()">แก้ไข</button> &nbsp;
+                <!-- ลบ -->
+                <button mat-raised-button color="warn" (click)="deletePersonnel(this.select.id_upload)">ลบ</button>
+              </div>
             </div>
           </div>
         </div>
