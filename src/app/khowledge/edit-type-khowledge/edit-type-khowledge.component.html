@@ -1,0 +1,23 @@
+<div style="display: flex;flex-direction: column;height: 600px;
+width: 500px;margin: 20px;">
+  <p>แก้ไขหัวข้อข่าวประชาสัมพันธ์</p>
+
+  <mat-form-field appearance="outline">
+    <mat-label>หัวข้อภาษาไทย</mat-label>
+    <input type="text" #title_news_th matInput value="{{khowledgeSelect.type_th}}" >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>หัวข้อภาษาอังกฤษ</mat-label>
+    <input type="text" #title_news_en matInput value="{{khowledgeSelect.type_en}}" >
+  </mat-form-field>
+
+  <div style="flex-direction: column;">
+    <img src="{{khowledgeSelect.img_main}}">
+    <input type="file" name="" id="" (change)="getFile($any($event).target.files)" ><br>
+  <br>
+<br>
+
+  <button mat-raised-button color="primary" (click)="edit(title_news_th.value,title_news_en.value,khowledgeSelect.id_type_kl)">แก้ไข</button>&nbsp;
+  <button  mat-raised-button color="warn" (click)="close()">ยกเลิก</button><br>
+</div>
