@@ -3,8 +3,9 @@
 <br>
 <h4><strong>ชันสูตร</strong></h4><br>
 <div *ngFor="let item of this.response.records">
-  <img src="{{item.img}}">
-  
+  <img src="{{item.Identify_img}}">
+  <input type="file" name="" id="" (change)="getFile($any($event).target.files)"><br>
+  <button mat-raised-button color="primary" (click)="save(item.id_anihmsu)">แก้ไข</button>
 </div>
 
 

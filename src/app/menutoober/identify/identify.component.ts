@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { DataVetAnimal } from 'src/app/model/DataVetAnimal.model';
-import { IdentifyData } from 'src/app/model/identify.model';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
@@ -10,14 +9,14 @@ import { DataService } from 'src/app/service/data.service';
   styleUrls: ['./identify.component.scss']
 })
 export class IdentifyComponent {
-  response={} as IdentifyData;
+  response={} as DataVetAnimal;
   base64 : any;
   filename : any;
   constructor(private data : DataService , private http: HttpClient){
-      http.get("https://anihmsu.comsciproject.net/anihmsu/api.php/records/identify")
+      http.get("https://anihmsu.comsciproject.net/anihmsu/api.php/records/information_anihmsu")
       .subscribe((data : any) => {
         console.log(data);
-        this.response = data as IdentifyData;
+        this.response = data as DataVetAnimal;
   });
   }
   getFile(files : FileList){
@@ -29,8 +28,22 @@ export class IdentifyComponent {
       this.base64 = reader.result;
       console.log(this.base64);
     }
-
-    //location.reload();
-
+  }
+  save(idx : number){
+    if(confirm("ยืนยันการเเก้ไขรูปภาพชันสูตร?") == true){
+      let jsonObj = {
+        Identify_img: this.base64,
+      };
+      let jsonString = JSON.stringify(jsonObj);
+      this.http
+        .put(this.data.apiEndpoint + '/information_anihmsu/' + idx, jsonString, {
+          observe: 'response',
+        })
+        .subscribe((response: any) => {
+          console.log(JSON.stringify(response.status));
+          console.log(JSON.stringify(response.body));
+          location.reload();
+        });
+    }
   }
 }
