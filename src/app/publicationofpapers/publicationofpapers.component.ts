@@ -17,11 +17,14 @@ export class PublicationofpapersComponent {
   response = {} as PubilcPapers;
   constructor(private dataService : DataService , private http: HttpClient,
   private dialog : MatDialog){
-    http.get(dataService.apiEndpoint + "/publicationofpapers?join=personnel")
+    http.get(dataService.apiEndpoint + "/write?join=publicationofpapers&join=personnel")
       .subscribe((data : any) => {
         console.log(data);
         this.response = data as PubilcPapers;
   });
+}
+addNew(){
+
 }
 //แสดงผลข้อมูล
 show(option:MatListOption){

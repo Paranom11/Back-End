@@ -1,45 +1,41 @@
 <app-header></app-header>
 <app-menutoober></app-menutoober>
-<p>publicationofpapers works!</p>
 <!--Main layout-->
-<main style="margin-top: -30px; margin-left: 100px;">
+<main style="margin-top: 30px; margin-left: 100px;">
   <div>
     <div style="display: flex;flex-direction: column;width: 80%;">
       <!-- head -->
-      <!-- <div style="margin-left: 5%;">
+      <div style="margin-left: 5%;">
         <button mat-raised-button color="accent" (click)="addNew()">
-          เพิ่มทีมผู้บริหาร
+          เพิ่มเอกสารเผยแพร่
         </button>
-      </div> -->
+      </div>
       <!-- list -->
-      <!-- <div style="display: flex; flex-direction: row; ">
+      <div style="display: flex; flex-direction: row; ">
         <div style="width: 600px;">
           <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
             <mat-list-option *ngFor="let item of this.response.records" [value]="item"
               style="width: 500px; height: 250px;">
               <div>
-                คำนำหน้าชื่อ-สกุล : {{item.name_prefix_th}}{{item.name_th}}<br>
-                อีเมล : {{item.email}} <br>
-                ประเภทบุคลากร : {{item.type_personnel_th}}<br>
-                <img src="{{item.picture}}" class="image" style="width: 80px;">
+                {{item.id_pubilc_papers.name}}<br>
+                {{item.id_personnel.name_prefix_th}}{{item.id_personnel.name_th}}<br>
+                <img src="{{item.id_pubilc_papers.image_pp}}" class="image" style="width: 150px;">
               </div>
             </mat-list-option>
           </mat-selection-list>
-        </div> -->
+        </div>
 
         <!-- Show -->
-        <!-- <div>
+        <div>
           <div *ngIf="select !=undefined">
             <div style="display: flex; flex-direction: column;">
-              <img src="{{this.select.picture}}" width="500px"><br>
-              <span>คำนำหน้าชื่อ-สกุล : {{this.select.name_prefix_th}} {{this.select.name_th}}</span>
-              <span>อีเมล : {{this.select.email}}</span>
-              <span>เบอร์โทรศัพท์ : {{this.select.phone_number}}</span>
-              <span>ความถนัด : {{this.select.aptitude_th}}</span>
-              <span>ตำแหน่งวิชาการ : {{this.select.academic_position_th}}</span>
-              <span>ประเภทบุคลากร : {{this.select.type_personnel_th}}</span>
-              <div style="flex-direction: row;"><button mat-raised-button color="primary" (click)="edit()">แก้ไข</button>&nbsp;
-              <button mat-raised-button color="warn" (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div>
+              <img src="{{this.select.id_pubilc_papers.image_pp}}" width="400px"><br>
+              <span>{{this.select.id_pubilc_papers.name}}</span>
+              <span>ผู้แต่ง : {{this.select.name_prefix_th}} {{this.select.id_personnel.name_th}}</span>
+
+
+              <!-- <div style="flex-direction: row;"><button mat-raised-button color="primary" (click)="edit()">แก้ไข</button>&nbsp;
+              <button mat-raised-button color="warn" (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div> -->
 
             </div>
           </div>
@@ -47,5 +43,5 @@
       </div>
     </div>
   </div>
-</main><br> -->
+</main><br>
 <!--Main layout-->

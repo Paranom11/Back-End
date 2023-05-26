@@ -1,13 +1,11 @@
 export interface PubilcPapers {
   records: Record[];
 }
-
 export interface Record {
-  id_pubilc_papers: number;
+  id_write:         number;
   id_personnel:     IDPersonnel;
-  filepath:         string;
-  image_pp:         string;
-  name:             string;
+  id_pubilc_papers: IDPubilcPapers;
+  date:             string;
 }
 
 export interface IDPersonnel {
@@ -25,4 +23,11 @@ export interface IDPersonnel {
   email:                string;
   phone_number:         string;
   picture:              string;
+}
+
+export interface IDPubilcPapers {
+  id_pubilc_papers: number;
+  filepath:         string;
+  image_pp:         string;
+  name:             string;
 }
