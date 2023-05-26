@@ -29,10 +29,11 @@ import { AddImageSlidsComponent } from './dialog/add-image-slids/add-image-slids
 import { VMSPComponent } from './menutoober/vmsp/vmsp.component';
 import { DepartmentComponent } from './menutoober/department/department.component';
 import { ContactComponent } from './menutoober/contact/contact.component';
+import { ConferencePdfFileEditComponent } from './conference-pdf-file/conference-pdf-file-edit/conference-pdf-file-edit.component';
 import {MatSelectModule} from '@angular/material/select';
-import { ConferencePdfFileComponent } from './conference-pdf-file/conference-pdf-file.component';
 import { ConferencePdfFileAddComponent } from './conference-pdf-file/conference-pdf-file-add/conference-pdf-file-add.component';
 import { NewsComponent } from './news/news.component';
+import { ConferencePdfFileComponent } from './conference-pdf-file/conference-pdf-file.component';
 import { InsertNewComponent } from './news/insert-new/insert-new.component';
 import { InsertNextComponent } from './news/insert-next/insert-next.component';
 import { EditComponent } from './news/edit/edit.component';
@@ -42,7 +43,7 @@ import { AddKhowledgeComponent } from './khowledge/add-khowledge/add-khowledge.c
 import { AddkhowledgedetailComponent } from './khowledge/addkhowledgedetail/addkhowledgedetail.component';
 import { EditkhowledgeComponent } from './khowledge/editkhowledge/editkhowledge.component';
 import { EditTypeKhowledgeComponent } from './khowledge/edit-type-khowledge/edit-type-khowledge.component';
-import { ConferencePdfFileEditComponent } from './conference-pdf-file/conference-pdf-file-edit/conference-pdf-file-edit.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -85,17 +86,16 @@ const appRoutes: Routes = [
       NewsComponent,
       InsertNewComponent,
       InsertNextComponent,
-      ConferencePdfFileComponent,
-      ConferencePdfFileAddComponent,
+      ConferencePdfFileEditComponent,
       EditComponent,
       EditTypeNewsComponent,
-      ConferencePdfFileEditComponent,
+      KhowledgeComponent,
       AddKhowledgeComponent,
       AddkhowledgedetailComponent,
       EditkhowledgeComponent,
       EditTypeKhowledgeComponent,
-
-
+      ConferencePdfFileAddComponent,
+      ConferencePdfFileComponent
 
 
   ],
@@ -111,7 +111,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatListModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
