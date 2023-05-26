@@ -105,7 +105,8 @@ const appRoutes: Routes = [
       AddDutyPersonnelComponent,
       EditDutyComponent,
       ConferencePdfFileAddComponent,
-      AgencyComponent
+      AgencyComponent,
+      ConferencePdfFileComponent
 
 
   ],
