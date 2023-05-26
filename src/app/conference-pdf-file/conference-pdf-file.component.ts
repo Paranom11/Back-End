@@ -23,7 +23,7 @@ export class ConferencePdfFileComponent {
         console.log(data);
         this.response = data as Upload;
   });
-  // https://anihmsu.comsciproject.net/anihmsu/api.php/records/upload_file?filter=id_type_upload,eq,7
+
 }
 //แสดงผลข้อมูล
 show(option:MatListOption){
@@ -44,5 +44,16 @@ edit(){
   this.dialog.open(ConferencePdfFileEditComponent,{
     minWidth: '300px',
   });
+}
+//ลบข้อมูล
+deletePersonnel(id : number){
+  console.log(id);
+  if(confirm("ยันยันการลบข้อมูล ?")==true){
+    this.http.delete(this.dataService.apiEndpoint+"/upload_file/" + id)
+    .subscribe((res) => {
+      console.log(res);
+      location.reload();
+    });
+  }
 }
 }
