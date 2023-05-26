@@ -42,6 +42,11 @@ import { AddKhowledgeComponent } from './khowledge/add-khowledge/add-khowledge.c
 import { AddkhowledgedetailComponent } from './khowledge/addkhowledgedetail/addkhowledgedetail.component';
 import { EditkhowledgeComponent } from './khowledge/editkhowledge/editkhowledge.component';
 import { EditTypeKhowledgeComponent } from './khowledge/edit-type-khowledge/edit-type-khowledge.component';
+import { VeterinaryDutyComponent } from './veterinary-duty/veterinary-duty.component';
+import { AddDutyComponent } from './veterinary-duty/add-duty/add-duty.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { AddDutyPersonnelComponent } from './veterinary-duty/add-duty-personnel/add-duty-personnel.component';
+import { EditDutyComponent } from './veterinary-duty/edit-duty/edit-duty.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -59,6 +64,7 @@ const appRoutes: Routes = [
   {path:'news',component:NewsComponent},
   {path:'conference-pdf-file',component:ConferencePdfFileComponent},
   {path:'khowledge',component:KhowledgeComponent},
+  {path:'stationed',component:VeterinaryDutyComponent},
 ];
 
 @NgModule({
@@ -92,7 +98,11 @@ const appRoutes: Routes = [
       AddKhowledgeComponent,
       AddkhowledgedetailComponent,
       EditkhowledgeComponent,
-      EditTypeKhowledgeComponent
+      EditTypeKhowledgeComponent,
+      VeterinaryDutyComponent,
+      AddDutyComponent,
+      AddDutyPersonnelComponent,
+      EditDutyComponent
 
 
   ],
@@ -108,7 +118,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatListModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

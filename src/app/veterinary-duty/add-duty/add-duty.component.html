@@ -1,0 +1,30 @@
+<div style="display: flex;flex-direction: column;height: 600px;
+width: 500px;margin: 20px;">
+  <p>เพิ่มวันเวลาเวรสัตวเเพทย์</p>
+
+  <mat-form-field appearance="outline">
+    <mat-label>วันที่เข้างาน</mat-label>
+    <mat-select #dateDuty>
+      <mat-option value="จันทร์">จันทร์</mat-option>
+      <mat-option value="อังคาร">อังคาร</mat-option>
+      <mat-option value="พุธ">พุธ</mat-option>
+      <mat-option value="พฤหัสบดี">พฤหัสบดี</mat-option>
+      <mat-option value="ศุกร์">ศุกร์</mat-option>
+      <mat-option value="เสาร์">เสาร์</mat-option>
+      <mat-option value="อาทิตย์">อาทิตย์</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<label for="appt-time">เลือกเวลาเข้างาน </label>
+<input class="timepicker" id="appt-time" type="time"  name="appt-time" #date_start/><br>
+
+<label for="appt-time">เลือกเวลาออกงาน </label>
+<input class="timepicker" id="appt-time" type="time" name="appt-time" #date_end/>
+
+  <div style="flex-direction: column;"><br>
+  <button mat-raised-button color="primary" (click)="addStationed(dateDuty.value,date_start.value,date_end.value)">ถัดไป</button>&nbsp;
+  <button  mat-raised-button color="warn" (click)="close()">ยกเลิก</button><br>
+</div>
+
+
+

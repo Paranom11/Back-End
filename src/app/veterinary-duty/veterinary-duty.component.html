@@ -1,0 +1,49 @@
+<app-header></app-header>
+<app-menutoober></app-menutoober>
+<P Align=center style="font-size: 30px; ">เวรสัตวเเพทย์</P><br>
+
+
+<!--Main layout-->
+<main style="margin-top: -30px; margin-left: 100px;">
+  <div>
+    <div style="display: flex;flex-direction: column;width: 80%;">
+      <!-- head -->
+      <div style="margin-left: 5%;">
+        <button mat-raised-button color="accent" (click)="addStationed()">
+          เพิ่มเวรสัตวเเพทย์
+        </button>
+      </div><br>
+      <!-- list -->
+      <div style="display: flex; flex-direction: row; ">
+        <div style="width: 600px; max-height: 50vh; overflow: auto;">
+          <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
+            <mat-list-option *ngFor="let item of this.response.records" [value]="item"
+              style="width: 500px; height: 250px;">
+              <div>
+                คำนำหน้าชื่อ-สกุล : {{item.name_prefix_th}}{{item.name_th}}<br>
+                อีเมล : {{item.email}} <br>
+                ประเภทบุคลากร : {{item.type_personnel_th}}<br>
+                <img src="{{item.picture}}" class="image" style="width: 80px;">
+              </div>
+            </mat-list-option>
+          </mat-selection-list>
+        </div>
+
+        <!-- Show -->
+        <div style="max-height: 50vh; overflow: auto; margin-left: 20px;">
+          <div *ngFor="let item of this.response2.records">
+            <div style="display: flex; flex-direction: column; ">
+              <span>วันที่เข้างาน : {{item.id_stationed.datail_stationed}}</span>
+              <span>เวลาเข้างาน : {{item.id_stationed.date_start}}</span>
+              <span>เวลาออกงาน : {{item.id_stationed.date_end}}</span>
+              <span>ฝ่าย : {{item.id_personnel.aptitude_th}}</span>
+              <div style="flex-direction: row;"><button mat-raised-button color="primary" (click)="edit(item.id_stationed.id_stationed)">แก้ไข</button>&nbsp;
+              <button mat-raised-button color="warn" (click)="deletePersonnel()">ลบ</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</main><br>
+<!--Main layout-->
