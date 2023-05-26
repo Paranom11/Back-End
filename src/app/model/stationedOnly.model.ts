@@ -1,4 +1,8 @@
 export interface stationedOnly {
+id_stationed: any;
+date_end: any;
+date_start: any;
+datail_stationed: any;
   records: Record[];
 }
 

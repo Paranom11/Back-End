@@ -51,14 +51,20 @@ export class VeterinaryDutyComponent {
     });
    }
 
-   edit(){
-
+   edit(idx : Number){
+    this.dataService.stationedDuty = idx;
     this.dialog.open(EditDutyComponent,{
       minWidth: '300px',
     });
    }
-   deletePersonnel(){
-
+   deletePersonnel(idx : number){
+      if(confirm("ยืนยันการลบเวรสัตวเเพทย์?") == true){
+        this.http.delete(this.dataService.apiEndpoint+"/stationed/" + idx)
+        .subscribe((res) => {
+          console.log(res);
+          location.reload();
+        });
+      }
    }
 }
 
