@@ -51,8 +51,8 @@ export class VeterinaryDutyComponent {
     });
    }
 
-   edit(idx : number){
-    this.dataService.stationedDuty = idx;
+   edit(){
+
     this.dialog.open(EditDutyComponent,{
       minWidth: '300px',
     });
