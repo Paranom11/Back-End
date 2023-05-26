@@ -18,7 +18,7 @@ export class ConferencePdfFileComponent {
   countries: any;
   constructor(private dataService : DataService , private http: HttpClient,
   private dialog : MatDialog){
-    http.get(dataService.apiEndpoint + "/upload_file?join=type_upload_file&filter1=id_type_upload,eq,7&filter2=id_type_upload,eq,5&filter3=id_type_upload,eq,6")
+    http.get(dataService.apiEndpoint + "/upload_file?join=type_upload_file")
       .subscribe((data : any) => {
         console.log(data);
         this.response = data as Upload;
