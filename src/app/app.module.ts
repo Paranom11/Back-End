@@ -89,7 +89,13 @@ const appRoutes: Routes = [
       ConferencePdfFileAddComponent,
       EditComponent,
       EditTypeNewsComponent,
-      ConferencePdfFileEditComponent
+      ConferencePdfFileEditComponent,
+      AddKhowledgeComponent,
+      AddkhowledgedetailComponent,
+      EditkhowledgeComponent,
+      EditTypeKhowledgeComponent,
+
+
 
 
   ],
