@@ -45,6 +45,7 @@ import { EditkhowledgeComponent } from './khowledge/editkhowledge/editkhowledge.
 import { EditTypeKhowledgeComponent } from './khowledge/edit-type-khowledge/edit-type-khowledge.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AgencyComponent } from './agency/agency.component';
+import { PublicationofpapersComponent } from './publicationofpapers/publicationofpapers.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -63,6 +64,7 @@ const appRoutes: Routes = [
   {path:'conference-pdf-file',component:ConferencePdfFileComponent},
   {path:'khowledge',component:KhowledgeComponent},
   {path:'agency',component:AgencyComponent},
+  {path:'publicationofpapers',component:PublicationofpapersComponent},
 ];
 
 @NgModule({
@@ -98,7 +100,8 @@ const appRoutes: Routes = [
       EditTypeKhowledgeComponent,
       ConferencePdfFileAddComponent,
       ConferencePdfFileComponent,
-      AgencyComponent
+      AgencyComponent,
+      PublicationofpapersComponent
 
 
   ],
