@@ -46,6 +46,10 @@ import { EditTypeKhowledgeComponent } from './khowledge/edit-type-khowledge/edit
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AgencyComponent } from './agency/agency.component';
 import { PublicationofpapersComponent } from './publicationofpapers/publicationofpapers.component';
+import { AddPublicComponent } from './publicationofpapers/add-public/add-public.component';
+import { AddPublicPersonnelComponent } from './publicationofpapers/add-public-personnel/add-public-personnel.component';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -101,7 +105,10 @@ const appRoutes: Routes = [
       ConferencePdfFileAddComponent,
       ConferencePdfFileComponent,
       AgencyComponent,
-      PublicationofpapersComponent
+      PublicationofpapersComponent,
+      AddPublicComponent,
+      AddPublicPersonnelComponent,
+
 
 
   ],
@@ -118,7 +125,9 @@ const appRoutes: Routes = [
     MatListModule,
     MatDialogModule,
     MatSelectModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

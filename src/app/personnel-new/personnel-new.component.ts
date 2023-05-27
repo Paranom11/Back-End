@@ -49,21 +49,7 @@ export class PersonnelNewComponent {
   close(){
     this.dialogRef.close();
   }
-  // upload(){
-  //   console.log("OK");
-  //   let json = {
-  //     Filename : this.filename,
-  //     Filesize : this.sizefile,
-  //     Filetype : this.typefile
-  //   }
-  //   this.http.post('ftp://u528477660.anihmsu@ftp.comsciproject.net/images',JSON.stringify(json)).subscribe(data => {
-  //     console.log(data);
-  //     let jsonObj : any = data;
-  //     this.url = jsonObj.url;
-  //   }, error => {
 
-  //   });
-  // }
   getFile(files : FileList){
     let file = files.item(0);
     let reader = new FileReader();

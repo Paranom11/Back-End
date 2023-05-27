@@ -1,0 +1,17 @@
+<div style="display: flex;flex-direction: column;height: 600px;
+width: 500px;margin: 20px;">
+  <p>บุคลากรที่เขียนเอกสาร</p>
+
+  <mat-selection-list *ngFor="let item of this.response.records" #selectPersonnel [multiple]="true" >
+    <mat-list-option >
+      {{item.name_prefix_th}}{{item.name_th}}
+    </mat-list-option>
+  </mat-selection-list>
+
+
+  <button mat-raised-button color="primary" (click)="addPaperPersonnel(valuesss)">ถัดไป</button>&nbsp;
+  <button  mat-raised-button color="warn" (click)="close()">ยกเลิก</button><br>
+</div>
+
+
+

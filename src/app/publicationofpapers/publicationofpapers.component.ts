@@ -4,6 +4,7 @@ import { DataService } from '../service/data.service';
 import { PubilcPapers } from '../model/pubilc_papers.model';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
+import { AddPublicComponent } from './add-public/add-public.component';
 
 @Component({
   selector: 'app-publicationofpapers',
@@ -23,8 +24,10 @@ export class PublicationofpapersComponent {
         this.response = data as PubilcPapers;
   });
 }
-addNew(){
-
+addPublicPaper(){
+  this.dialog.open(AddPublicComponent,{
+    minWidth:'300px',
+  });
 }
 //แสดงผลข้อมูล
 show(option:MatListOption){
