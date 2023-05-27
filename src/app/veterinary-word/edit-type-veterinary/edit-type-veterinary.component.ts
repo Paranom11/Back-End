@@ -11,10 +11,12 @@ import { DataService } from 'src/app/service/data.service';
 export class EditTypeVeterinaryComponent {
   typeWork : any;
   base64 : any;
+  select : any;
 
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<EditTypeVeterinaryComponent>){
     this.typeWork = data.typeWork;
-    console.log(this.typeWork);
+    this.select = this.typeWork;
+    console.log(this.select);
   }
   getFile(files : FileList){
     let reader = new FileReader();
@@ -23,7 +25,9 @@ export class EditTypeVeterinaryComponent {
       this.base64 = reader.result;
     };
   }
-  edit(type_th:string , type_en:string , idx : number){
+  edit(type_th:string , type_en:string ,id_type_work : number){
+    console.log(type_th,type_en,id_type_work);
+
     if(confirm("ยืนยันการแก้ไขหัวข้องานการสัตวแพยท์") == true){
        let jsonObj ={
           type_th : type_th,
@@ -32,7 +36,7 @@ export class EditTypeVeterinaryComponent {
       }
 
       let jsonString = JSON.stringify(jsonObj);
-      this.http.put(this.data.apiEndpoint + "/type_work/"+idx,jsonString,
+      this.http.put(this.data.apiEndpoint + "/type_work/"+id_type_work,jsonString,
       {observe:'response'}).subscribe((response: any)=>{
         console.log(JSON.stringify(response.status));
         console.log(JSON.stringify(response.body));

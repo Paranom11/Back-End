@@ -18,13 +18,13 @@
       <div style="display: flex; flex-direction: row; ">
         <div style="width: 600px;">
           <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
-            <mat-list-option *ngFor="let item of this.response.records" [value]="item"
+            <mat-list-option *ngFor="let item of this.response1.records" [value]="item"
               style="width: 500px; height: 160px;">
               <div>
-              <img src="{{item.id_type_work.img_main}}" width="100px" ><br>
-               {{item.id_type_work.type_th}} <br>
-               {{item.id_type_work.type_en}} <br>
-                 {{item.id_type_work.date}}
+              <img src="{{item.img_main}}" width="100px" ><br>
+               {{item.type_th}} <br>
+               {{item.type_en}} <br>
+                 {{item.date}}
               </div>
             </mat-list-option>
           </mat-selection-list>
@@ -33,10 +33,10 @@
         <div>
           <div *ngIf="select !=undefined">
             <div style="display: flex; flex-direction: column;">
-              <img src="{{this.select.id_type_work.img_main}}" width="500px">
-              <span>{{this.select.id_type_work.type_th}}</span>
-              <span>{{this.select.id_type_work.type_en}} </span>
-              <span>{{this.select.id_type_work.date}}</span><br>
+              <img src="{{this.select.img_main}}" width="500px">
+              <span>{{this.select.type_th}}</span>
+              <span>{{this.select.type_en}} </span>
+              <span>{{this.select.date}}</span><br>
 
               <div>
                 <!-- แก้ไข -->

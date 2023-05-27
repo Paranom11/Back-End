@@ -4,12 +4,12 @@ width: 500px;margin: 20px;">
 
   <mat-form-field appearance="outline">
     <mat-label>หัวข้อภาษาไทย</mat-label>
-    <input type="text" #title_news_th matInput >
+    <input type="text" #type_th matInput >
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>หัวข้อภาษาอังกฤษ</mat-label>
-    <input type="text" #title_news_en matInput >
+    <input type="text" #type_th matInput >
   </mat-form-field>
 
   <div style="flex-direction: column;">
@@ -18,7 +18,7 @@ width: 500px;margin: 20px;">
   <br>
 <br>
 
-  <button mat-raised-button color="primary" (click)="addNew(title_news_th.value,title_news_en.value)">ถัดไป</button>&nbsp;
+  <button mat-raised-button color="primary" (click)="addNew(type_th.value,type_th.value)">ถัดไป</button>&nbsp;
   <button  mat-raised-button color="warn" (click)="close()">ยกเลิก</button><br>
 </div>
 

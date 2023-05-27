@@ -6,6 +6,7 @@ import { VeterinaryWork } from '../model/veterinary_work.model';
 import { HttpClient } from '@angular/common/http';
 import { InsertVeterinaryComponent } from './insert-veterinary/insert-veterinary.component';
 import { EditTypeVeterinaryComponent } from './edit-type-veterinary/edit-type-veterinary.component';
+import { TypeWork } from '../model/type_work.model';
 
 @Component({
   selector: 'app-veterinary-word',
@@ -14,16 +15,23 @@ import { EditTypeVeterinaryComponent } from './edit-type-veterinary/edit-type-ve
 })
 export class VeterinaryWordComponent {
   response = {} as VeterinaryWork;
+  response1 = {} as TypeWork
   select: any;
   countries: any;
   base64 : any;
+  typeWork : any;
   constructor(private dataService : DataService , private http: HttpClient,
   private dialog : MatDialog){
     http.get(dataService.apiEndpoint + "/veterinary_work?join=type_work")
       .subscribe((data : any) => {
         console.log(data);
         this.response = data as VeterinaryWork;
-  });
+  }),
+  http.get(dataService.apiEndpoint + "/type_work")
+      .subscribe((data : any) => {
+        console.log(data);
+        this.response1 = data as TypeWork;
+    });
 
 }
 //แสดงผลข้อมูล
@@ -47,6 +55,7 @@ addVeterinary(){
 //   });
 // }
 editTypeword(){
+  this.dataService.typeWork=this.select;
   this.dialog.open(EditTypeVeterinaryComponent,{
     minWidth: '300px',
   });
