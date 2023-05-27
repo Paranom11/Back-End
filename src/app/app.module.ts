@@ -49,6 +49,11 @@ import { AddDutyComponent } from './veterinary-duty/add-duty/add-duty.component'
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AddDutyPersonnelComponent } from './veterinary-duty/add-duty-personnel/add-duty-personnel.component';
 import { EditDutyComponent } from './veterinary-duty/edit-duty/edit-duty.component';
+import { VeterinaryWordComponent } from './veterinary-word/veterinary-word.component';
+import { InsertVeterinaryComponent } from './veterinary-word/insert-veterinary/insert-veterinary.component';
+import { InsertNextVeterinaryComponent } from './veterinary-word/insert-next-veterinary/insert-next-veterinary.component';
+import { EditTypeVeterinaryComponent } from './veterinary-word/edit-type-veterinary/edit-type-veterinary.component';
+import { EditVeterinaryComponent } from './veterinary-word/edit-veterinary/edit-veterinary.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -67,6 +72,7 @@ const appRoutes: Routes = [
   {path:'conference-pdf-file',component:ConferencePdfFileComponent},
   {path:'khowledge',component:KhowledgeComponent},
   {path:'stationed',component:VeterinaryDutyComponent},
+  {path:'veterinary-word',component:VeterinaryWordComponent},
 ];
 
 @NgModule({
@@ -106,7 +112,13 @@ const appRoutes: Routes = [
       EditDutyComponent,
       ConferencePdfFileAddComponent,
       AgencyComponent,
-      ConferencePdfFileComponent
+      ConferencePdfFileComponent,
+      VeterinaryWordComponent,
+      InsertVeterinaryComponent,
+      InsertNextVeterinaryComponent,
+      EditVeterinaryComponent,
+      EditTypeVeterinaryComponent,
+
 
 
   ],

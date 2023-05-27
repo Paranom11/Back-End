@@ -1,0 +1,23 @@
+<div style="display: flex;flex-direction: column;height: 600px;
+width: 500px;margin: 20px;">
+  <p>แก้ไขหัวข้องานการสัตวแพมย์</p>
+
+  <mat-form-field appearance="outline">
+    <mat-label>หัวข้อภาษาไทย</mat-label>
+    <input type="text" #type_th matInput value="{{typeWork.type_th}}" >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>หัวข้อภาษาอังกฤษ</mat-label>
+    <input type="text" #type_en matInput value="{{typeWork.type_en}}" >
+  </mat-form-field>
+
+  <div style="flex-direction: column;">
+    <img src="{{typeWork.img_main}}">
+    <input type="file" name="" id="" (change)="getFile($any($event).target.files)" ><br>
+  <br>
+<br>
+
+  <button mat-raised-button color="primary" (click)="edit(type_th.value,type_en.value,typeWork.id_type_work)">แก้ไข</button>&nbsp;
+  <button  mat-raised-button color="warn" (click)="close()">ยกเลิก</button><br>
+</div>
