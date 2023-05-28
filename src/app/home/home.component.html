@@ -1,27 +1,17 @@
 <app-header></app-header>
 <app-menutoober></app-menutoober>
-<!-- <br>
 <div *ngFor="let item of this.response.records">
   <img class="image" id="show" src="{{item.img_history}}">
-  <p><input  type="file" name="" id="" style="margin-left: 100px;" (change)="getFile($any($event).target.files)"></p>
+  <p><input type="file" name="" id="" style="margin-left: 100px; " (change)="getFile($any($event).target.files)"
+      #img_history></p>
   <br>
-  <div style="flex-direction: column;">
-  <textarea #history_th>{{item.history_th}}</textarea><br><br>
-  <textarea #history_en>{{item.history_en}}</textarea></div>
-
-  <div style="flex-direction: row; margin-left: 44%; padding: 10px;">
-      <button mat-raised-button color="primary" (click)="updateHistory(history_th.value,history_en.value,item.id_anihmsu)" >แก้ไข</button> &nbsp;&nbsp;
-  </div>
-</div> -->
-<div *ngFor="let item of this.response.records">
-<img class="image" id="show" src="{{item.img_history}}">
-  <p><input  type="file" name="" id="" style="margin-left: 100px;" (change)="getFile($any($event).target.files)"></p>
-  <br>
-<angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"
-[config]="editorConfig"></angular-editor>
-
-<angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent1"
-[config]="editorConfig"></angular-editor>
-
-<button mat-raised-button color="primary" (click)="updateHistory()" >แก้ไข</button> &nbsp;&nbsp;
+  <div style="width: 1000px;  margin-left: 250px;">
+    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"
+      [config]="editorConfig"></angular-editor>
+    <br>
+      <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent1"
+      [config]="editorConfig"></angular-editor>
+  </div><br>
+  <button mat-raised-button color="primary" style="display: flex;justify-content: center;"
+    (click)="updateHistory(img_history.value,htmlContent,htmlContent1)">แก้ไข</button> &nbsp;&nbsp;
 </div>

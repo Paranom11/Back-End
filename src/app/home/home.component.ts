@@ -54,7 +54,6 @@ export class HomeComponent {
         tag: 'h1',
       },
     ],
-
 };
 ///
 
@@ -76,12 +75,10 @@ ngOnInit(): void {
         this.faculty_info = data.body.records[0];
         this.htmlContent = this.faculty_info.history_th;
         this.htmlContent1 = this.faculty_info.history_en;
-        console.log(this.faculty_info.FI_ID);
-
+        console.log(this.faculty_info.id_anihmsu);
       },
       error: (err)=>{
         console.log(err);
-
       }
     }
   )
@@ -95,27 +92,20 @@ getFile(files : FileList){
   reader.readAsDataURL(files[0]);
   reader.onload = () => {
     this.base64 = reader.result;
-    console.log(this.base64);
   }
-
-  //location.reload();
-
 }
 
-
-
-updateHistory(){
+updateHistory(img_history : string ,history_th:string,history_en:string){
   let jsonObj ={
     img_history : this.base64,
     history_th : this.htmlContent,
-    history_en : this.htmlContent1
-
+    history_en : this.htmlContent1,
   }
-  this.http.put(this.data.apiEndpoint+"/information_anihmsu/"+ this.faculty_info.id_anihmsu,jsonObj,
+  this.http.put(this.data.apiEndpoint+"/information_anihmsu/"+this.faculty_info.id_anihmsu,jsonObj,
   {observe:'response'}).subscribe((response : any)=>
   {console.log(JSON.stringify(response.status));
     console.log(JSON.stringify(response.body));
+    location.reload();
   });
-  location.reload();
 }
 }

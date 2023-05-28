@@ -51,6 +51,7 @@ import { AddDutyPersonnelComponent } from './veterinary-duty/add-duty-personnel/
 import { EditDutyComponent } from './veterinary-duty/edit-duty/edit-duty.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule } from '@angular/forms';
+import { LoginWarnComponent } from './login/login-warn/login-warn.component';
 
 
 const appRoutes: Routes = [
@@ -110,6 +111,7 @@ const appRoutes: Routes = [
       ConferencePdfFileAddComponent,
       AgencyComponent,
       ConferencePdfFileComponent,
+      LoginWarnComponent,
 
 
   ],
