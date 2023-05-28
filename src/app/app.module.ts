@@ -49,6 +49,10 @@ import { AddDutyComponent } from './veterinary-duty/add-duty/add-duty.component'
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AddDutyPersonnelComponent } from './veterinary-duty/add-duty-personnel/add-duty-personnel.component';
 import { EditDutyComponent } from './veterinary-duty/edit-duty/edit-duty.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { FormsModule } from '@angular/forms';
+import { LoginWarnComponent } from './login/login-warn/login-warn.component';
+
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -106,7 +110,8 @@ const appRoutes: Routes = [
       EditDutyComponent,
       ConferencePdfFileAddComponent,
       AgencyComponent,
-      ConferencePdfFileComponent
+      ConferencePdfFileComponent,
+      LoginWarnComponent,
 
 
   ],
@@ -123,7 +128,9 @@ const appRoutes: Routes = [
     MatListModule,
     MatDialogModule,
     MatSelectModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    AngularEditorModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
