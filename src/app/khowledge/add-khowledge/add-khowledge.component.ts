@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Khowledge } from 'src/app/model/khowledge.model';
-import { Type_Khowledge } from 'src/app/model/type_khowledge.model';
 import { DataService } from 'src/app/service/data.service';
 import { AddkhowledgedetailComponent } from '../addkhowledgedetail/addkhowledgedetail.component';
 
@@ -13,15 +11,11 @@ import { AddkhowledgedetailComponent } from '../addkhowledgedetail/addkhowledged
 })
 export class AddKhowledgeComponent {
   base64 : any;
-  response={} as Khowledge;
-  typeKhowledge={} as Type_Khowledge;
   khowledgeSelect : any;
-  date = new Date();
-  dateInsert = this.date.getFullYear()+"-"+this.date.getMonth()+"-"+this.date.getDay()+" "+this.date.getHours()+":"+this.date.getMinutes()+":"+this.date.getSeconds();
+  datetime = new Date();
+  dateInsert = this.datetime.getFullYear()+"-"+this.datetime.getMonth()+"-"+this.datetime.getDay()+" "+this.datetime.getHours()+":"+this.datetime.getMinutes()+":"+this.datetime.getSeconds();
 
-  constructor(private dataService : DataService , private http: HttpClient, private dialog : MatDialog,private dialogRef :MatDialogRef<Khowledge>){
-      this.khowledgeSelect = dataService.khowledgeSelect;
-      console.log(this.khowledgeSelect);
+  constructor(private dataService : DataService , private http: HttpClient, private dialog : MatDialog,private dialogRef :MatDialogRef<AddKhowledgeComponent>){
 }
 addkhowledge(title_news_th:string,title_news_en:string){
   let jsonObj ={

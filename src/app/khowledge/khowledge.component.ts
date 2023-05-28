@@ -37,7 +37,6 @@ export class KhowledgeComponent {
     console.log(this.select);
   }
   addKhowledge(){
-    this.dataService.khowledgeSelect = this.select;
     this.dialog.open(AddKhowledgeComponent,{
       minWidth:'300px',
     });
