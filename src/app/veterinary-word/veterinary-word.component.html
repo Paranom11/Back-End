@@ -7,30 +7,30 @@
   <div>
     <div style="display: flex;flex-direction: column;width: 80%;">
       <!-- head -->
-      <div style="margin-left: 5%;" >
-        <button mat-raised-button color="accent" (click)="addVeterinary()" >
+      <div style="margin-left: 5%;">
+        <button mat-raised-button color="accent" (click)="addVeterinary()">
           เพิ่มงานการสัตวแพทย์
         </button> &nbsp;
       </div>
-<br>
+      <br>
       <!-- list -->
       <!-- Show -->
       <div style="display: flex; flex-direction: row; ">
-        <div style="width: 600px;">
+        <div style="width: 600px;  max-height: 75vh; overflow: auto;">
           <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
             <mat-list-option *ngFor="let item of this.response1.records" [value]="item"
               style="width: 500px; height: 160px;">
               <div>
-              <img src="{{item.img_main}}" width="100px" ><br>
-               {{item.type_th}} <br>
-               {{item.type_en}} <br>
-                 {{item.date}}
+                <img src="{{item.img_main}}" width="100px"><br>
+                {{item.type_th}} <br>
+                {{item.type_en}} <br>
+                {{item.date}}
               </div>
             </mat-list-option>
           </mat-selection-list>
         </div>
         <!-- Show -->
-        <div>
+        <div style="margin-left: 50px;">
           <div *ngIf="select !=undefined">
             <div style="display: flex; flex-direction: column;">
               <img src="{{this.select.img_main}}" width="500px">
@@ -40,11 +40,10 @@
 
               <div>
                 <!-- แก้ไข -->
-              <button mat-raised-button color="accent" (click)="editTypeword()">แก้ไขหัวข้องานการสัตวแพมย์</button> &nbsp;
-              <button mat-raised-button color="primary" (click)="edit()">แก้ไขเนื้อหาข่าว</button> &nbsp;
-              <!-- <button mat-raised-button color="warn" (click)="deleteNews(this.select.id_type_news)">ลบ</button></div> -->
-                <!-- ลบ -->
-                <!-- <button mat-raised-button color="warn" (click)="deletePersonnel(this.select.id_upload)">ลบ</button> -->
+                <button mat-raised-button color="accent" (click)="editTypeword()">แก้ไขหัวข้องานการสัตวแพมย์</button>
+                &nbsp;
+                <button mat-raised-button color="primary" (click)="edit()">แก้ไขเนื้อหาข่าว</button> &nbsp;
+                <button mat-raised-button color="warn" (click)="deleteNews(this.select.id_type_work)">ลบ</button>
               </div>
             </div>
           </div>
