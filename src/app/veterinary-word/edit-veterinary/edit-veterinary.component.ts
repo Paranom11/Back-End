@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 import { VeterinaryWorkOnly } from 'src/app/model/veterinary_work-Only.model';
 import { DataService } from 'src/app/service/data.service';
 
@@ -15,6 +16,49 @@ export class EditVeterinaryComponent {
   selected_th: any;
   selected_en: any;
   base64: any;
+
+
+ ///wysiwyg
+ htmlContent = '';
+ faculty_info : any;
+
+ editorConfig: AngularEditorModule = {
+   editable: true,
+     spellcheck: true,
+     height: 'auto',
+     minHeight: '0',
+     maxHeight: 'auto',
+     width: 'auto',
+     minWidth: '0',
+     translate: 'yes',
+     enableToolbar: true,
+     showToolbar: true,
+     placeholder: 'Enter text here...',
+     defaultParagraphSeparator: '',
+     defaultFontName: '',
+     defaultFontSize: '',
+     fonts: [
+       {class: 'arial', name: 'Arial'},
+       {class: 'times-new-roman', name: 'Times New Roman'},
+
+     ],
+     customClasses: [
+     {
+       name: 'quote',
+       class: 'quote',
+     },
+     {
+       name: 'redText',
+       class: 'redText'
+     },
+     {
+       name: 'titleText',
+       class: 'titleText',
+       tag: 'h1',
+     },
+   ],
+};
+///
 
   constructor(
     private data: DataService,
@@ -35,6 +79,25 @@ export class EditVeterinaryComponent {
         this.response = data as VeterinaryWorkOnly;
       });
   }
+
+////wysiwyg
+ngOnInit(): void {
+  let url = this.data.apiEndpoint + '/veterinary_work';
+  this.http.get(url, {observe : 'response'}).subscribe(
+    {
+      next: (data :any)=>{
+        this.faculty_info = data.body.records[0];
+        this.htmlContent = this.faculty_info.text_th;
+        console.log(this.faculty_info.id_word );
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    }
+  )
+}
+////
+
   getFile(files: FileList) {
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
@@ -46,14 +109,14 @@ export class EditVeterinaryComponent {
   close() {
     this.dialogRef.close();
   }
-  save(text_th: string, idx: number) {
+  save() {
     let jsonObj = {
-      text_th: text_th,
+      text_th: this.htmlContent,
       img: this.base64,
     };
     let jsonString = JSON.stringify(jsonObj);
     this.http
-      .put(this.data.apiEndpoint + '/veterinary_work/' + idx, jsonString, {
+      .put(this.data.apiEndpoint + '/veterinary_work/' + this.faculty_info.id_word, jsonString, {
         observe: 'response',
       })
       .subscribe((response: any) => {
