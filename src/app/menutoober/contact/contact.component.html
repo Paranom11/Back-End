@@ -2,22 +2,23 @@
 <app-menutoober></app-menutoober>
 <br>
 <div class="PositionColumn" *ngFor="let item of this.response.records">
-  <mat-form-field appearance="outline">
-    <mat-label>ที่อยู่</mat-label>
-    <input type="text" value="{{item.address_th}}" #address_th matInput>
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>เบอร์โทร 1</mat-label>
-    <input type="text" value="{{item.tel}}" #tel matInput>
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label> อีเมล/ติดต่อ</mat-label>
-    <input type="text" value="{{item.email}}" #email matInput>
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Facebook</mat-label>
-    <input type="text" value="{{item.facebook}}" #facebook matInput>
-  </mat-form-field>
+
+    <b style="margin-left: -1150px;">ที่อยู่</b>
+    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"
+      [config]="editorConfig"></angular-editor>
+    <br>
+    <b style="margin-left: -1090px;">เบอร์โทรศัพท์</b>
+    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent1"
+    [config]="editorConfig"></angular-editor>
+  <br>
+    <b style="margin-left: -1090px;">อีเมล/ติดต่อ</b>
+    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent2"
+    [config]="editorConfig"></angular-editor>
+  <br>
+   <b style="margin-left: -1100px;">Facebook</b>
+    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent3"
+    [config]="editorConfig"></angular-editor>
+  <br>
   <mat-form-field appearance="outline">
     <mat-label>ปฎิทินกิจกรรม</mat-label>
     <input type="text" value="{{item.calendar}}" #calendar matInput>
@@ -27,6 +28,6 @@
     <input type="text" value="{{item.google_Map}}" #google_Map matInput>
   </mat-form-field>
   <button
-    (click)="updateContact(address_th.value,tel.value,email.value,facebook.value,google_Map.value,calendar.value,item.id_anihmsu)"
+    (click)="updateContact(calendar.value,google_Map.value)"
     mat-raised-button color="primary">แก้ไข</button>
 </div><br>

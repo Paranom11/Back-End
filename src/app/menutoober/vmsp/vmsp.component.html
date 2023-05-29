@@ -2,50 +2,44 @@
 <app-menutoober></app-menutoober>
 <br>
 <div class="positionArea" *ngFor="let item of this.response.records">
-  <img src="{{item.img_VMSA}}">
-  <input  type="file" (change)="getFile($any($event).target.files)">
-  <div class="positionAreaRow">
-    <mat-form-field appearance="outline" >
-      <mat-label>รายละเอียดวิสัยทัศน์ภาษาไทย</mat-label>
-      <textarea matInput rows="10" #vision_th>{{item.vision_th}}</textarea>
-    </mat-form-field>&nbsp;&nbsp;
-    <mat-form-field appearance="outline" >
-      <mat-label>รายละเอียดวิสัยทัศน์ภาษาอังกฤษ</mat-label>
-      <textarea matInput rows="10" #vision_en>{{item.vision_en}}</textarea>
-    </mat-form-field>
+  <img src="{{item.img_VMSA}}" width="500px">
+  <input  type="file" (change)="getFile($any($event).target.files)" #img_VMSA>
+  <div style="width: 1000px;  margin-left: 20px;">
+    <b style="color: rgb(255, 51, 0);">รายละเอียดวิสัยทัศน์ภาษาไทย</b>
+    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"
+      [config]="editorConfig"></angular-editor>
+    <br>
+    <b style="color: rgb(0, 8, 255);">รายละเอียดวิสัยทัศน์ภาษาอังกฤษ</b>
+      <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent1"
+      [config]="editorConfig"></angular-editor>
+      <br>
+      <b style="color: rgb(255, 51, 0);">รายละเอียดพันธกิจภาษาไทย</b>
+      <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent2"
+      [config]="editorConfig"></angular-editor>
+    <br>
+    <b style="color: rgb(0, 8, 255);">รายละเอียดพันธกิจภาษาอังกฤษ</b>
+    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent3"
+      [config]="editorConfig"></angular-editor>
+    <br>
+    <b style="color: rgb(255, 51, 0);">รายละเอียดยุทธศาสตร์ภาษาไทย</b>
+    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent4"
+      [config]="editorConfig"></angular-editor>
+    <br >
+    <b style="color: rgb(0, 8, 255);">รายละเอียดยุทธศาสตร์ภาษาอังกฤษ</b>
+    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent5"
+      [config]="editorConfig"></angular-editor>
+    <br>
+    <b style="color: rgb(255, 51, 0);">รายละเอียดแผนหน่วยงานภาษาไทย</b>
+    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent6"
+      [config]="editorConfig"></angular-editor>
+    <br>
+    <b style="color: rgb(0, 8, 255);">รายละเอียดแผนหน่วยงานภาษาอังกฤษ</b>
+    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent7"
+      [config]="editorConfig"></angular-editor>
+    <br>
   </div>
   <div class="positionAreaRow">
-    <mat-form-field appearance="outline" >
-      <mat-label>รายละเอียดพันธกิจภาษาไทย</mat-label>
-      <textarea matInput rows="10" #mission_th>{{item.mission_th}}</textarea>
-    </mat-form-field>&nbsp;&nbsp;
-    <mat-form-field appearance="outline" >
-      <mat-label>รายละเอียดพันธกิจภาษาอังกฤษ</mat-label>
-      <textarea matInput rows="10" #mission_en>{{item.mission_en}}</textarea>
-    </mat-form-field>
-  </div>
-  <div class="positionAreaRow">
-    <mat-form-field appearance="outline" >
-      <mat-label>รายละเอียดยุทธศาสตร์ภาษาไทย</mat-label>
-      <textarea matInput rows="10" #strategy_th>{{item.strategy_th}}</textarea>
-    </mat-form-field>&nbsp;&nbsp;
-    <mat-form-field appearance="outline" >
-      <mat-label>รายละเอียดยุทธศาสตร์ภาษาอังกฤษ</mat-label>
-      <textarea matInput rows="10" #strategy_en>{{item.strategy_en}}</textarea>
-    </mat-form-field>
-  </div>
-  <div class="positionAreaRow">
-    <mat-form-field appearance="outline" >
-      <mat-label>รายละเอียดแผนหน่วยงานภาษาไทย</mat-label>
-      <textarea matInput rows="10" #agency_th>{{item.agency_th}}</textarea>
-    </mat-form-field>&nbsp;&nbsp;
-    <mat-form-field appearance="outline" >
-      <mat-label>รายละเอียดแผนหน่วยงานภาษาอังกฤษ</mat-label>
-      <textarea matInput rows="10" #agency_en>{{item.agency_en}}</textarea>
-    </mat-form-field>
-  </div>
-  <div class="positionAreaRow">
-  <button mat-raised-button color="primary" (click)="updateVMSP(vision_th.value,vision_en.value,mission_th.value,mission_en.value,strategy_th.value,strategy_en.value,agency_th.value,agency_en.value,item.id_anihmsu)" ><strong>แก้ไข</strong></button> &nbsp;&nbsp;
+  <button mat-raised-button color="primary" (click)="updateVMSP()" ><strong>แก้ไข</strong></button> &nbsp;&nbsp;
+</div>
 </div>
 
-</div>
