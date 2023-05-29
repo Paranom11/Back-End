@@ -12,6 +12,7 @@ export class DataService {
   News : any;
   indexMaxNews : any;
   typeNews : any;
+  typeWork : any;
   khowledgeSelect : any; //มีข้อมูลความรู้ที่เลือก
   showSelectTypeUpload : any;
   personnelDuty : any;

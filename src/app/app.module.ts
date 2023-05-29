@@ -52,6 +52,7 @@ import { EditDutyComponent } from './veterinary-duty/edit-duty/edit-duty.compone
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule } from '@angular/forms';
 import { LoginWarnComponent } from './login/login-warn/login-warn.component';
+import { VeterinaryWordComponent } from './veterinary-word/veterinary-word.component';
 
 
 const appRoutes: Routes = [
@@ -71,6 +72,7 @@ const appRoutes: Routes = [
   {path:'conference-pdf-file',component:ConferencePdfFileComponent},
   {path:'khowledge',component:KhowledgeComponent},
   {path:'stationed',component:VeterinaryDutyComponent},
+  {path:'veterinary-word',component:VeterinaryWordComponent},
   {path:'agency',component:AgencyComponent},
 ];
 
