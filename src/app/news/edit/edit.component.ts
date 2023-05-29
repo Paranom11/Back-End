@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-import { News } from 'src/app/model/News.model';
 import { NewsOnly } from 'src/app/model/newsOnly.model';
 import { DataService } from 'src/app/service/data.service';
 
