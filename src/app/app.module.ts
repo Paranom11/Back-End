@@ -71,6 +71,7 @@ const appRoutes: Routes = [
   {path:'conference-pdf-file',component:ConferencePdfFileComponent},
   {path:'khowledge',component:KhowledgeComponent},
   {path:'stationed',component:VeterinaryDutyComponent},
+  {path:'agency',component:AgencyComponent},
 ];
 
 @NgModule({
