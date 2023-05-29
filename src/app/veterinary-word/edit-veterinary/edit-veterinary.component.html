@@ -1,0 +1,20 @@
+<div style="height: 600px;width: 500px;">
+  <h5 style="margin-left: 10px; margin-top: 10px;">แก้ไขงานการสัตวแพทย์</h5><br><br>
+  <div *ngFor="let item of this.response.records">
+    <mat-form-field appearance="outline" style="width: 200%; margin-left:6%;">
+      <mat-label>คำนำหน้าภาษาไทย</mat-label>
+      <textarea #text_th matInput rows="10" cols="10" value="{{item.text_th}}">
+  </textarea>
+    </mat-form-field>
+    <img src="{{item.img}}" width="300px">
+    <input type="file" name="" id="" (change)="getFile($any($event).target.files)"><br>
+    <div style="display: flex; flex-direction: row; margin-top: 3px;">
+      <button mat-raised-button color="primary" (click)="save(text_th.value,item.id_word)">แก้ไข</button>
+      <button style="margin-left: 10px;" mat-raised-button color="warn" (click)="deleteNews(item.id_word)">ลบ</button>
+    </div><br>
+
+  </div>
+  <button mat-raised-button (click)="close()">ปิด</button><br>
+
+
+</div>

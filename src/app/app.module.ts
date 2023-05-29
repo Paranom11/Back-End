@@ -53,7 +53,11 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule } from '@angular/forms';
 import { LoginWarnComponent } from './login/login-warn/login-warn.component';
 import { VeterinaryWordComponent } from './veterinary-word/veterinary-word.component';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { EditVeterinaryComponent } from './veterinary-word/edit-veterinary/edit-veterinary.component';
+import { EditTypeVeterinaryComponent } from './veterinary-word/edit-type-veterinary/edit-type-veterinary.component';
+import { InsertVeterinaryComponent } from './veterinary-word/insert-veterinary/insert-veterinary.component';
+import { InsertNextVeterinaryComponent } from './veterinary-word/insert-next-veterinary/insert-next-veterinary.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -115,7 +119,11 @@ const appRoutes: Routes = [
       AgencyComponent,
       ConferencePdfFileComponent,
       LoginWarnComponent,
-
+      VeterinaryWordComponent,
+      EditVeterinaryComponent,
+      EditTypeVeterinaryComponent,
+      InsertVeterinaryComponent,
+      InsertNextVeterinaryComponent
 
   ],
   imports: [
@@ -133,7 +141,8 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatDatepickerModule,
     AngularEditorModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
