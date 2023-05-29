@@ -82,13 +82,14 @@ export class EditVeterinaryComponent {
 
 ////wysiwyg
 ngOnInit(): void {
+
   let url = this.data.apiEndpoint + '/veterinary_work';
   this.http.get(url, {observe : 'response'}).subscribe(
     {
       next: (data :any)=>{
         this.faculty_info = data.body.records[0];
         this.htmlContent = this.faculty_info.text_th;
-        console.log(this.faculty_info.id_word );
+        console.log(this.faculty_info.id_word);
       },
       error: (err)=>{
         console.log(err);
