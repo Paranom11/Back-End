@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { TypeWork } from 'src/app/model/type_work.model';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
@@ -9,14 +10,14 @@ import { DataService } from 'src/app/service/data.service';
   styleUrls: ['./edit-type-veterinary.component.scss']
 })
 export class EditTypeVeterinaryComponent {
+  response = {} as TypeWork;
   typeWork : any;
   base64 : any;
   select : any;
 
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<EditTypeVeterinaryComponent>){
     this.typeWork = data.typeWork;
-    this.select = this.typeWork;
-    console.log(this.select);
+    console.log(this.typeWork);
   }
   getFile(files : FileList){
     let reader = new FileReader();

@@ -4,18 +4,18 @@ width: 500px;margin: 20px;">
 
   <mat-form-field appearance="outline">
     <mat-label>หัวข้อภาษาไทย</mat-label>
-    <input type="text" #type_th value="{{select.id_type_work.type_th}}" matInput  >
+    <input type="text" #type_th value="{{typeWork.type_th}}" matInput  >
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>หัวข้อภาษาอังกฤษ</mat-label>
-    <input type="text" #type_en value="{{select.id_type_work.type_en}}" matInput  >
+    <input type="text" #type_en value="{{typeWork.type_en}}" matInput  >
   </mat-form-field>
 
   <div style="flex-direction: column;">
-    <img src="{{select.id_type_work.img_main}}" width="400px"><br><br>
+    <img src="{{typeWork.img_main}}" width="400px"><br><br>
     <input type="file" name="" id="" (change)="getFile($any($event).target.files)" ><br>
   <br>
-  <button mat-raised-button color="primary" (click)="edit(type_th.value,type_en.value,select.id_type_work.id_type_work)">แก้ไข</button>&nbsp;
+  <button mat-raised-button color="primary" (click)="edit(type_th.value,type_en.value,typeWork.id_type_work)">แก้ไข</button>&nbsp;
   <button  mat-raised-button color="warn" (click)="close()">ยกเลิก</button><br>
 </div>

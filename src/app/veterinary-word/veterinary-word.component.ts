@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { InsertVeterinaryComponent } from './insert-veterinary/insert-veterinary.component';
 import { EditTypeVeterinaryComponent } from './edit-type-veterinary/edit-type-veterinary.component';
 import { TypeWork } from '../model/type_work.model';
+import { EditVeterinaryComponent } from './edit-veterinary/edit-veterinary.component';
 
 @Component({
   selector: 'app-veterinary-word',
@@ -15,7 +16,7 @@ import { TypeWork } from '../model/type_work.model';
 })
 export class VeterinaryWordComponent {
   response = {} as VeterinaryWork;
-  response1 = {} as TypeWork
+  response1 = {} as TypeWork;
   select: any;
   countries: any;
   base64 : any;
@@ -48,12 +49,13 @@ addVeterinary(){
   });
 }
 //แก้ไข
-// edit(){
-//   this.dataService.countries = this.select;
-//   this.dialog.open(EditVeterinaryComponent,{
-//     minWidth: '70%',
-//   });
-// }
+edit(){
+  this.dataService.countries = this.select;
+  this.dialog.open(EditVeterinaryComponent,{
+    minWidth: '70%',
+  });
+}
+
 editTypeword(){
   this.dataService.typeWork=this.select;
   this.dialog.open(EditTypeVeterinaryComponent,{
