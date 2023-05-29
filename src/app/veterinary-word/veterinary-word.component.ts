@@ -73,7 +73,7 @@ getFile(files : FileList){
   };
 }
 //ลบข้อมูล
-deleteNews(idx:number){
+deletework(idx:number){
   if(confirm("ยันยันการลบข้อมูล ?")){
     this.http.delete(this.dataService.apiEndpoint+"/type_work/" + idx)
     .subscribe((res) => {
