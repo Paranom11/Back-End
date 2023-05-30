@@ -48,6 +48,8 @@ import { PublicationofpapersComponent } from './publicationofpapers/publicationo
 import { AddPublicComponent } from './publicationofpapers/add-public/add-public.component';
 import { AddPublicPersonnelComponent } from './publicationofpapers/add-public-personnel/add-public-personnel.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { EditPublicComponent } from './publicationofpapers/edit-public/edit-public.component';
+import { EditPersonnelPPComponent } from './publicationofpapers/edit-personnel-pp/edit-personnel-pp.component';
 
 
 const appRoutes: Routes = [
@@ -107,6 +109,8 @@ const appRoutes: Routes = [
     PublicationofpapersComponent,
     AddPublicComponent,
     AddPublicPersonnelComponent,
+    EditPublicComponent,
+    EditPersonnelPPComponent,
 
 
 

@@ -17,9 +17,9 @@
             <mat-list-option *ngFor="let item of this.response.records" [value]="item"
               style="width: 500px; height: 250px;">
               <div>
-                {{item.id_pubilc_papers.name}}<br>
-                {{item.id_personnel.name_prefix_th}}{{item.id_personnel.name_th}}<br>
-                <img src="{{item.id_pubilc_papers.image_pp}}" class="image" style="width: 150px;">
+                {{item.name}}<br>
+               <br>
+                <img src="{{item.image_pp}}" class="image" style="width: 150px;">
               </div>
             </mat-list-option>
           </mat-selection-list>
@@ -29,14 +29,12 @@
         <div>
           <div *ngIf="select !=undefined">
             <div style="display: flex; flex-direction: column;">
-              <img src="{{this.select.id_pubilc_papers.image_pp}}" width="400px"><br>
-              <span>{{this.select.id_pubilc_papers.name}}</span>
-              <span>ผู้แต่ง : {{this.select.name_prefix_th}} {{this.select.id_personnel.name_th}}</span>
-
-
-              <!-- <div style="flex-direction: row;"><button mat-raised-button color="primary" (click)="edit()">แก้ไข</button>&nbsp;
-              <button mat-raised-button color="warn" (click)="deletePersonnel(this.select.id_personnel)">ลบ</button></div> -->
-
+              <img src="{{this.select.image_pp}}" width="400px"><br>
+              <span>{{this.select.name}}</span>
+              <span *ngFor="let item of this.writeSelect.records">ผู้แต่ง : {{this.item.id_personnel.name_prefix_th}} {{this.item.id_personnel.name_th}}</span>
+              <div style="flex-direction: row;"><button mat-raised-button color="primary" (click)="editPublic()">แก้ไขเอกสารเผยเเพร่</button>&nbsp;
+              <button mat-raised-button color="warn" (click)="delectPP(this.select.id_pubilc_papers)">ลบ</button>
+</div>
             </div>
           </div>
         </div>

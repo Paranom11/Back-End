@@ -42,18 +42,13 @@ export class AddPublicComponent {
       filepath : this.PaperBase64,
       image_pp : this.base64
   }
-  // this.http.post(this.data.apiEndpoint + "/publicationofpapers",JSON.stringify(jsonObj),
-  // {observe:'response'}).subscribe((response: any)=>{
-  //   this.data.datePaper = datePaper;
-  //   this.dialogRef.close();
-  //   this.dialog.open(AddPublicPersonnelComponent,{
-  //     minWidth:'300px',
-  //   });
-  // });
-  this.data.datePaper = datePaper;
-  this.dialogRef.close();
-  this.dialog.open(AddPublicPersonnelComponent,{
-    minWidth:'300px',
+  this.http.post(this.data.apiEndpoint + "/publicationofpapers",JSON.stringify(jsonObj),
+  {observe:'response'}).subscribe((response: any)=>{
+    this.data.datePaper = datePaper;
+    this.dialogRef.close();
+    this.dialog.open(AddPublicPersonnelComponent,{
+      minWidth:'300px',
+    });
   });
   }
 

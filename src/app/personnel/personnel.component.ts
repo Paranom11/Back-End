@@ -27,7 +27,7 @@ export class PersonnelComponent {
 }
 //ลบข้อมูล
 deletePersonnel(id : number){
-  if(confirm("ยันยันการลบข้อมูล ?")){
+  if(confirm("ยันยันการลบข้อมูล ?") == true){
     this.http.delete(this.dataService.apiEndpoint+"/personnel/" + id)
     .subscribe((res) => {
       console.log(res);

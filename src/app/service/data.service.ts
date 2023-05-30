@@ -16,6 +16,7 @@ export class DataService {
   showSelectTypeUpload : any;
   datePaper : any;
   records: any;
+  selectPP : any;
 
   constructor() { }
 }

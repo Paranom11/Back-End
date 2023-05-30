@@ -1,0 +1,19 @@
+<div style="display: flex;flex-direction: column;height: 600px;
+width: 500px;margin: 20px;">
+  <p>บุคลากรที่เขียนเอกสาร</p>
+  <div *ngFor="let item2 of this.response.records">
+    <mat-form-field appearance="outline">
+      <mat-label>บุคลากรที่เขียนเอกสาร</mat-label>
+      <mat-select value="{{item2.id_personnel.id_personnel}}" #selectPersonnel>
+        <mat-option *ngFor="let item of this.resPersonnel.records"
+          value="{{item.id_personnel}}">{{item.name_th}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;<button mat-raised-button color="primary"
+      (click)="addPaperPersonnel(selectPersonnel.value,item2.id_write)">บันทึก</button>&nbsp;
+  </div>
+  <div class="btnClose">
+    <button mat-raised-button color="primary" (click)="reload()">ยืนยัน</button> &nbsp;
+    <button mat-raised-button color="warn" (click)="close()">ยกเลิก</button>
+  </div>
+</div>

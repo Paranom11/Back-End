@@ -2,14 +2,21 @@
 width: 500px;margin: 20px;">
   <p>บุคลากรที่เขียนเอกสาร</p>
 
-  <mat-selection-list *ngFor="let item of this.response.records" #selectPersonnel [multiple]="true" >
-    <mat-list-option >
+  <!-- <mat-selection-list  #selectPersonnel [multiple]="true"  >
+    <mat-list-option *ngFor="let item of this.response.records" value="{{item.id_personnel}}">
       {{item.name_prefix_th}}{{item.name_th}}
     </mat-list-option>
-  </mat-selection-list>
+  </mat-selection-list> -->
+
+  <mat-form-field appearance="outline">
+    <mat-label>บุคลากรที่เขียนเอกสาร</mat-label>
+    <mat-select #selectPersonnel multiple>
+      <mat-option *ngFor="let item of this.response.records" value="{{item.id_personnel}}">{{item.name_th}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
 
-  <button mat-raised-button color="primary" (click)="addPaperPersonnel(valuesss)">ถัดไป</button>&nbsp;
+  <button mat-raised-button color="primary" (click)="addPaperPersonnel(selectPersonnel.value)">ถัดไป</button>&nbsp;
   <button  mat-raised-button color="warn" (click)="close()">ยกเลิก</button><br>
 </div>
 

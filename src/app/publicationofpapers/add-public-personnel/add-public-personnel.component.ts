@@ -12,14 +12,26 @@ import { DataService } from 'src/app/service/data.service';
   styleUrls: ['./add-public-personnel.component.scss'],
 })
 export class AddPublicPersonnelComponent {
-   datePaper : any;
+   datePaper = '';
    indexMax : any;
    response={} as Personnel;
    select : any;
    valuesss : any;
+   idxList:number[] = [];
+   InsertDate = '';
+   dateM = 1
+
+
+
 
    constructor(private dateService : DataService,private http:HttpClient, private dialog : MatDialog, private dialogRef :MatDialogRef<AddPublicPersonnelComponent>){
-      this.datePaper = dateService.datePaper;
+    var date = new Date(dateService.datePaper);
+    this.dateM = this.dateM + Number(date.getMonth());
+    this.datePaper = date.getFullYear()+"-"+this.dateM+"-"+date.getDate();
+
+      this.InsertDate = this.datePaper.replaceAll('/','-');
+      console.log(this.InsertDate);
+
       http.get(dateService.apiEndpoint + "/publicationofpapers?include=id_pubilc_papers&order=id_pubilc_papers,desc")
       .subscribe((data : any) => {
         this.indexMax = data.records[0].id_pubilc_papers
@@ -31,10 +43,31 @@ export class AddPublicPersonnelComponent {
         this.response = data as Personnel;
   });
    }
-   addPaperPersonnel(option:string){
-    this.select = option;
-    console.log(this.select);
+   addPaperPersonnel(namePersonnel : number){
+    var str = String(namePersonnel);
+    var splitted = str.split(',');
+    console.log(this.datePaper);
+
+    for(let i = 0 ; i<splitted.length; i++){
+    let jsonObj ={
+      id_personnel : Number(splitted[i]),
+      id_pubilc_papers  : this.indexMax,
+      date : this.InsertDate
+
+    }
+    this.http.post(this.dateService.apiEndpoint + "/write",JSON.stringify(jsonObj),
+    {observe:'response'}).subscribe((response: any)=>{
+     this.dialogRef.close();
+      location.reload();
+    });
+    }
+
    }
+
+  //  addPaperPersonnel(option:string){
+  //   this.select = option;
+  //   console.log(this.select);
+  //  }
 
    show(option:string){
     // this.select = option;
