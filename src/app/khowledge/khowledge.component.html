@@ -16,7 +16,7 @@
       </div>
       <!-- list -->
       <div style="display: flex; flex-direction: row; ">
-        <div style="width: 600px;">
+        <div style="width: 600px; max-height: 75vh; overflow: auto;">
           <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
             <mat-list-option *ngFor="let item of this.typeKhowledge.records" [value]="item" style="width: 500px; height: 160px;">
               <div>
@@ -30,7 +30,7 @@
         <!-- Show -->
         <div>
           <div *ngIf="select !=undefined">
-            <div style="display: flex; flex-direction: column; margin-left: 20px;">
+            <div style="display: flex; flex-direction: column; margin-left: 20px; ">
               <img src="{{this.select.img_main}}" width="500px">
               <span>หัวข้อ : {{this.select.type_th}}</span>
               <span>วันที่เพิ่ม : {{this.select.date}}</span>

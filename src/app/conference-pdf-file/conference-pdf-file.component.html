@@ -5,23 +5,23 @@
 
 <main style="margin-top: -30px; margin-left: 100px;">
   <div>
-    <div style="display: flex;flex-direction: column;width: 80%;">
+    <div style="display: flex;flex-direction: column;width: 80%; ">
       <!-- head -->
-      <div style="margin-left: 5%;" >
-        <button mat-raised-button color="accent" (click)="addConference()" >
+      <div style="margin-left: 5%;">
+        <button mat-raised-button color="accent" (click)="addConference()">
           เพิ่มรายงานการประชุม
         </button> &nbsp;
       </div>
-<br>
+      <br>
       <!-- list -->
       <!-- Show -->
       <div style="display: flex; flex-direction: row; ">
-        <div style="width: 600px;">
+        <div style="width: 600px; max-height: 75vh; overflow: auto;">
           <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
             <mat-list-option *ngFor="let item of this.response.records" [value]="item"
-              style="width: 500px; height: 160px;">
-              <div>
-                
+              style="width: 500px; height: 160px; ">
+              <div >
+
                 ชื่อ : {{item.name}} <br>
                 วัน/เวลาในการอัปโหลด : {{item.date}}
               </div>
@@ -32,7 +32,7 @@
         <!-- Show -->
         <div>
           <div *ngIf="select !=undefined">
-            <div style="display: flex; flex-direction: column;">
+            <div style="display: flex; flex-direction: column; margin-left: 100px;">
               <span>ประเภท : {{this.select.id_type_upload.type_name}}</span>
               <span>ชื่อ : {{this.select.name}} </span>
               <span>วัน/เวลาในการอัปโหลด : {{this.select.date}}</span><br>

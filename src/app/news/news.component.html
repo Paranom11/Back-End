@@ -16,7 +16,7 @@
       </div>
       <!-- list -->
       <div style="display: flex; flex-direction: row; ">
-        <div style="width: 600px;">
+        <div style="width: 600px; max-height: 75vh; overflow: auto;">
           <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
             <mat-list-option *ngFor="let item of this.reTitleNews.records" [value]="item" style="width: 500px; height: 160px;">
               <div>
