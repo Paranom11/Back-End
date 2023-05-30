@@ -80,7 +80,6 @@ ngOnInit(): void {
     {
       next: (data :any)=>{
         this.faculty_info = data.body.records[0];
-        this.faculty_info = data.body.records[1];
         this.htmlContent = this.faculty_info.text_th;
         console.log(this.faculty_info.id_as);
       },
