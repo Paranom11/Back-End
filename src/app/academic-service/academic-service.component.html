@@ -1,0 +1,51 @@
+<app-header></app-header>
+<app-menutoober></app-menutoober>
+<P Align=center style="font-size: 30px; "></P><br>
+
+
+<!--Main layout-->
+<main style="margin-top: -30px; margin-left: 100px;">
+  <div >
+    <div style="display: flex;flex-direction: column;width: 80%;">
+  <!-- head -->
+      <div style="margin-left: 5%;">
+        <button mat-raised-button color="accent"
+        (click)="addAcademic()">
+          เพิ่มความรู้
+        </button>
+      </div>
+      <!-- list -->
+      <div style="display: flex; flex-direction: row; ">
+        <div style="width: 600px; max-height: 75vh; overflow: auto;">
+          <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
+            <mat-list-option *ngFor="let item of this.typeacademicservice.records" [value]="item" style="width: 500px; height: 160px;">
+              <div>
+                {{item.type_th}} <br>
+                <img src="{{item.img_main}}" class="image" style="width: 100px;">
+              </div>
+            </mat-list-option>
+          </mat-selection-list>
+        </div>
+
+        <!-- Show -->
+        <div>
+          <div *ngIf="select !=undefined">
+            <div style="display: flex; flex-direction: column; margin-left: 100px; ">
+              <img src="{{this.select.img_main}}" width="500px">
+              <span>หัวข้อ : {{this.select.type_th}}</span>
+              <span>วันที่เพิ่ม : {{this.select.date}}</span>
+              <div>
+              <button mat-raised-button color="accent" (click)="editTypeAcademic()">แก้ไขหัวข้อข่าว</button> &nbsp;
+              <button mat-raised-button color="primary" (click)="edit()">แก้ไขเนื้อหาข่าว</button> &nbsp;
+              <button mat-raised-button color="warn" (click)="deleteAcademic(this.select.id_type_as)">ลบ</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main><br>
+<!--Main layout-->
+
+

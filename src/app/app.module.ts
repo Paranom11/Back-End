@@ -64,6 +64,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { EditPublicComponent } from './publicationofpapers/edit-public/edit-public.component';
 import { EditPersonnelPPComponent } from './publicationofpapers/edit-personnel-pp/edit-personnel-pp.component';
 
+import { AcademicServiceComponent } from './academic-service/academic-service.component';
+import { AddAcademicComponent } from './academic-service/add-academic/add-academic.component';
+import { AddTypeacademicComponent } from './academic-service/add-typeacademic/add-typeacademic.component';
+import { EditTypeacademicComponent } from './academic-service/edit-typeacademic/edit-typeacademic.component';
+import { EditacademicComponent } from './academic-service/editacademic/editacademic.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -85,6 +90,7 @@ const appRoutes: Routes = [
   {path:'veterinary-word',component:VeterinaryWordComponent},
   {path:'agency',component:AgencyComponent},
   {path:'publicationofpapers',component:PublicationofpapersComponent},
+  {path:'academic-service',component:AcademicServiceComponent},
 ];
 
 @NgModule({
@@ -157,8 +163,11 @@ const appRoutes: Routes = [
     AddPublicPersonnelComponent,
     EditPublicComponent,
     EditPersonnelPPComponent,
-
-
+      AcademicServiceComponent,
+      AddAcademicComponent,
+      AddTypeacademicComponent,
+      EditTypeacademicComponent,
+      EditacademicComponent
 
   ],
   imports: [

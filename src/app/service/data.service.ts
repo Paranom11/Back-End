@@ -14,6 +14,7 @@ export class DataService {
   typeNews : any;
   typeWork : any;
   khowledgeSelect : any; //มีข้อมูลความรู้ที่เลือก
+  academicSelect :any;
   showSelectTypeUpload : any;
   personnelDuty : any;
   stationedDuty : any;
