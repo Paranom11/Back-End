@@ -4,7 +4,48 @@ width: 500px;margin: 20px;" >
 
   <mat-form-field appearance="outline">
     <mat-label>คำนำหน้าภาษาไทย</mat-label>
-    <input type="text" #name_prefix_th value="{{countries.name_prefix_th}}" matInput >
+    <mat-select [(value)]="selected_perfix_th">
+      <mat-option value="รศ.น.สพ.ดร.">รศ.น.สพ.ดร.</mat-option>
+      <mat-option value="รศ.ดร.">รศ.ดร.</mat-option>
+      <mat-option value="ผศ.สพ.ญ.ดร.">ผศ.สพ.ญ.ดร.</mat-option>
+      <mat-option value="ผศ.น.สพ.ดร.">ผศ.น.สพ.ดร.</mat-option>
+      <mat-option value="ผศ.ดร.">ผศ.ดร.</mat-option>
+      <mat-option value="ผศ.สพ.ญ">ผศ.สพ.ญ</mat-option>
+      <mat-option value="ผศ.น.สพ.">ผศ.น.สพ.</mat-option>
+      <mat-option value="อ.สพ.ญ.ดร.">อ.สพ.ญ.ดร.</mat-option>
+      <mat-option value="อ.น.สพ.ดร.">อ.น.สพ.ดร.</mat-option>
+      <mat-option value="อ.น.สพ.">อ.น.สพ.</mat-option>
+      <mat-option value="อ.สพ.ญ.">อ.สพ.ญ.</mat-option>
+      <mat-option value="นาง">นาง</mat-option>
+      <mat-option value="นางสาว">นางสาว</mat-option>
+      <mat-option value="นาย">นาย</mat-option>
+      <mat-option value="ศาสตราจารย์">ศาสตราจารย์</mat-option>
+      <mat-option value="นายสัตวแพทย์">นายสัตวแพทย์</mat-option>
+      <mat-option value="สัตวแพทย์หญิง">สัตวแพทย์หญิง</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>คำนำหน้าภาษาอังกฤษ</mat-label>
+    <mat-select  [(value)]="selected_perfix_en">
+      <mat-option value="Assoc.Prof.N.D.Dr.">Assoc.Prof.N.D.Dr.</mat-option>
+      <mat-option value="Assoc. Prof. Dr.">Assoc. Prof. Dr.</mat-option>
+      <mat-option value="Asst.Prof.Dr.">Asst.Prof.Dr..</mat-option>
+      <mat-option value="Asst.Prof.Dr.Dr.">Asst.Prof.Dr.Dr.</mat-option>
+      <mat-option value="Asst. Prof. Dr.">Asst. Prof. Dr.</mat-option>
+      <mat-option value="Asst.Prof.Ed.">Asst.Prof.Ed.</mat-option>
+      <mat-option value="Asst.Prof.Dr.Ed.">Asst.Prof.Dr.Ed.</mat-option>
+      <mat-option value="Associate Professor Dr.">Associate Professor Dr.</mat-option>
+      <mat-option value="Associate Professor Dr.">Associate Professor Dr.</mat-option>
+      <mat-option value="n.p.c.">n.p.c.</mat-option>
+      <mat-option value="Teacher">Teacher</mat-option>
+      <mat-option value="Mrs.">Mrs.</mat-option>
+      <mat-option value="Ms.">Ms.</mat-option>
+      <mat-option value="Mr.">Mr.</mat-option>
+      <mat-option value="professor">professor</mat-option>
+      <mat-option value="	DR.">	DR.</mat-option>
+
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
@@ -72,10 +113,11 @@ width: 500px;margin: 20px;" >
 
   <div style="flex-direction: column;">
     <label style="margin-right: 200px;">รูปภาพ</label>
+    <img src="{{countries.picture}}">
     <input type="file" name="" id="" (change)="getFile($any($event).target.files)"><br>
   </div>
-  <div style="flex-direction:row;">
-  <button mat-raised-button color="primary" (click)="save(name_prefix_th.value,name_prefix_en.value,name_th.value,name_en.value,aptitude_th.value,aptitude_en.value,
+  <div style="flex-direction:row-reverse;">
+  <button mat-raised-button color="primary" (click)="save(selected_perfix_th,selected_perfix_en,name_th.value,name_en.value,aptitude_th.value,aptitude_en.value,
   academic_position_th.value,academic_position_en.value,selected_th,selected_en,email.value,phone.value,countries.id_personnel)">แก้ไข</button> &nbsp;
   <button mat-raised-button color="warn" (click)="close()">ปิด</button></div><br>
 </div>

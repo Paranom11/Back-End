@@ -18,6 +18,8 @@ export class HomeComponent {
   htmlContent = '';
   htmlContent1 = '';
   faculty_info : any;
+  idxUser : any
+  UserID : any;
 
   editorConfig: AngularEditorModule = {
     editable: true,
@@ -59,6 +61,9 @@ export class HomeComponent {
 
 
   constructor(private data : DataService , private http: HttpClient){
+    this.idxUser = data.idxUser;
+    data.UserID = this.idxUser;
+
       http.get("https://anihmsu.comsciproject.net/anihmsu/api.php/records/information_anihmsu")
       .subscribe((data : any) => {
         console.log(data);
