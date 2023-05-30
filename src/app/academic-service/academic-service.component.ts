@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatListOption } from '@angular/material/list';
 import { AddTypeacademicComponent } from './add-typeacademic/add-typeacademic.component';
 import { EditTypeacademicComponent } from './edit-typeacademic/edit-typeacademic.component';
+import { EditacademicComponent } from './editacademic/editacademic.component';
 
 @Component({
   selector: 'app-academic-service',
@@ -58,10 +59,10 @@ export class AcademicServiceComponent {
       minWidth:'300px',
     });
   }
-  // edit(){
-  //   this.dataService.academicSelect = this.select;
-  //   this.dialog.open(EditkhowledgeComponent,{
-  //     minWidth:'70%',
-  //   });
-  // }
+  edit(){
+    this.dataService.academicSelect = this.select;
+    this.dialog.open(EditacademicComponent,{
+      minWidth:'70%',
+    });
+  }
 }
