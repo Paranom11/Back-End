@@ -68,7 +68,7 @@ import { AcademicServiceComponent } from './academic-service/academic-service.co
 import { AddAcademicComponent } from './academic-service/add-academic/add-academic.component';
 import { AddTypeacademicComponent } from './academic-service/add-typeacademic/add-typeacademic.component';
 import { EditTypeacademicComponent } from './academic-service/edit-typeacademic/edit-typeacademic.component';
-import { EditacademicComponent } from './academic-service/editacademic/editacademic.component';
+import { EditacademicComponent } from './editacademic/editacademic.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
