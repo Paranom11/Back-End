@@ -1,11 +1,11 @@
 <app-header></app-header>
 <app-menutoober></app-menutoober>
 <br>
-<h4><strong>ชันสูตร</strong></h4><br>
+<h4 style="display: flex;justify-content: center;"><strong>ชันสูตร</strong></h4><br>
 <div *ngFor="let item of this.response.records">
-  <img src="{{item.Identify_img}}">
-  <input type="file" name="" id="" (change)="getFile($any($event).target.files)"><br>
-  <button mat-raised-button color="primary" (click)="save(item.id_anihmsu)">แก้ไข</button>
-</div>
-
-
+  <img src="{{item.Identify_img}}" width="300px">
+  <div style=" margin-left: 620px;">
+    <input type="file" name="" id="" (change)="getFile($any($event).target.files)"><br><br>
+    <button mat-raised-button color="primary" (click)="save(item.id_anihmsu)">แก้ไข</button>
+  </div>
+</div><br>
