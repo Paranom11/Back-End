@@ -64,7 +64,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { EditPublicComponent } from './publicationofpapers/edit-public/edit-public.component';
 import { EditPersonnelPPComponent } from './publicationofpapers/edit-personnel-pp/edit-personnel-pp.component';
 
-
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
   {path:'home',component:HomeComponent},
@@ -157,8 +156,6 @@ const appRoutes: Routes = [
     AddPublicPersonnelComponent,
     EditPublicComponent,
     EditPersonnelPPComponent,
-
-
 
   ],
   imports: [
