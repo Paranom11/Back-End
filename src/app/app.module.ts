@@ -58,6 +58,10 @@ import { EditVeterinaryComponent } from './veterinary-word/edit-veterinary/edit-
 import { EditTypeVeterinaryComponent } from './veterinary-word/edit-type-veterinary/edit-type-veterinary.component';
 import { InsertVeterinaryComponent } from './veterinary-word/insert-veterinary/insert-veterinary.component';
 import { InsertNextVeterinaryComponent } from './veterinary-word/insert-next-veterinary/insert-next-veterinary.component';
+import { AcademicServiceComponent } from './academic-service/academic-service.component';
+import { AddAcademicComponent } from './academic-service/add-academic/add-academic.component';
+import { AddTypeacademicComponent } from './academic-service/add-typeacademic/add-typeacademic.component';
+import { EditTypeacademicComponent } from './academic-service/edit-typeacademic/edit-typeacademic.component';
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -78,6 +82,7 @@ const appRoutes: Routes = [
   {path:'stationed',component:VeterinaryDutyComponent},
   {path:'veterinary-word',component:VeterinaryWordComponent},
   {path:'agency',component:AgencyComponent},
+  {path:'academic-service',component:AcademicServiceComponent},
 ];
 
 @NgModule({
@@ -123,7 +128,11 @@ const appRoutes: Routes = [
       EditVeterinaryComponent,
       EditTypeVeterinaryComponent,
       InsertVeterinaryComponent,
-      InsertNextVeterinaryComponent
+      InsertNextVeterinaryComponent,
+      AcademicServiceComponent,
+      AddAcademicComponent,
+      AddTypeacademicComponent,
+      EditTypeacademicComponent
 
   ],
   imports: [
