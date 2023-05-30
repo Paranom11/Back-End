@@ -78,7 +78,7 @@ http.get(data.apiEndpoint + "/type_knowledge/?include=type_knowledge.id_type_kl"
     }else{
          recoedDB = img_new.length;
     }
-    console.log(this.dateInsert);
+    console.log(recoedDB);
 
     for(let round = 0 ; round<recoedDB ;round++){
       let jsonObj ={
@@ -94,8 +94,8 @@ http.get(data.apiEndpoint + "/type_knowledge/?include=type_knowledge.id_type_kl"
 
       this.http.post(this.data.apiEndpoint + "/knowledge",JSON.stringify(jsonObj),
       {observe:'response'}).subscribe((response: any)=>{
-       this.dialogRef.close();
-        location.reload();
+      //  this.dialogRef.close();
+        // location.reload();
       });
     }
   }

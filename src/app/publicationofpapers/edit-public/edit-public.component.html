@@ -1,0 +1,32 @@
+<div style="display: flex;flex-direction: column;height: 600px;
+width: 500px;margin: 20px;">
+  <p>แก้ไขเอกสารเผยเเพร่</p>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ชื่อเอกสารเผยเเพร่</mat-label>
+    <input type="text" value="{{selectPP.name}}" #name_paper matInput >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>วันที่เขียนเอกสารเผยเเพร่</mat-label>
+    <input placeholder="เดือน/วัน/ปี" matInput [matDatepicker]="picker2" value="{{dateTime.date}}" #datePaper>
+    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+  </mat-form-field>
+
+  <label>ไฟล์เอกสารเผยเเพร่</label>
+  <input type="file" name="" id="" (change)="getFilePaper($any($event).target.files)" ><br>
+
+
+    <label >รูปภาพปก</label>
+    <img src="{{selectPP.image_pp}}">
+    <input type="file" name="" id="" (change)="getFile($any($event).target.files)" >
+
+  <br>
+<div style="flex-direction: row-reverse;">
+  <button mat-raised-button color="primary" (click)="EditPaper(name_paper.value,datePaper.value,selectPP.id_pubilc_papers)">ถัดไป</button>&nbsp;
+  <button  mat-raised-button color="warn" (click)="close()">ยกเลิก</button><br></div>
+</div>
+
+
+

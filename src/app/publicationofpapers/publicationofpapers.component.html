@@ -1,0 +1,45 @@
+<app-header></app-header>
+<app-menutoober></app-menutoober>
+<!--Main layout-->
+<main style="margin-top: 30px; margin-left: 100px;">
+  <div>
+    <div style="display: flex;flex-direction: column;width: 80%;">
+      <!-- head -->
+      <div style="margin-left: 5%;">
+        <button mat-raised-button color="accent" (click)="addPublicPaper()">
+          เพิ่มเอกสารเผยแพร่
+        </button>
+      </div>
+      <!-- list -->
+      <div style="display: flex; flex-direction: row; ">
+        <div style="width: 600px;">
+          <mat-selection-list #item [multiple]="false" (selectionChange)="show($event.options[0])">
+            <mat-list-option *ngFor="let item of this.response.records" [value]="item"
+              style="width: 500px; height: 250px;">
+              <div>
+                {{item.name}}<br>
+               <br>
+                <img src="{{item.image_pp}}" class="image" style="width: 150px;">
+              </div>
+            </mat-list-option>
+          </mat-selection-list>
+        </div>
+
+        <!-- Show -->
+        <div>
+          <div *ngIf="select !=undefined">
+            <div style="display: flex; flex-direction: column;">
+              <img src="{{this.select.image_pp}}" width="400px"><br>
+              <span>{{this.select.name}}</span>
+              <span *ngFor="let item of this.writeSelect.records">ผู้แต่ง : {{this.item.id_personnel.name_prefix_th}} {{this.item.id_personnel.name_th}}</span>
+              <div style="flex-direction: row;"><button mat-raised-button color="primary" (click)="editPublic()">แก้ไขเอกสารเผยเเพร่</button>&nbsp;
+              <button mat-raised-button color="warn" (click)="delectPP(this.select.id_pubilc_papers)">ลบ</button>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main><br>
+<!--Main layout-->

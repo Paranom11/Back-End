@@ -17,5 +17,9 @@ export class DataService {
   showSelectTypeUpload : any;
   personnelDuty : any;
   stationedDuty : any;
+  datePaper : any;
+  records: any;
+  selectPP : any;
+
   constructor() { }
 }

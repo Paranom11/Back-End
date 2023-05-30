@@ -1,0 +1,31 @@
+<div style="display: flex;flex-direction: column;height: 600px;
+width: 500px;margin: 20px;">
+  <p>เพิ่มเอกสารเผยเเพร่</p>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ชื่อเอกสารเผยเเพร่</mat-label>
+    <input type="text" #name_paper matInput >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" color="accent">
+    <mat-label>วันที่เขียนเอกสารเผยเเพร่</mat-label>
+    <input placeholder="เดือน/วัน/ปี" matInput [matDatepicker]="picker2" #datePaper>
+    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+  </mat-form-field>
+
+  <label style="margin-right: 200px;">ไฟล์เอกสารเผยเเพร่</label>
+    <input type="file" name="" id="" (change)="getFilePaper($any($event).target.files)" ><br>
+
+  <div style="flex-direction: column;">
+    <label style="margin-right: 200px;">รูปภาพปก</label>
+    <input type="file" name="" id="" (change)="getFile($any($event).target.files)" ><br>
+  <br>
+<br>
+
+  <button mat-raised-button color="primary" (click)="addPaper(name_paper.value,datePaper.value)">ถัดไป</button>&nbsp;
+  <button  mat-raised-button color="warn" (click)="close()">ยกเลิก</button><br>
+</div>
+
+
+

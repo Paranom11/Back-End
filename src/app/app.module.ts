@@ -1,24 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { Routes,RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { MenutooberComponent } from './menutoober/menutoober.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonnelComponent } from './personnel/personnel.component';
-import {MatListModule} from '@angular/material/list';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 import { PersonnelNewComponent } from './personnel-new/personnel-new.component';
 import { PersonnelEditComponent } from './personnel-edit/personnel-edit.component';
 import { PopupComponent } from './home/popup/popup.component';
@@ -30,7 +29,7 @@ import { VMSPComponent } from './menutoober/vmsp/vmsp.component';
 import { DepartmentComponent } from './menutoober/department/department.component';
 import { ContactComponent } from './menutoober/contact/contact.component';
 import { ConferencePdfFileEditComponent } from './conference-pdf-file/conference-pdf-file-edit/conference-pdf-file-edit.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { ConferencePdfFileAddComponent } from './conference-pdf-file/conference-pdf-file-add/conference-pdf-file-add.component';
 import { NewsComponent } from './news/news.component';
 import { ConferencePdfFileComponent } from './conference-pdf-file/conference-pdf-file.component';
@@ -46,7 +45,7 @@ import { EditTypeKhowledgeComponent } from './khowledge/edit-type-khowledge/edit
 import { AgencyComponent } from './agency/agency.component';
 import { VeterinaryDutyComponent } from './veterinary-duty/veterinary-duty.component';
 import { AddDutyComponent } from './veterinary-duty/add-duty/add-duty.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AddDutyPersonnelComponent } from './veterinary-duty/add-duty-personnel/add-duty-personnel.component';
 import { EditDutyComponent } from './veterinary-duty/edit-duty/edit-duty.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
@@ -58,6 +57,13 @@ import { EditVeterinaryComponent } from './veterinary-word/edit-veterinary/edit-
 import { EditTypeVeterinaryComponent } from './veterinary-word/edit-type-veterinary/edit-type-veterinary.component';
 import { InsertVeterinaryComponent } from './veterinary-word/insert-veterinary/insert-veterinary.component';
 import { InsertNextVeterinaryComponent } from './veterinary-word/insert-next-veterinary/insert-next-veterinary.component';
+import { PublicationofpapersComponent } from './publicationofpapers/publicationofpapers.component';
+import { AddPublicComponent } from './publicationofpapers/add-public/add-public.component';
+import { AddPublicPersonnelComponent } from './publicationofpapers/add-public-personnel/add-public-personnel.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { EditPublicComponent } from './publicationofpapers/edit-public/edit-public.component';
+import { EditPersonnelPPComponent } from './publicationofpapers/edit-personnel-pp/edit-personnel-pp.component';
+
 
 const appRoutes: Routes = [
   {path:'',component:LoginComponent},
@@ -78,6 +84,7 @@ const appRoutes: Routes = [
   {path:'stationed',component:VeterinaryDutyComponent},
   {path:'veterinary-word',component:VeterinaryWordComponent},
   {path:'agency',component:AgencyComponent},
+  {path:'publicationofpapers',component:PublicationofpapersComponent},
 ];
 
 @NgModule({
@@ -123,7 +130,35 @@ const appRoutes: Routes = [
       EditVeterinaryComponent,
       EditTypeVeterinaryComponent,
       InsertVeterinaryComponent,
-      InsertNextVeterinaryComponent
+      InsertNextVeterinaryComponent,
+    IdentifyComponent,
+    EditIdentifyComponent,
+    ImageSlideShowComponent,
+    AddImageSlidsComponent,
+    VMSPComponent,
+    DepartmentComponent,
+    ContactComponent,
+    NewsComponent,
+    InsertNewComponent,
+    InsertNextComponent,
+    ConferencePdfFileEditComponent,
+    EditComponent,
+    EditTypeNewsComponent,
+    KhowledgeComponent,
+    AddKhowledgeComponent,
+    AddkhowledgedetailComponent,
+    EditkhowledgeComponent,
+    EditTypeKhowledgeComponent,
+    ConferencePdfFileAddComponent,
+    ConferencePdfFileComponent,
+    AgencyComponent,
+    PublicationofpapersComponent,
+    AddPublicComponent,
+    AddPublicPersonnelComponent,
+    EditPublicComponent,
+    EditPersonnelPPComponent,
+
+
 
   ],
   imports: [
@@ -142,7 +177,9 @@ const appRoutes: Routes = [
     MatDatepickerModule,
     AngularEditorModule,
     FormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatNativeDateModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

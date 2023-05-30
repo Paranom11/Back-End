@@ -12,7 +12,7 @@ import { type_news } from 'src/app/model/type_news.model';
   styleUrls: ['./insert-next.component.scss']
 })
 export class InsertNextComponent {
-  response={} as News;
+
   responseType={} as type_news ;
   sizeType : any;
   base64_1 : any;
@@ -32,15 +32,12 @@ export class InsertNextComponent {
     console.log(this.dateInsert)
     http.get(data.apiEndpoint + "/news?join=type_news")
       .subscribe((data : any) => {
-       this.response = data as News;
+
   });
 
-  http.get(data.apiEndpoint + "/type_news/?include=type_news.id_type_news")
+  http.get(data.apiEndpoint + "/type_news?include=id_type_news&order=id_type_news,desc")
   .subscribe((data2 : any) => {
-     this.responseType = data2 as type_news;
-     for(let i =0 ;i<this.responseType.records.length;i++){
-        this.indexMax = this.responseType.records[i].id_type_news;
-     }
+    this.indexMax = data2.records[0].id_type_news;
      console.log(this.indexMax);
 });
   }
@@ -50,6 +47,8 @@ export class InsertNextComponent {
    var arr_img = [this.base64_1,this.base64_2,this.base64_3,this.base64_4,this.base64_5,this.base64_6,this.base64_7]
    var img_new:string[] = [];
    var text_new:string[] = [];
+
+
 
    for(let i = 0 ;i<arr_text.length ;i++){
     if(arr_img[i]==null || arr_img[i]==undefined || arr_img[i]==""  ){
@@ -61,13 +60,16 @@ export class InsertNextComponent {
       text_new.push(arr_text[i]);
     }
     }
-    let recoedDB : number
+    let recoedDB : number;
     if(text_new.length > img_new.length){
          recoedDB = text_new.length;
     }else{
          recoedDB = img_new.length;
     }
     console.log(this.dateInsert);
+    console.log(text_new);
+    console.log(img_new);
+    console.log(recoedDB);
     for(let round = 0 ; round<recoedDB ;round++){
       let jsonObj ={
         text_th : text_new[round],
@@ -76,10 +78,16 @@ export class InsertNextComponent {
         date : this.dateInsert
     }
       this.http.post(this.data.apiEndpoint + "/news",JSON.stringify(jsonObj),
-      {observe:'response'}).subscribe((response: any)=>{
-       this.dialogRef.close();
-        location.reload();
-      });
+      {observe:'response'}).subscribe({
+        next: (response: {status : any; body : any;}) => {
+          console.log(JSON.stringify(response.status));
+          console.log(JSON.stringify(response.body));
+          this.dialogRef.close();
+          location.reload();
+        }, error : (err)=>{
+          console.log(err);
+        }
+      })
     }
   }
 
