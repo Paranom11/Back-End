@@ -4,7 +4,7 @@
 
     <div style="width: 800px; margin-left: 145px;">
       <b>รายละเอียดความรู้</b>
-      <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"
+      <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="item.text_th"
         [config]="editorConfig"></angular-editor>
       <br>
     </div>
@@ -13,7 +13,7 @@
       <img src="{{item.img}}" ><br>
       <input type="file" name="" id="" (change)="getFile($any($event).target.files)">
       <div style="display: flex; flex-direction: row; margin-top: 3px;">
-        <button mat-raised-button color="primary" (click)="save()">แก้ไข</button>
+        <button mat-raised-button color="primary" (click)="save(item.id_knowledge , item.text_th)">แก้ไข</button>
         <button style="margin-left: 10px;" mat-raised-button color="warn"
           (click)="deleteNews(item.id_knowledge)">ลบ</button><br><br>
       </div>

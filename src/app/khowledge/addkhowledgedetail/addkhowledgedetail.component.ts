@@ -95,14 +95,14 @@ http.get(data.apiEndpoint + "/type_knowledge/?include=type_knowledge.id_type_kl"
       this.http.post(this.data.apiEndpoint + "/knowledge",JSON.stringify(jsonObj),
       {observe:'response'}).subscribe((response: any)=>{
       //  this.dialogRef.close();
-        // location.reload();
+         location.reload();
       });
     }
   }
 
   close(){
       this.http.delete(this.data.apiEndpoint+"/type_news/" + this.indexMax).subscribe((res) => {
-        console.log(res);
+        //console.log(res);
         this.dialogRef.close();
         location.reload();
       });

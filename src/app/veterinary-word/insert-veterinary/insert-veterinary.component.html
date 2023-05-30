@@ -1,15 +1,15 @@
 <div style="display: flex;flex-direction: column;height: 600px;
 width: 500px;margin: 20px;">
-  <p>เพิ่มหัวข้อข่าวประชาสัมพันธ์</p>
+  <p>เพิ่มหัวข้องานการสัตวแพทย์</p>
 
   <mat-form-field appearance="outline">
-    <mat-label>หัวข้อภาษาไทย</mat-label>
+    <mat-label>หัวข้องานการสัตวแพทย์</mat-label>
     <input type="text" #type_th matInput >
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>หัวข้อภาษาอังกฤษ</mat-label>
-    <input type="text" #type_th matInput >
+    <mat-label>หัวข้อวันเวลาที่ให้บริการ</mat-label>
+    <input type="text" #type_en matInput >
   </mat-form-field>
 
   <div style="flex-direction: column;">
@@ -18,7 +18,7 @@ width: 500px;margin: 20px;">
   <br>
 <br>
 
-  <button mat-raised-button color="primary" (click)="addNew(type_th.value,type_th.value)">ถัดไป</button>&nbsp;
+  <button mat-raised-button color="primary" (click)="addNew(type_th.value,type_en.value)">ถัดไป</button>&nbsp;
   <button  mat-raised-button color="warn" (click)="close()">ยกเลิก</button><br>
 </div>
 

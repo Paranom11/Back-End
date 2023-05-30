@@ -21,6 +21,7 @@ export class DataService {
   datePaper : any;
   records: any;
   selectPP : any;
+  select : any;
 
   constructor() { }
 }

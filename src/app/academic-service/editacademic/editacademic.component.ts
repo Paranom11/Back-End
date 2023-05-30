@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { AcademicServiceOnly } from 'src/app/model/academicOnly.model';
 import { AcademicService } from 'src/app/model/academic_service.model';
 import { DataService } from 'src/app/service/data.service';
 
@@ -14,10 +15,11 @@ export class EditacademicComponent {
   [x: string]: any;
   base64 :any;
   academicSelect : any;
-  response={} as AcademicService;
+  response={} as AcademicServiceOnly;
+  selectes : string[] = []; //สร้างอาเรย์เพื่อพุดค่าtext
 
   ///wysiwyg
- htmlContent = '';
+ htmlContent : any;
  faculty_info : any;
 
  editorConfig: AngularEditorModule = {
@@ -60,7 +62,7 @@ export class EditacademicComponent {
 
   constructor(private data : DataService,private http:HttpClient,private dialog: MatDialog, private dialogRef :MatDialogRef<EditacademicComponent>){
     this.academicSelect = data.academicSelect;
-    console.log(this.academicSelect.id_type_as);
+    // console.log(this.academicSelect.id_type_as);
     http
       .get(
         data.apiEndpoint +
@@ -68,28 +70,15 @@ export class EditacademicComponent {
           this.academicSelect.id_type_as
       )
       .subscribe((data: any) => {
-        console.log(this.academicSelect.id_type_as);
-        this.response = data as AcademicService;
+        // console.log(this.academicSelect.id_type_as);
+        this.response = data as AcademicServiceOnly; //as only เท่านั้นนะต้าว
+        // console.log(this.response)
+        for(let i = 0 ; i<this.response.records.length ;i++){
+            this.selectes.push(this.response.records[i].text_th);
+        }
+        this.htmlContent = this.selectes;
       });
 }
-
-////wysiwyg
-ngOnInit(): void {
-  let url = this.data.apiEndpoint + '/academic_service';
-  this.http.get(url, {observe : 'response'}).subscribe(
-    {
-      next: (data :any)=>{
-        this.faculty_info = data.body.records[0];
-        this.htmlContent = this.faculty_info.text_th;
-        console.log(this.faculty_info.id_as);
-      },
-      error: (err)=>{
-        console.log(err);
-      }
-    }
-  )
-}
-////
 
 getFile(files : FileList){
   let reader = new FileReader();
@@ -98,14 +87,15 @@ getFile(files : FileList){
     this.base64 = reader.result;
   };
 }
-save() {
+save(id_as : number , text_th : string) {
+ if(confirm("ยืนยันการเเก้ไขรายละเอียด") == true){
   let jsonObj = {
-    text_th: this.htmlContent,
+    text_th: text_th,
     img: this.base64,
   };
   let jsonString = JSON.stringify(jsonObj);
   this.http
-    .put(this.data.apiEndpoint + '/academic_service/' + this.faculty_info.id_as, jsonString, {
+    .put(this.data.apiEndpoint + '/academic_service/' + id_as, jsonString, {
       observe: 'response',
     })
     .subscribe((response: any) => {
@@ -114,8 +104,11 @@ save() {
       this.dialogRef.close();
       location.reload();
     });
+ }
+
 }
-deleteNews(idx: number) {
+deleteAS(idx: number) {
+  if(confirm("ยืนยันการลบรายละเอียด") == true){
   this.http.delete(this.data.apiEndpoint+"/academic_service/" + idx)
   .subscribe((res) => {
     this.dialogRef.close();
@@ -123,6 +116,7 @@ deleteNews(idx: number) {
       minWidth:'70%',
     });
   });
+}
 }
 close(){
     this.dialogRef.close();

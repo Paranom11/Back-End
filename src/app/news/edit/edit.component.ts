@@ -18,9 +18,9 @@ export class EditComponent {
   base64: any;
 
  ///wysiwyg
- htmlContent = '';
+ htmlContent :any;
  faculty_info : any;
-
+ selectes : string[] = []; //สร้างอาเรย์เพื่อพุดค่าtext
  editorConfig: AngularEditorModule = {
    editable: true,
      spellcheck: true,
@@ -74,27 +74,17 @@ export class EditComponent {
           this.countries.id_type_news
       )
       .subscribe((data: any) => {
-        console.log(this.countries.id_type_news);
         this.response = data as NewsOnly;
+        // console.log(this.response)
+        //  console.log(this.countries.id_type_news);
+        for(let i = 0 ; i<this.response.records.length ;i++){
+          this.selectes.push(this.response.records[i].text_th);
+      }
+      this.htmlContent = this.selectes;
+
       });
   }
-////wysiwyg
-ngOnInit(): void {
-  let url = this.data.apiEndpoint + '/news';
-  this.http.get(url, {observe : 'response'}).subscribe(
-    {
-      next: (data :any)=>{
-        this.faculty_info = data.body.records[0];
-        this.htmlContent = this.faculty_info.text_th;
-        console.log(this.faculty_info.id_news);
-      },
-      error: (err)=>{
-        console.log(err);
-      }
-    }
-  )
-}
-////
+
 
   getFile(files: FileList) {
     let reader = new FileReader();
@@ -107,14 +97,15 @@ ngOnInit(): void {
   close() {
     this.dialogRef.close();
   }
-  save() {
+  save(id_news : number , text_th : string) {
+    if(confirm("ยืนยันการเเก้ไขรายละเอียด") == true){
     let jsonObj = {
-      text_th: this.htmlContent,
+      text_th: text_th,
       img: this.base64,
     };
     let jsonString = JSON.stringify(jsonObj);
     this.http
-      .put(this.data.apiEndpoint + '/news/' + this.faculty_info.id_news, jsonString, {
+      .put(this.data.apiEndpoint + '/news/' + id_news, jsonString, {
         observe: 'response',
       })
       .subscribe((response: any) => {
@@ -124,7 +115,9 @@ ngOnInit(): void {
         location.reload();
       });
   }
+}
   deleteNews(idx: number) {
+    if(confirm("ยืนยันการลบรายละเอียด") == true){
     this.http.delete(this.data.apiEndpoint+"/news/" + idx)
     .subscribe((res) => {
       this.dialogRef.close();
@@ -133,4 +126,5 @@ ngOnInit(): void {
       });
     });
   }
+}
 }
