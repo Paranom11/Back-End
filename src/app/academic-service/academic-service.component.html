@@ -8,11 +8,12 @@
   <div >
     <div style="display: flex;flex-direction: column;width: 80%;">
   <!-- head -->
-      <div style="margin-left: 5%;">
+      <div style="margin-left: 1%; flex-direction: row; display: flex;">
         <button mat-raised-button color="accent"
         (click)="addAcademic()">
           เพิ่มงานบริการวิชาการ
-        </button>
+        </button>&nbsp;
+        <input style="width: 380px; margin-top: -6px;" type="text" placeholder="ค้นหาชื่อเอกสารเผยเเพร่" name="search" #Search (keyup)="displayResult(Search.value)">&nbsp;
       </div>
       <!-- list -->
       <div style="display: flex; flex-direction: row; ">

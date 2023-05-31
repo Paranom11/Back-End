@@ -21,8 +21,11 @@ export class VeterinaryWordComponent {
   countries: any;
   base64 : any;
   typeWork : any;
+  textSearch : string | undefined;
+
   constructor(private dataService : DataService , private http: HttpClient,
   private dialog : MatDialog){
+    this.textSearch = '';
     http.get(dataService.apiEndpoint + "/veterinary_work?join=type_work")
       .subscribe((data : any) => {
         console.log(data);
@@ -80,6 +83,29 @@ deletework(idx:number){
       console.log(res);
       location.reload();
     });
+  }
+}
+
+displayResult(text: string) {
+  this.textSearch = text;
+  if (this.textSearch == '') {
+    this.http
+      .get(this.dataService.apiEndpoint + '/type_work')
+      .subscribe((data: any) => {
+        console.log(data);
+        this.response1 = data as TypeWork;
+      });
+  } else {
+    this.http
+      .get(
+        this.dataService.apiEndpoint +
+          '/type_work?filter=type_th,sw,' +
+          this.textSearch
+      )
+      .subscribe((data: any) => {
+        console.log(data);
+        this.response1 = data as TypeWork;
+      });
   }
 }
 }

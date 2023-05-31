@@ -18,8 +18,11 @@ export class KhowledgeComponent {
   select : any
   response={} as Khowledge;
   typeKhowledge={} as Type_Khowledge;
+  textSearch : string | undefined;
 
   constructor(private dataService : DataService , private http: HttpClient, private dialog : MatDialog){
+    this.textSearch = '';
+
     http.get(dataService.apiEndpoint + "/knowledge?join=type_knowledge")
     .subscribe((data : any) => {
       console.log(data);
@@ -37,7 +40,7 @@ export class KhowledgeComponent {
     console.log(this.select);
   }
   addKhowledge(){
-    
+
     this.dialog.open(AddKhowledgeComponent,{
       minWidth:'300px',
     });
@@ -62,6 +65,30 @@ export class KhowledgeComponent {
     this.dialog.open(EditkhowledgeComponent,{
       minWidth:'70%',
     });
+  }
+  displayResult(text: string) {
+    this.textSearch = text;
+    console.log(this.textSearch);
+
+
+    if (this.textSearch == '') {
+      this.http
+        .get(this.dataService.apiEndpoint + '/type_knowledge')
+        .subscribe((data: any) => {
+          console.log(data);
+          this.typeKhowledge = data as Type_Khowledge;
+        });
+    } else {
+      this.http
+        .get(
+          this.dataService.apiEndpoint +
+            '/type_knowledge?filter=type_th,sw,'+this.textSearch
+        )
+        .subscribe((data: any) => {
+          console.log(data);
+          this.typeKhowledge = data as Type_Khowledge;
+        });
+    }
   }
 
   }

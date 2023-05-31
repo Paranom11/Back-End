@@ -16,8 +16,10 @@ export class ConferencePdfFileComponent {
   response = {} as Upload;
   select: any;
   countries: any;
+  textSearch : string | undefined;
   constructor(private dataService : DataService , private http: HttpClient,
   private dialog : MatDialog){
+    this.textSearch = ''
     http.get(dataService.apiEndpoint + "/upload_file?join=type_upload_file")
       .subscribe((data : any) => {
         console.log(data);
@@ -54,6 +56,28 @@ deletePersonnel(id : number){
       console.log(res);
       location.reload();
     });
+  }
+}
+displayResult(text: string) {
+  this.textSearch = text;
+  if (this.textSearch == '') {
+    this.http
+      .get(this.dataService.apiEndpoint + '/upload_file?join=type_upload_file')
+      .subscribe((data: any) => {
+        console.log(data);
+        this.response = data as Upload;
+      });
+  } else {
+    this.http
+      .get(
+        this.dataService.apiEndpoint +
+          '/upload_file?join=type_upload_file&filter=name,sw,' +
+          this.textSearch
+      )
+      .subscribe((data: any) => {
+        console.log(data);
+        this.response = data as Upload;
+      });
   }
 }
 }

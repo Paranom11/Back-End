@@ -7,10 +7,11 @@
   <div>
     <div style="display: flex;flex-direction: column;width: 80%;">
       <!-- head -->
-      <div style="margin-left: 5%;">
+      <div style="margin-left: 1%; flex-direction: row; display: flex;">
         <button mat-raised-button color="accent" (click)="addVeterinary()">
           เพิ่มงานการสัตวแพทย์
-        </button> &nbsp;
+        </button>&nbsp;
+        <input style="width: 380px; margin-top: -6px;" type="text" placeholder="ค้นหาหัวข้องานการสัตวเเพทย์" name="search" #Search (keyup)="displayResult(Search.value)">&nbsp;
       </div>
       <br>
       <!-- list -->

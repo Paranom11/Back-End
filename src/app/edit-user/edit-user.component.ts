@@ -21,7 +21,8 @@ export class EditUserComponent {
     private dialog: MatDialog,
     private dialogRef: MatDialogRef<EditUserComponent>
   ) {
-    this.idxUser = dataService.UserID;
+    this.idxUser = dataService.idxUser;
+    console.log(this.idxUser)
     http
       .get(
         dataService.apiEndpoint + '/admin?filter=id_admin,eq,' + this.idxUser

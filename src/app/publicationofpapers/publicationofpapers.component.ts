@@ -20,6 +20,8 @@ export class PublicationofpapersComponent {
   PersonnelSelected : any;
   response = {} as PubilcPapers;
   writeSelect = {} as write
+  textSearch : string | undefined;
+
   constructor(private dataService : DataService , private http: HttpClient,
   private dialog : MatDialog){
     http.get(dataService.apiEndpoint + "/publicationofpapers")
@@ -61,5 +63,28 @@ show(option:MatListOption){
     console.log(data);
     this.writeSelect = data as write;
 });
+}
+
+displayResult(text: string) {
+  this.textSearch = text;
+  if (this.textSearch == '') {
+    this.http
+      .get(this.dataService.apiEndpoint + '/publicationofpapers')
+      .subscribe((data: any) => {
+        console.log(data);
+        this.response = data as PubilcPapers;
+      });
+  } else {
+    this.http
+      .get(
+        this.dataService.apiEndpoint +
+          '/publicationofpapers?filter=name,sw,' +
+          this.textSearch
+      )
+      .subscribe((data: any) => {
+        console.log(data);
+        this.response = data as PubilcPapers;
+      });
+  }
 }
 }

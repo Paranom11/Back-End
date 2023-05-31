@@ -19,8 +19,10 @@ export class AcademicServiceComponent {
   select : any
   response={} as AcademicService;
   typeacademicservice={} as TypeAcademicService;
+  textSearch : string | undefined;
 
   constructor(private dataService : DataService , private http: HttpClient, private dialog : MatDialog){
+    this.textSearch = '';
     http.get(dataService.apiEndpoint + "/academic_service?join=type_academic_service")
     .subscribe((data : any) => {
       console.log(data);
@@ -65,5 +67,28 @@ export class AcademicServiceComponent {
     this.dialog.open(EditacademicComponent,{
       minWidth:'70%',
     });
+  }
+
+  displayResult(text: string) {
+    this.textSearch = text;
+    if (this.textSearch == '') {
+      this.http
+        .get(this.dataService.apiEndpoint + '/type_academic_service')
+        .subscribe((data: any) => {
+          console.log(data);
+          this.typeacademicservice = data as TypeAcademicService;
+        });
+    } else {
+      this.http
+        .get(
+          this.dataService.apiEndpoint +
+            '/type_academic_service?filter=type_th,sw,' +
+            this.textSearch
+        )
+        .subscribe((data: any) => {
+          console.log(data);
+          this.typeacademicservice = data as TypeAcademicService;
+        });
+    }
   }
 }
