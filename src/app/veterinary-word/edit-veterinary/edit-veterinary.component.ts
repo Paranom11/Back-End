@@ -19,8 +19,9 @@ export class EditVeterinaryComponent {
 
 
  ///wysiwyg
- htmlContent = '';
+ htmlContent :any;
  faculty_info : any;
+ selectes : string[] = []; //สร้างอาเรย์เพื่อพุดค่าtext
 
  editorConfig: AngularEditorModule = {
    editable: true,
@@ -60,13 +61,9 @@ export class EditVeterinaryComponent {
 };
 ///
 
-  constructor(
-    private data: DataService,
-    private http: HttpClient,
-    private dialogRef: MatDialogRef<EditVeterinaryComponent>,
-    private dialog: MatDialog
-  ) {
+  constructor(private data: DataService,private http: HttpClient,private dialogRef: MatDialogRef<EditVeterinaryComponent>,private dialog: MatDialog) {
     this.countries = data.countries;
+
     console.log(this.countries.id_type_work);
     http
       .get(
@@ -76,28 +73,15 @@ export class EditVeterinaryComponent {
       )
       .subscribe((data: any) => {
         console.log(this.countries.id_type_work);
-        this.response = data as VeterinaryWorkOnly;
-      });
+        this.response = data as VeterinaryWorkOnly;//as only เท่านั้นนะต้าว
+        console.log(this.response)
+        for(let i = 0 ; i<this.response.records.length ;i++){
+          this.selectes.push(this.response.records[i].text_th);
+      }
+      this.htmlContent = this.selectes;
+    });
   }
 
-////wysiwyg
-ngOnInit(): void {
-
-  let url = this.data.apiEndpoint + '/veterinary_work';
-  this.http.get(url, {observe : 'response'}).subscribe(
-    {
-      next: (data :any)=>{
-        this.faculty_info = data.body.records[0];
-        this.htmlContent = this.faculty_info.text_th;
-        console.log(this.faculty_info.id_word);
-      },
-      error: (err)=>{
-        console.log(err);
-      }
-    }
-  )
-}
-////
 
   getFile(files: FileList) {
     let reader = new FileReader();
@@ -110,14 +94,15 @@ ngOnInit(): void {
   close() {
     this.dialogRef.close();
   }
-  save() {
+  save(id_word : number , text_th : string) {
+    if(confirm("ยืนยันการเเก้ไขรายละเอียด") == true){
     let jsonObj = {
-      text_th: this.htmlContent,
+      text_th: text_th,
       img: this.base64,
     };
     let jsonString = JSON.stringify(jsonObj);
     this.http
-      .put(this.data.apiEndpoint + '/veterinary_work/' + this.faculty_info.id_word, jsonString, {
+      .put(this.data.apiEndpoint + '/veterinary_work/' + id_word, jsonString, {
         observe: 'response',
       })
       .subscribe((response: any) => {
@@ -127,7 +112,9 @@ ngOnInit(): void {
         location.reload();
       });
   }
+}
   deleteNews(idx: number) {
+    if(confirm("ยืนยันการลบรายละเอียด") == true){
     this.http.delete(this.data.apiEndpoint+"/veterinary_work/" + idx)
     .subscribe((res) => {
       this.dialogRef.close();
@@ -136,4 +123,5 @@ ngOnInit(): void {
       });
     });
   }
+}
 }

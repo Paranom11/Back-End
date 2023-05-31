@@ -9,6 +9,7 @@ import { AddTypeacademicComponent } from './add-typeacademic/add-typeacademic.co
 import { EditTypeacademicComponent } from './edit-typeacademic/edit-typeacademic.component';
 import { EditacademicComponent } from './editacademic/editacademic.component';
 
+
 @Component({
   selector: 'app-academic-service',
   templateUrl: './academic-service.component.html',
