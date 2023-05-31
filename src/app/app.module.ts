@@ -66,6 +66,7 @@ import { EditPersonnelPPComponent } from './publicationofpapers/edit-personnel-p
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import { ShowPasswordComponent } from './forgot-password/show-password/show-password.component';
 
 import { AcademicServiceComponent } from './academic-service/academic-service.component';
 import { AddAcademicComponent } from './academic-service/add-academic/add-academic.component';
@@ -167,6 +168,7 @@ const appRoutes: Routes = [
     AddPublicPersonnelComponent,
     EditPublicComponent,
     EditPersonnelPPComponent,
+    ShowPasswordComponent,
     EditUserComponent,      AcademicServiceComponent,
       AddAcademicComponent,
       AddTypeacademicComponent,

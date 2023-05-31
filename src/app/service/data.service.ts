@@ -24,6 +24,7 @@ export class DataService {
   select : any;
   idxUser : any;
   UserID : any;
+  showPassword : any;
 
   constructor() { }
 }
