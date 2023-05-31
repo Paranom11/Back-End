@@ -60,12 +60,11 @@ export class EditComponent {
 ///
 
   constructor(
-    private data: DataService,
-    private http: HttpClient,
-    private dialogRef: MatDialogRef<EditComponent>,
-    private dialog: MatDialog
+    private data: DataService,private http: HttpClient,private dialogRef: MatDialogRef<EditComponent>,private dialog: MatDialog
   ) {
     this.countries = data.countries;
+    console.log("hhhhh");
+
     console.log(this.countries.id_type_news);
     http
       .get(
@@ -75,8 +74,8 @@ export class EditComponent {
       )
       .subscribe((data: any) => {
         this.response = data as NewsOnly;
-        // console.log(this.response)
-        //  console.log(this.countries.id_type_news);
+        console.log(this.response.records.length)
+         console.log(this.countries.id_type_news);
         for(let i = 0 ; i<this.response.records.length ;i++){
           this.selectes.push(this.response.records[i].text_th);
       }
@@ -111,8 +110,10 @@ export class EditComponent {
       .subscribe((response: any) => {
         console.log(JSON.stringify(response.status));
         console.log(JSON.stringify(response.body));
-        this.dialogRef.close();
-        location.reload();
+        // this.dialogRef.close();
+        // location.reload();
+        console.log();
+
       });
   }
 }

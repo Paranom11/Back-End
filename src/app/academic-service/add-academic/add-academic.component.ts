@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 import { AcademicService } from 'src/app/model/academic_service.model';
 import { TypeAcademicService } from 'src/app/model/type_academic_service.model';
 import { DataService } from 'src/app/service/data.service';
@@ -27,6 +28,54 @@ export class AddAcademicComponent {
   date = new Date();
   dateInsert = this.date.getFullYear()+"-"+this.date.getMonth()+"-"+this.date.getDay()+" "+this.date.getHours()+":"+this.date.getMinutes()+":"+this.date.getSeconds();
 
+  ////wysiwyg
+  academicservice_info : any;
+  htmlContent ='';
+  htmlContent1 ='';
+  htmlContent2 ='';
+  htmlContent3 ='';
+  htmlContent4 ='';
+  htmlContent5 ='';
+  htmlContent6 ='';
+  editorConfig: AngularEditorModule = {
+    editable: true,
+      spellcheck: true,
+      height: 'auto',
+      minHeight: '0',
+      maxHeight: 'auto',
+      width: 'auto',
+      minWidth: '0',
+      translate: 'yes',
+      enableToolbar: true,
+      showToolbar: true,
+      placeholder: 'Enter text here...',
+      defaultParagraphSeparator: '',
+      defaultFontName: '',
+      defaultFontSize: '',
+      fonts: [
+        {class: 'arial', name: 'Arial'},
+        {class: 'times-new-roman', name: 'Times New Roman'},
+
+      ],
+      customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ],
+
+  };
+  ///
+
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<AddAcademicComponent>){
 console.log(this.dateInsert)
 http.get(data.apiEndpoint + "/academic_service?join=type_academic_service")
@@ -43,9 +92,26 @@ http.get(data.apiEndpoint + "/type_academic_service/?include=type_academic_servi
  console.log(this.indexMax);
 });
   }
+////wysiwyg
+ngOnInit(): void {
+  let url = this.data.apiEndpoint + '/veterinary_work';
+  this.http.get(url, {observe : 'response'}).subscribe(
+    {
+      next: (data :any)=>{
+        this.htmlContent = this.academicservice_info.text_th;
+        console.log(this.academicservice_info.id_work);
+      },
+      error: (err)=>{
+        console.log(err);
 
-  addNews(text_th1:string,text_th2:string,text_th3:string,text_th4:string,text_th5:string,text_th6:string,text_th7:string){
-   var arr_text = [text_th1,text_th2,text_th3,text_th4,text_th5,text_th6,text_th7]
+      }
+    }
+
+  )
+}
+////
+  addNews(){
+   var arr_text = [this.htmlContent,this.htmlContent1,this.htmlContent2,this.htmlContent3, this.htmlContent4, this.htmlContent5, this.htmlContent6]//wysiwyg
    var arr_img = [this.base64_1,this.base64_2,this.base64_3,this.base64_4,this.base64_5,this.base64_6,this.base64_7]
    var img_new:string[] = [];
    var text_new:string[] = [];
@@ -81,10 +147,20 @@ http.get(data.apiEndpoint + "/type_academic_service/?include=type_academic_servi
     console.log(this.dateInsert);
 
       this.http.post(this.data.apiEndpoint + "/academic_service",JSON.stringify(jsonObj),
-      {observe:'response'}).subscribe((response: any)=>{
-       this.dialogRef.close();
-        location.reload();
-      });
+      {observe:'response'}).subscribe({
+        next: (response: {status : any; body : any;}) => {
+          console.log(JSON.stringify(response.status));
+          console.log(JSON.stringify(response.body));
+         this.dialogRef.close();
+
+         setTimeout(function(){
+          window.location.reload();
+       }, 3000);
+
+        }, error : (err)=>{
+          console.log(err);
+        }
+      })
     }
   }
 

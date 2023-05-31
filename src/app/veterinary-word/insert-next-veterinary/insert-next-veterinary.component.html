@@ -1,67 +1,72 @@
 <div style="display: flex;flex-direction: column;height: 600px;
 width: 500px;margin: 20px;" >
-  <p>เพิ่มรายละเอียดงานการสัตวแพทย์</p>
+  <b style="font-size: 20px; color: #0029cd;">เพิ่มรายละเอียดงานการสัตวแพทย์</b><br>
 
-  <mat-form-field appearance="outline" style="height: 300px;">
-    <mat-label>รายละเอียดภาษาไทย</mat-label>
-    <textarea #text_th1 matInput rows="10"></textarea>
-  </mat-form-field>
+  <b style="color: #f50000;">รายละเอียดงานการสัตวแพทย์</b>
+  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"
+  [config]="editorConfig"></angular-editor>
+  <br>
   <div style="flex-direction: column;">
     <label style="margin-right: 200px;">รูปภาพ</label>
     <input type="file" name="" id="" (change)="getFile1($any($event).target.files)"><br>
   </div><br>
-  <mat-form-field appearance="outline" style="height: 300px;">
-    <mat-label>รายละเอียดภาษาไทย</mat-label>
-    <textarea #text_th2 matInput rows="10"></textarea>
-  </mat-form-field>
+
+  <b style="color: #f50000;">รายละเอียดงานการสัตวแพทย์</b>
+  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent1"
+  [config]="editorConfig"></angular-editor>
+  <br>
   <div style="flex-direction: column;">
     <label style="margin-right: 200px;">รูปภาพ</label>
     <input type="file" name="" id="" (change)="getFile2($any($event).target.files)"><br>
   </div><br>
-  <mat-form-field appearance="outline" style="height: 300px;">
-    <mat-label>รายละเอียดภาษาไทย</mat-label>
-    <textarea #text_th3 matInput rows="10"></textarea>
-  </mat-form-field>
+
+  <b style="color: #f50000;">รายละเอียดงานการสัตวแพทย์</b>
+  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent2"
+  [config]="editorConfig"></angular-editor>
+  <br>
   <div style="flex-direction: column;">
     <label style="margin-right: 200px;">รูปภาพ</label>
     <input type="file" name="" id="" (change)="getFile3($any($event).target.files)"><br>
   </div><br>
-  <mat-form-field appearance="outline" style="height: 300px;">
-    <mat-label>รายละเอียดภาษาไทย</mat-label>
-    <textarea #text_th4 matInput rows="10"></textarea>
-  </mat-form-field>
+
+  <b style="color: #f50000;">รายละเอียดงานการสัตวแพทย์</b>
+  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent3"
+  [config]="editorConfig"></angular-editor>
+  <br>
   <div style="flex-direction: column;">
     <label style="margin-right: 200px;">รูปภาพ</label>
     <input type="file" name="" id="" (change)="getFile4($any($event).target.files)"><br>
   </div><br>
 
-  <mat-form-field appearance="outline" style="height: 300px;">
-    <mat-label>รายละเอียดภาษาไทย</mat-label>
-    <textarea #text_th5 matInput rows="10"></textarea>
-  </mat-form-field>
+  <b style="color: #f50000;">รายละเอียดงานการสัตวแพทย์</b>
+  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent4"
+  [config]="editorConfig"></angular-editor>
+  <br>
   <div style="flex-direction: column;">
     <label style="margin-right: 200px;">รูปภาพ</label>
     <input type="file" name="" id="" (change)="getFile5($any($event).target.files)"><br>
   </div><br>
-  <mat-form-field appearance="outline" style="height: 300px;">
-    <mat-label>รายละเอียดภาษาไทย</mat-label>
-    <textarea #text_th6 matInput rows="10"></textarea>
-  </mat-form-field>
+
+  <b style="color: #f50000;">รายละเอียดงานการสัตวแพทย์</b>
+  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent5"
+  [config]="editorConfig"></angular-editor>
+  <br>
   <div style="flex-direction: column;">
     <label style="margin-right: 200px;">รูปภาพ</label>
     <input type="file" name="" id="" (change)="getFile6($any($event).target.files)"><br>
   </div><br>
-  <mat-form-field appearance="outline" style="height: 300px;">
-    <mat-label>รายละเอียดภาษาไทย</mat-label>
-    <textarea #text_th7 matInput rows="10"></textarea>
-  </mat-form-field>
+
+  <b style="color: #f50000;">รายละเอียดงานการสัตวแพทย์</b>
+  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent6"
+  [config]="editorConfig"></angular-editor>
+  <br>
   <div style="flex-direction: column;">
     <label style="margin-right: 200px;">รูปภาพ</label>
     <input type="file" name="" id="" (change)="getFile7($any($event).target.files)"><br>
   </div><br>
   <div style="display: flex; flex-direction: row-reverse;">
     <button mat-raised-button color="warn" (click)="close()">ปิด</button><br> &nbsp;
-     <button mat-raised-button color="primary" (click)="addNews(text_th1.value,text_th2.value,text_th3.value,text_th4.value,text_th5.value,text_th6.value,text_th7.value)">เพิ่ม</button>
+     <button mat-raised-button color="primary" (click)="addveterinary()">เพิ่ม</button>
   </div>
 </div>
 
