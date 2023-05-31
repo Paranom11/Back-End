@@ -22,6 +22,8 @@ export class DataService {
   records: any;
   selectPP : any;
   select : any;
+  idxUser : any;
+  UserID : any;
 
   constructor() { }
 }

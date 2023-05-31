@@ -18,12 +18,17 @@ export class PersonnelEditComponent {
   filename : any;
   selected_th = '';
   selected_en = '';
+  selected_perfix_th = '';
+  selected_perfix_en = '';
 
   constructor(private data : DataService,private http:HttpClient, private dialogRef :MatDialogRef<PersonnelEditComponent>){
     this.response = data.Personnel;
     this.countries = data.countries;
     this.selected_th = data.countries.type_personnel_th;
     this.selected_en = data.countries.type_personnel_en;
+    this.selected_perfix_th = data.countries.name_prefix_th;
+    this.selected_perfix_en = data.countries.name_prefix_en;
+
   }
   close(){
     this.dialogRef.close();

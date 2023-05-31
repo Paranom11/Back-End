@@ -1,0 +1,28 @@
+<div style="display: flex;flex-direction: column;height: 600px;
+width: 500px;margin: 20px;" *ngFor="let item of this.response.records">
+  <p>แก้ไขข้อมูลส่วนตัว</p>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ชื่อ-นามสกุล</mat-label>
+    <input matInput value="{{item.name}}" #nameAdmin>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="EX. pat@example.com"  value="{{item.email}}" #email>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>รหัสผ่าน</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" minlength="8" value="{{item.password}}" #password required>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div style="display: flex; flex-direction: row-reverse;">
+     <button mat-raised-button (click)="editUser(nameAdmin.value,email.value,password.value)" color="primary">แก้ไข</button><br> &nbsp;
+     <button mat-raised-button (click)="close()" color="warn" >ปิด</button>
+  </div>
+</div>
+

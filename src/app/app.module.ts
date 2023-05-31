@@ -63,6 +63,9 @@ import { AddPublicPersonnelComponent } from './publicationofpapers/add-public-pe
 import { MatNativeDateModule } from '@angular/material/core';
 import { EditPublicComponent } from './publicationofpapers/edit-public/edit-public.component';
 import { EditPersonnelPPComponent } from './publicationofpapers/edit-personnel-pp/edit-personnel-pp.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { ReactiveFormsModule} from '@angular/forms';
+import {NgIf} from '@angular/common';
 
 import { AcademicServiceComponent } from './academic-service/academic-service.component';
 import { AddAcademicComponent } from './academic-service/add-academic/add-academic.component';
@@ -91,6 +94,7 @@ const appRoutes: Routes = [
   {path:'agency',component:AgencyComponent},
   {path:'publicationofpapers',component:PublicationofpapersComponent},
   {path:'academic-service',component:AcademicServiceComponent},
+  {path:'edit-user',component:EditUserComponent},
 ];
 
 @NgModule({
@@ -163,7 +167,7 @@ const appRoutes: Routes = [
     AddPublicPersonnelComponent,
     EditPublicComponent,
     EditPersonnelPPComponent,
-      AcademicServiceComponent,
+    EditUserComponent,      AcademicServiceComponent,
       AddAcademicComponent,
       AddTypeacademicComponent,
       EditTypeacademicComponent,
@@ -187,7 +191,10 @@ const appRoutes: Routes = [
     AngularEditorModule,
     FormsModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    NgIf
+
 
   ],
   providers: [],
