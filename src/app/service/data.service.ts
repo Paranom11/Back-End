@@ -20,6 +20,7 @@ export class DataService {
   datePaper : any;
   records: any;
   selectPP : any;
+  showPassword : any;
 
   constructor() { }
 }

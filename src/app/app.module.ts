@@ -63,6 +63,7 @@ import { AddPublicPersonnelComponent } from './publicationofpapers/add-public-pe
 import { MatNativeDateModule } from '@angular/material/core';
 import { EditPublicComponent } from './publicationofpapers/edit-public/edit-public.component';
 import { EditPersonnelPPComponent } from './publicationofpapers/edit-personnel-pp/edit-personnel-pp.component';
+import { ShowPasswordComponent } from './forgot-password/show-password/show-password.component';
 
 
 const appRoutes: Routes = [
@@ -157,6 +158,7 @@ const appRoutes: Routes = [
     AddPublicPersonnelComponent,
     EditPublicComponent,
     EditPersonnelPPComponent,
+    ShowPasswordComponent,
 
 
 
